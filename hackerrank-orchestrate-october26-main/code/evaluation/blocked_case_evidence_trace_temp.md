@@ -1,0 +1,4300 @@
+# Per-case evidence trace (142 cases)
+
+Internal working diagnostic only; do not submit or package. No conclusions use organizer-only data. Times are compared to each request audit_at in UTC.
+
+Catalog: 3213 parsed records; 94 manifest entries; 0 unparsed images; 116 snapshot scopes.
+
+## Case traces
+
+### case_39
+- Request: email=jain.aditi@gmail.com; requested_at=2026-08-05T05:00:00Z; audit_at=2026-08-08T10:00:00Z.
+- Identity resolution: user_14; error: No explicit account presence/absence evidence for case_39.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: data_flow_1121.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Aditi Jain' from dataset/user_identities.csv updated_at=2024-10-03T09:58:00Z (before)
+  - current email='jain.aditi@gmail.com' from dataset/user_identities.csv updated_at=2024-10-03T09:58:00Z (before)
+  - current phone='+91 93947 58446' from dataset/user_identities.csv updated_at=2024-10-03T09:58:00Z (before)
+  - current email_hash='ea61073600454d4cb320cd63802b6e63ceb0a1398a7b4dd10049a71729471d00' from dataset/user_identities.csv updated_at=2024-10-03T09:58:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_01 | evidence/logs/service_events_ap_south_20260915.log | resource=search_4801 | category=SEARCH_INDEX_ENTRY | captured=2026-09-15T11:59:39Z (after) | observed=2026-09-15T11:53:09Z (after) | cutoff_visible=False
+  - evidence_14 | evidence/images/connector_management_console_20260807.png | resource=data_flow_1121 | category=DATA_FLOW | captured=2026-08-07T08:00:00Z (before) | observed=2026-08-07T08:00:00Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 1.
+  - activity_4002 | event=LINK_RESOURCE_IDENTITY | event_time=2026-08-07T08:07:01Z (before) | refs={'resource_id': 'data_flow_1121'}
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_45
+- Request: email=oliver-bennett@gmail.com; requested_at=2026-09-03T04:00:00Z; audit_at=2026-09-06T09:00:00Z.
+- Identity resolution: user_03; error: No explicit account presence/absence evidence for case_45.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 12 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_002, audit_record_003, audit_record_004, audit_record_005, audit_record_006.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Oliver Bennett' from dataset/user_identities.csv updated_at=2026-03-14T14:21:00Z (before)
+  - current email='oliver-bennett@gmail.com' from dataset/user_identities.csv updated_at=2026-03-14T14:21:00Z (before)
+  - current phone='+1 (202) 555-0103' from dataset/user_identities.csv updated_at=2026-03-14T14:21:00Z (before)
+  - current email_hash='1fa7764c96e40e8570cbb7569f707f6d84c593cecbe5c1ed2b0a07a624dba039' from dataset/user_identities.csv updated_at=2026-03-14T14:21:00Z (before)
+- Directly matched evidence records across all capture times: 6; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 5.
+  - evidence_37 | evidence/images/security_audit_explorer_20260905.png | resource=audit_record_002 | category=SECURITY_AUDIT_LOG | captured=2026-09-05T07:00:00Z (before) | observed=2026-09-05T07:00:00Z (before) | cutoff_visible=True
+  - evidence_37 | evidence/images/security_audit_explorer_20260905.png | resource=audit_record_003 | category=SECURITY_AUDIT_LOG | captured=2026-09-05T07:00:00Z (before) | observed=2026-09-05T07:00:00Z (before) | cutoff_visible=True
+  - evidence_37 | evidence/images/security_audit_explorer_20260905.png | resource=audit_record_004 | category=SECURITY_AUDIT_LOG | captured=2026-09-05T07:00:00Z (before) | observed=2026-09-05T07:00:00Z (before) | cutoff_visible=True
+  - evidence_37 | evidence/images/security_audit_explorer_20260905.png | resource=audit_record_005 | category=SECURITY_AUDIT_LOG | captured=2026-09-05T07:00:00Z (before) | observed=2026-09-05T07:00:00Z (before) | cutoff_visible=True
+  - evidence_37 | evidence/images/security_audit_explorer_20260905.png | resource=audit_record_006 | category=SECURITY_AUDIT_LOG | captured=2026-09-05T07:00:00Z (before) | observed=2026-09-05T07:00:00Z (before) | cutoff_visible=True
+  - evidence_55 | evidence/documents/security_retention_extract.pdf | resource=audit_record_003 | category=SECURITY_AUDIT_LOG | captured=2026-09-05T06:30:00Z (before) | observed=2026-09-05T06:30:00Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 1.
+  - activity_4010 | event=LINK_RESOURCE_IDENTITY | event_time=2026-09-05T07:07:01Z (before) | refs={'resource_id': 'audit_record_003'}
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 12; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_003 | evidence_55 | evidence/documents/security_retention_extract.pdf | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-05T06:30:00Z | observed=2026-09-05T06:30:00Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_55
+- Request: email=areed1433@gmail.com; requested_at=2026-04-27T06:00:00Z; audit_at=2026-04-30T11:00:00Z.
+- Identity resolution: user_16; error: No explicit account presence/absence evidence for case_55.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: backup_9287.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Amelia Reed' from dataset/user_identities.csv updated_at=2024-06-28T19:32:00Z (before)
+  - current email='areed1433@gmail.com' from dataset/user_identities.csv updated_at=2024-06-28T19:32:00Z (before)
+  - current phone='+44 7700 900016' from dataset/user_identities.csv updated_at=2024-06-28T19:32:00Z (before)
+  - current email_hash='7001f88650909c41c862cc4394921012deaa96f9d5ef925f4b052ad6f30aeb62' from dataset/user_identities.csv updated_at=2024-06-28T19:32:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_32 | evidence/images/backup_restore_console_20260429.png | resource=backup_9287 | category=BACKUP_ARCHIVE | captured=2026-04-29T09:00:00Z (before) | observed=2026-04-29T09:00:00Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 1.
+  - activity_4006 | event=LINK_RESOURCE_IDENTITY | event_time=2026-04-29T09:07:01Z (before) | refs={'resource_id': 'backup_9287'}
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_57
+- Request: email=e.parker74@yahoo.com; requested_at=2026-08-27T10:00:00Z; audit_at=2026-09-21T10:00:00Z.
+- Identity resolution: user_55; error: No explicit account presence/absence evidence for case_57.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 13 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7219, backup_7711, data_flow_1368, support_7479.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Ethan Parker' from dataset/user_identities.csv updated_at=2025-10-26T03:21:34Z (before)
+  - current email='e.parker74@yahoo.com' from dataset/user_identities.csv updated_at=2025-10-26T03:21:34Z (before)
+  - current phone='+1 (617) 555-0155' from dataset/user_identities.csv updated_at=2025-10-26T03:21:34Z (before)
+  - current email_hash='f571e76c771751a5c5cd3dbea1633c4cd84ae463f73649b13d851a7be22fdac3' from dataset/user_identities.csv updated_at=2025-10-26T03:21:34Z (before)
+  - history phone='+1 (415) 555-0105' from dataset/user_audit_log.csv audit_id=audit_83 event_time=2025-10-26T03:21:34Z (before)
+  - history phone='+1 (617) 555-0155' from dataset/user_audit_log.csv audit_id=audit_83 event_time=2025-10-26T03:21:34Z (before)
+- Directly matched evidence records across all capture times: 8; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 8.
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=audit_record_7219 | category=SECURITY_AUDIT_LOG | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=audit_record_7219 | category=SECURITY_AUDIT_LOG | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=backup_7711 | category=BACKUP_ARCHIVE | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=backup_7711 | category=BACKUP_ARCHIVE | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=data_flow_1368 | category=DATA_FLOW | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=data_flow_1368 | category=DATA_FLOW | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=support_7479 | category=SUPPORT_MESSAGE | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=support_7479 | category=SUPPORT_MESSAGE | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_7219 | evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-21T10:00:00Z | observed=2026-09-21T10:00:00Z | cutoff_visible=True
+  - resource=audit_record_7219 | evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-21T10:00:00Z | observed=2026-09-21T10:00:00Z | cutoff_visible=True
+  - resource=backup_7711 | evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-09-21T10:00:00Z | observed=2026-09-21T10:00:00Z | cutoff_visible=True
+  - resource=backup_7711 | evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-09-21T10:00:00Z | observed=2026-09-21T10:00:00Z | cutoff_visible=True
+  - resource=data_flow_1368 | evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | category=DATA_FLOW | state=unspecified | captured=2026-09-21T10:00:00Z | observed=2026-09-21T10:00:00Z | cutoff_visible=True
+  - resource=data_flow_1368 | evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | category=DATA_FLOW | state=unspecified | captured=2026-09-21T10:00:00Z | observed=2026-09-21T10:00:00Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_58
+- Request: email=fournier.manon@icloud.com; requested_at=2026-08-26T10:00:00Z; audit_at=2026-09-21T10:00:00Z.
+- Identity resolution: user_56; error: No explicit account presence/absence evidence for case_58.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 13 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8465.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Manon Fournier' from dataset/user_identities.csv updated_at=2024-04-16T01:52:00Z (before)
+  - current email='fournier.manon@icloud.com' from dataset/user_identities.csv updated_at=2024-04-16T01:52:00Z (before)
+  - current phone='+33 6 86 31 80 86' from dataset/user_identities.csv updated_at=2024-04-16T01:52:00Z (before)
+  - current email_hash='466e06c2cdedfbf41bfa25b09d09e02258bd74a9fa5b9e832f061250996b83a8' from dataset/user_identities.csv updated_at=2024-04-16T01:52:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=audit_record_8465 | category=SECURITY_AUDIT_LOG | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=audit_record_8465 | category=SECURITY_AUDIT_LOG | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_59
+- Request: email=lars-nielsen@proton.me; requested_at=2026-08-25T10:00:00Z; audit_at=2026-09-21T10:00:00Z.
+- Identity resolution: user_57; error: No explicit account presence/absence evidence for case_59.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 13 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_962.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Lars Nielsen' from dataset/user_identities.csv updated_at=2024-02-27T18:39:00Z (before)
+  - current email='lars-nielsen@proton.me' from dataset/user_identities.csv updated_at=2024-02-27T18:39:00Z (before)
+  - current phone='+46 70 632 33 07' from dataset/user_identities.csv updated_at=2024-02-27T18:39:00Z (before)
+  - current email_hash='8c2d8dfdc193a1870387d7f05c12e54122f1f0c13b223a96e41c53bf526b6f59' from dataset/user_identities.csv updated_at=2024-02-27T18:39:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=audit_record_962 | category=SECURITY_AUDIT_LOG | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=audit_record_962 | category=SECURITY_AUDIT_LOG | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_60
+- Request: email=anowak4031@fastmail.com; requested_at=2026-08-24T10:00:00Z; audit_at=2026-09-21T10:00:00Z.
+- Identity resolution: user_58; error: No explicit account presence/absence evidence for case_60.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 13 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_629.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Andrei Nowak' from dataset/user_identities.csv updated_at=2026-06-28T11:26:00Z (before)
+  - current email='anowak4031@fastmail.com' from dataset/user_identities.csv updated_at=2026-06-28T11:26:00Z (before)
+  - current phone='+48 650 587 067' from dataset/user_identities.csv updated_at=2026-06-28T11:26:00Z (before)
+  - current email_hash='f90b5f2ed612006bf858475a3f2c3ba667362b8fc7f8264ffd90c1d8b2b1e790' from dataset/user_identities.csv updated_at=2026-06-28T11:26:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=audit_record_629 | category=SECURITY_AUDIT_LOG | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+  - evidence_05 | evidence/databases/customer_data_read_replica_20260921.sql | resource=audit_record_629 | category=SECURITY_AUDIT_LOG | captured=2026-09-21T10:00:00Z (at) | observed=2026-09-21T10:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_61
+- Request: email=priya.raman@gmail.com; requested_at=2026-02-11T05:00:00Z; audit_at=2026-02-14T10:00:00Z.
+- Identity resolution: user_07; error: No time-valid evidence was linked to case_61.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: evidence for a related record exists only after audit_at; pre-cutoff activity (if any) is identity-link metadata, not a state snapshot
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: object_19.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Priya Raman' from dataset/user_identities.csv updated_at=2025-12-07T05:20:00Z (before)
+  - current email='priya.raman@gmail.com' from dataset/user_identities.csv updated_at=2025-12-07T05:20:00Z (before)
+  - current phone='+91 98765 73142' from dataset/user_identities.csv updated_at=2025-12-07T05:20:00Z (before)
+  - current email_hash='284c7b87b8237e241293c9e81c8f0bef10c4dc1dffefb382c45107ea40c39668' from dataset/user_identities.csv updated_at=2025-12-07T05:20:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+  - evidence_58 | evidence/documents/delivery_correction_attachment.pdf | resource=support_001 | category=SUPPORT_ATTACHMENT | captured=2026-09-12T07:30:00Z (after) | observed=2026-09-12T07:30:00Z (after) | cutoff_visible=False
+- Subject-matched activity rows: 1.
+  - activity_4007 | event=LINK_RESOURCE_IDENTITY | event_time=2026-02-13T08:07:01Z (before) | refs={'resource_id': 'object_19'}
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_63
+- Request: email=kwame-mensah@proton.me; requested_at=2026-09-14T04:20:00Z; audit_at=2026-09-17T09:20:00Z.
+- Identity resolution: user_09; error: No time-valid evidence was linked to case_63.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: resource identity link exists, but no state-bearing evidence record is linked to that resource by audit_at
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: marketing_001.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Kwame Mensah' from dataset/user_identities.csv updated_at=2025-05-30T20:03:00Z (before)
+  - current email='kwame-mensah@proton.me' from dataset/user_identities.csv updated_at=2025-05-30T20:03:00Z (before)
+  - current phone='+233 24 456 1267' from dataset/user_identities.csv updated_at=2025-05-30T20:03:00Z (before)
+  - current email_hash='e7ce7f1fd5cd4e5873576243ee7a0ca8599c51d0e9f2197f6184efc514e5bd2a' from dataset/user_identities.csv updated_at=2025-05-30T20:03:00Z (before)
+- Directly matched evidence records across all capture times: 0; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+- Subject-matched activity rows: 1.
+  - activity_4008 | event=LINK_RESOURCE_IDENTITY | event_time=2026-09-16T07:27:01Z (before) | refs={'resource_id': 'marketing_001'}
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_64
+- Request: email=zulu.lindiwe@gmail.com; requested_at=2026-09-04T09:00:00Z; audit_at=2026-09-16T09:00:00Z.
+- Identity resolution: user_62; error: No explicit account presence/absence evidence for case_64.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 13 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1892, backup_3933, data_flow_6846, support_6334.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Lindiwe Zulu' from dataset/user_identities.csv updated_at=2026-01-03T06:34:00Z (before)
+  - current email='zulu.lindiwe@gmail.com' from dataset/user_identities.csv updated_at=2026-01-03T06:34:00Z (before)
+  - current phone='+27 72 145 6210' from dataset/user_identities.csv updated_at=2026-01-03T06:34:00Z (before)
+  - current email_hash='ac33caed775e297963244cc131a270cbbc45323652bab606455463b8c6c5cba3' from dataset/user_identities.csv updated_at=2026-01-03T06:34:00Z (before)
+- Directly matched evidence records across all capture times: 6; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_06 | evidence/logs/structured_service_events_eu_west_20260918.log | resource=data_flow_6846 | category=DATA_FLOW | captured=2026-09-18T11:55:24Z (after) | observed=2026-09-16T08:52:09Z (before) | cutoff_visible=False
+  - evidence_06 | evidence/logs/structured_service_events_eu_west_20260918.log | resource=support_6334 | category=SUPPORT_MESSAGE | captured=2026-09-18T11:55:24Z (after) | observed=2026-09-16T08:57:24Z (before) | cutoff_visible=False
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | resource=audit_record_1892 | category=SECURITY_AUDIT_LOG | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T06:22:23Z (before) | cutoff_visible=True
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | resource=backup_3933 | category=BACKUP_ARCHIVE | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T07:33:52Z (before) | cutoff_visible=True
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | resource=data_flow_6846 | category=DATA_FLOW | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T06:26:33Z (before) | cutoff_visible=True
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | resource=support_6334 | category=SUPPORT_MESSAGE | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T07:51:34Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_1892 | evidence_06 | evidence/logs/structured_service_events_eu_west_20260918.log | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-18T11:55:24Z | observed=2026-09-16T08:56:31Z | cutoff_visible=False
+  - resource=audit_record_1892 | evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-16T08:37:39Z | observed=2026-09-16T06:22:23Z | cutoff_visible=True
+  - resource=backup_3933 | evidence_06 | evidence/logs/structured_service_events_eu_west_20260918.log | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-09-18T11:55:24Z | observed=2026-09-16T08:54:49Z | cutoff_visible=False
+  - resource=backup_3933 | evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-09-16T08:37:39Z | observed=2026-09-16T07:33:52Z | cutoff_visible=True
+  - resource=data_flow_6846 | evidence_06 | evidence/logs/structured_service_events_eu_west_20260918.log | category=DATA_FLOW | state=unspecified | captured=2026-09-18T11:55:24Z | observed=2026-09-16T08:52:09Z | cutoff_visible=False
+  - resource=data_flow_6846 | evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | category=DATA_FLOW | state=unspecified | captured=2026-09-16T08:37:39Z | observed=2026-09-16T06:26:33Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_69
+- Request: email=d.lopez02@yahoo.com; requested_at=2026-08-30T09:00:00Z; audit_at=2026-09-16T09:00:00Z.
+- Identity resolution: user_67; error: No explicit account presence/absence evidence for case_69.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 13 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_9011.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Diego López' from dataset/user_identities.csv updated_at=2025-05-07T19:29:00Z (before)
+  - current email='d.lopez02@yahoo.com' from dataset/user_identities.csv updated_at=2025-05-07T19:29:00Z (before)
+  - current phone='+34 618 529 888' from dataset/user_identities.csv updated_at=2025-05-07T19:29:00Z (before)
+  - current email_hash='309c1a1e6860826b7b120b042e4690d38e3d36f60300f4cfd2a007e5e61e6187' from dataset/user_identities.csv updated_at=2025-05-07T19:29:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | resource=audit_record_9011 | category=SECURITY_AUDIT_LOG | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T07:40:33Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_70
+- Request: email=collins.grace@icloud.com; requested_at=2026-08-29T09:00:00Z; audit_at=2026-09-16T09:00:00Z.
+- Identity resolution: user_68; error: No explicit account presence/absence evidence for case_70.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 13 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1738.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Grace Collins' from dataset/user_identities.csv updated_at=2025-03-20T12:16:00Z (before)
+  - current email='collins.grace@icloud.com' from dataset/user_identities.csv updated_at=2025-03-20T12:16:00Z (before)
+  - current phone='+44 7700 900068' from dataset/user_identities.csv updated_at=2025-03-20T12:16:00Z (before)
+  - current email_hash='90d09f3df13df7c987633adf915ab5624896522461d8ec7c3aae5e8164670686' from dataset/user_identities.csv updated_at=2025-03-20T12:16:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_06 | evidence/logs/structured_service_events_eu_west_20260918.log | resource=account_6633 | category=USER_PROFILE | captured=2026-09-18T11:55:24Z (after) | observed=2026-09-16T08:56:42Z (before) | cutoff_visible=False
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | resource=audit_record_1738 | category=SECURITY_AUDIT_LOG | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T06:06:38Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_97
+- Request: email=arthur.r703485@zoho.com; requested_at=2026-08-07T06:00:00Z; audit_at=2026-09-01T06:00:00Z.
+- Identity resolution: user_95; error: No explicit account presence/absence evidence for case_97.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 9 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8778.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Arthur Rousseau' from dataset/user_identities.csv updated_at=2026-05-04T02:42:31Z (before)
+  - current email='arthur.r7034@zoho.com' from dataset/user_identities.csv updated_at=2026-05-04T02:42:31Z (before)
+  - current phone='+33 6 41 03 47 57' from dataset/user_identities.csv updated_at=2026-05-04T02:42:31Z (before)
+  - current email_hash='5d5682c9c0bdba4fb56a5b0b6c750c2d722679ba5d60b8c5b9c898b84845000f' from dataset/user_identities.csv updated_at=2026-05-04T02:42:31Z (before)
+  - history email='arthur.r703485@zoho.com' from dataset/user_audit_log.csv audit_id=audit_260 event_time=2026-05-04T02:42:31Z (before)
+  - history email='arthur.r7034@zoho.com' from dataset/user_audit_log.csv audit_id=audit_260 event_time=2026-05-04T02:42:31Z (before)
+  - history email_hash='66824ddbd25e0fc080044135a6e7ead4b3dedbdace2f9416d5aaa991ab56d878' from dataset/user_audit_log.csv audit_id=audit_261 event_time=2026-05-04T02:42:31Z (before)
+  - history email_hash='5d5682c9c0bdba4fb56a5b0b6c750c2d722679ba5d60b8c5b9c898b84845000f' from dataset/user_audit_log.csv audit_id=audit_261 event_time=2026-05-04T02:42:31Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_89 | evidence/records/service_resource_export_20260901_053316.json | resource=audit_record_8778 | category=SECURITY_AUDIT_LOG | captured=2026-09-01T05:33:16Z (before) | observed=2026-09-01T03:39:53Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 9; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_103
+- Request: email=mandla.m4548@outlook.com; requested_at=2026-08-16T12:00:00Z; audit_at=2026-08-27T12:00:00Z.
+- Identity resolution: user_101; error: No explicit account presence/absence evidence for case_103.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 9 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_9522.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Mandla Molefe' from dataset/user_identities.csv updated_at=2025-11-12T00:07:00Z (before)
+  - current email='mandla.m4548@outlook.com' from dataset/user_identities.csv updated_at=2025-11-12T00:07:00Z (before)
+  - current phone='+27 72 599 3929' from dataset/user_identities.csv updated_at=2025-11-12T00:07:00Z (before)
+  - current email_hash='742359c95b526d935d8d47066794f11096e8fc0d3d2aa8efd76c503e1019d2f2' from dataset/user_identities.csv updated_at=2025-11-12T00:07:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=audit_record_9522 | category=SECURITY_AUDIT_LOG | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=audit_record_9522 | category=SECURITY_AUDIT_LOG | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 9; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_107
+- Request: email=priya-patel@proton.me; requested_at=2026-08-12T12:00:00Z; audit_at=2026-08-27T12:00:00Z.
+- Identity resolution: user_105; error: No explicit account presence/absence evidence for case_107.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 9 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7572.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Priya Patel' from dataset/user_identities.csv updated_at=2025-06-03T00:11:24Z (before)
+  - current email='priya-patel@proton.me' from dataset/user_identities.csv updated_at=2025-06-03T00:11:24Z (before)
+  - current phone='+91 94167 97786' from dataset/user_identities.csv updated_at=2025-06-03T00:11:24Z (before)
+  - current email_hash='9abd47f9b8bd1d760c9695d208b1fd0a01201531b6d8426c2650dac7609c35d3' from dataset/user_identities.csv updated_at=2025-06-03T00:11:24Z (before)
+  - history phone='+91 96105 28868' from dataset/user_audit_log.csv audit_id=audit_26 event_time=2025-06-03T00:11:24Z (before)
+  - history phone='+91 94167 97786' from dataset/user_audit_log.csv audit_id=audit_26 event_time=2025-06-03T00:11:24Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=audit_record_7572 | category=SECURITY_AUDIT_LOG | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=audit_record_7572 | category=SECURITY_AUDIT_LOG | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 9; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_108
+- Request: email=vfernandez4143@fastmail.com; requested_at=2026-08-11T12:00:00Z; audit_at=2026-08-27T12:00:00Z.
+- Identity resolution: user_106; error: No explicit account presence/absence evidence for case_108.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 9 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1469.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Valeria Fernández' from dataset/user_identities.csv updated_at=2025-03-16T13:02:00Z (before)
+  - current email='vfernandez4143@fastmail.com' from dataset/user_identities.csv updated_at=2025-03-16T13:02:00Z (before)
+  - current phone='+34 640 824 380' from dataset/user_identities.csv updated_at=2025-03-16T13:02:00Z (before)
+  - current email_hash='bd7188428643aa19a43263767ad9e1bb69cb86c2b0ef22542d461caf28a45f37' from dataset/user_identities.csv updated_at=2025-03-16T13:02:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=audit_record_1469 | category=SECURITY_AUDIT_LOG | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=audit_record_1469 | category=SECURITY_AUDIT_LOG | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 9; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_111
+- Request: email=O.ANDERSSON00@GMAIL.COM; requested_at=2026-08-08T12:00:00Z; audit_at=2026-08-27T12:00:00Z.
+- Identity resolution: user_109; error: No explicit account presence/absence evidence for case_111.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 9 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8933.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Oskar Andersson' from dataset/user_identities.csv updated_at=2024-10-23T16:23:00Z (before)
+  - current email='o.andersson00@gmail.com' from dataset/user_identities.csv updated_at=2024-10-23T16:23:00Z (before)
+  - current phone='+46 70 171 63 48' from dataset/user_identities.csv updated_at=2024-10-23T16:23:00Z (before)
+  - current email_hash='0825a72aee9a82d2e82c5a48f90ffcabd7a7f75d33d88ae3c69f8ac534f74f08' from dataset/user_identities.csv updated_at=2024-10-23T16:23:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=audit_record_8933 | category=SECURITY_AUDIT_LOG | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=audit_record_8933 | category=SECURITY_AUDIT_LOG | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 9; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_112
+- Request: email=ionescu.pavel@gmail.com; requested_at=2026-08-07T12:00:00Z; audit_at=2026-08-27T12:00:00Z.
+- Identity resolution: user_110; error: No explicit account presence/absence evidence for case_112.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 9 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4082, backup_4863, data_flow_3444, support_2859.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Pavel Ionescu' from dataset/user_identities.csv updated_at=2026-02-27T19:46:59Z (before)
+  - current email='ionescu.pavel@gmail.com' from dataset/user_identities.csv updated_at=2026-02-27T19:46:59Z (before)
+  - current phone='+48 580 245 825' from dataset/user_identities.csv updated_at=2026-02-27T19:46:59Z (before)
+  - current email_hash='61e2798729e535bb83986a1de0172e22780cc3b0ae46e748650edf922bc20b97' from dataset/user_identities.csv updated_at=2026-02-27T19:46:59Z (before)
+  - history phone='+48 842 819 569' from dataset/user_audit_log.csv audit_id=audit_199 event_time=2026-02-27T19:46:59Z (before)
+  - history phone='+48 580 245 825' from dataset/user_audit_log.csv audit_id=audit_199 event_time=2026-02-27T19:46:59Z (before)
+- Directly matched evidence records across all capture times: 8; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 8.
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=audit_record_4082 | category=SECURITY_AUDIT_LOG | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=audit_record_4082 | category=SECURITY_AUDIT_LOG | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=backup_4863 | category=BACKUP_ARCHIVE | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=backup_4863 | category=BACKUP_ARCHIVE | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=data_flow_3444 | category=DATA_FLOW | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=data_flow_3444 | category=DATA_FLOW | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=support_2859 | category=SUPPORT_MESSAGE | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+  - evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | resource=support_2859 | category=SUPPORT_MESSAGE | captured=2026-08-27T12:00:00Z (at) | observed=2026-08-27T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 9; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_4082 | evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-08-27T12:00:00Z | observed=2026-08-27T12:00:00Z | cutoff_visible=True
+  - resource=audit_record_4082 | evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-08-27T12:00:00Z | observed=2026-08-27T12:00:00Z | cutoff_visible=True
+  - resource=backup_4863 | evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-08-27T12:00:00Z | observed=2026-08-27T12:00:00Z | cutoff_visible=True
+  - resource=backup_4863 | evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-08-27T12:00:00Z | observed=2026-08-27T12:00:00Z | cutoff_visible=True
+  - resource=data_flow_3444 | evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | category=DATA_FLOW | state=unspecified | captured=2026-08-27T12:00:00Z | observed=2026-08-27T12:00:00Z | cutoff_visible=True
+  - resource=data_flow_3444 | evidence_10 | evidence/databases/customer_data_read_replica_20260827.sql | category=DATA_FLOW | state=unspecified | captured=2026-08-27T12:00:00Z | observed=2026-08-27T12:00:00Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_126
+- Request: email=yfarouk6685@gmail.com; requested_at=2026-08-03T10:00:00Z; audit_at=2026-08-17T10:00:00Z.
+- Identity resolution: user_124; error: No explicit account presence/absence evidence for case_126.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 9 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_6884.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Yasmine Farouk' from dataset/user_identities.csv updated_at=2025-05-02T05:08:00Z (before)
+  - current email='yfarouk6685@gmail.com' from dataset/user_identities.csv updated_at=2025-05-02T05:08:00Z (before)
+  - current phone='+971 56 375 0216' from dataset/user_identities.csv updated_at=2025-05-02T05:08:00Z (before)
+  - current email_hash='ce2f9a26208c67e9c273e7c3aeaf383cb6b766f9b9745c574eb17b09e3464e92' from dataset/user_identities.csv updated_at=2025-05-02T05:08:00Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_12 | evidence/records/customer_data_snapshot_bundle_20260819.json | resource=account_8819 | category=USER_PROFILE | captured=2026-08-19T10:00:00Z (after) | observed=2026-08-11T10:00:00Z (before) | cutoff_visible=False
+  - evidence_12 | evidence/records/customer_data_snapshot_bundle_20260819.json | resource=audit_record_6884 | category=SECURITY_AUDIT_LOG | captured=2026-08-19T10:00:00Z (after) | observed=2026-08-17T10:00:00Z (at) | cutoff_visible=False
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | resource=audit_record_6884 | category=SECURITY_AUDIT_LOG | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T07:18:17Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 9; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_127
+- Request: email=yetunde.o4604@outlook.com; requested_at=2026-08-02T10:00:00Z; audit_at=2026-08-17T10:00:00Z.
+- Identity resolution: user_125; error: No explicit account presence/absence evidence for case_127.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 9 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_9649.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Yetunde Obi' from dataset/user_identities.csv updated_at=2025-06-12T17:31:44Z (before)
+  - current email='yetunde.o4604@outlook.com' from dataset/user_identities.csv updated_at=2025-06-12T17:31:44Z (before)
+  - current phone='+234 803 344 0634' from dataset/user_identities.csv updated_at=2025-06-12T17:31:44Z (before)
+  - current email_hash='1d4f00378633ca707a78fae1ec42b770f93eac76474289185a9b65a489cc1c9b' from dataset/user_identities.csv updated_at=2025-06-12T17:31:44Z (before)
+  - history phone='+234 803 617 3440' from dataset/user_audit_log.csv audit_id=audit_28 event_time=2025-06-12T17:31:44Z (before)
+  - history phone='+234 803 344 0634' from dataset/user_audit_log.csv audit_id=audit_28 event_time=2025-06-12T17:31:44Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_12 | evidence/records/customer_data_snapshot_bundle_20260819.json | resource=account_6805 | category=USER_PROFILE | captured=2026-08-19T10:00:00Z (after) | observed=2026-08-19T10:00:00Z (after) | cutoff_visible=False
+  - evidence_12 | evidence/records/customer_data_snapshot_bundle_20260819.json | resource=audit_record_9649 | category=SECURITY_AUDIT_LOG | captured=2026-08-19T10:00:00Z (after) | observed=2026-08-17T10:00:00Z (at) | cutoff_visible=False
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | resource=audit_record_9649 | category=SECURITY_AUDIT_LOG | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T08:20:40Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 9; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_133
+- Request: email=aarav.m2118@zoho.com; requested_at=2026-07-22T09:00:00Z; audit_at=2026-08-12T09:00:00Z.
+- Identity resolution: user_131; error: No explicit account presence/absence evidence for case_133.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_3130.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Aarav Mehta' from dataset/user_identities.csv updated_at=2024-05-26T03:37:00Z (before)
+  - current email='aarav.m2118@zoho.com' from dataset/user_identities.csv updated_at=2024-05-26T03:37:00Z (before)
+  - current phone='+91 99083 32413' from dataset/user_identities.csv updated_at=2024-05-26T03:37:00Z (before)
+  - current email_hash='f651f25dd7a8887d2b3de39a8d272ad82424cf85b4b1cb08ad7a30b184928e04' from dataset/user_identities.csv updated_at=2024-05-26T03:37:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_13 | evidence/records/connector_configurations_20260812.json | resource=audit_record_3130 | category=SECURITY_AUDIT_LOG | captured=2026-08-12T09:00:00Z (at) | observed=2026-08-12T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_134
+- Request: email=mateo.alvarez@gmail.com; requested_at=2026-07-21T09:00:00Z; audit_at=2026-08-12T09:00:00Z.
+- Identity resolution: user_132; error: No explicit account presence/absence evidence for case_134.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4064.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Mateo Alvarez' from dataset/user_identities.csv updated_at=2024-04-07T20:24:00Z (before)
+  - current email='mateo.alvarez@gmail.com' from dataset/user_identities.csv updated_at=2024-04-07T20:24:00Z (before)
+  - current phone='+34 768 112 438' from dataset/user_identities.csv updated_at=2024-04-07T20:24:00Z (before)
+  - current email_hash='9435a504d1362af36e3e459399e7f48e010dda8fd119f3982e25e417e39344ec' from dataset/user_identities.csv updated_at=2024-04-07T20:24:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_13 | evidence/records/connector_configurations_20260812.json | resource=audit_record_4064 | category=SECURITY_AUDIT_LOG | captured=2026-08-12T09:00:00Z (at) | observed=2026-08-12T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_135
+- Request: email=o.morgan56@gmail.com; requested_at=2026-07-20T09:00:00Z; audit_at=2026-08-12T09:00:00Z.
+- Identity resolution: user_133; error: No explicit account presence/absence evidence for case_135.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_5140.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Oliver Morgan' from dataset/user_identities.csv updated_at=2024-02-19T13:11:00Z (before)
+  - current email='o.morgan56@gmail.com' from dataset/user_identities.csv updated_at=2024-02-19T13:11:00Z (before)
+  - current phone='+1 (415) 555-0133' from dataset/user_identities.csv updated_at=2024-02-19T13:11:00Z (before)
+  - current email_hash='8f846a0cd281c1aecad004fb9afe30a0b822e26ead0bcc084b7795c278fe3a2a' from dataset/user_identities.csv updated_at=2024-02-19T13:11:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_13 | evidence/records/connector_configurations_20260812.json | resource=audit_record_5140 | category=SECURITY_AUDIT_LOG | captured=2026-08-12T09:00:00Z (at) | observed=2026-08-12T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_136
+- Request: email=rousseau.hugo80@gmail.com; requested_at=2026-07-19T09:00:00Z; audit_at=2026-08-12T09:00:00Z.
+- Identity resolution: user_134; error: No explicit account presence/absence evidence for case_136.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7931.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Hugo Rousseau' from dataset/user_identities.csv updated_at=2026-04-14T02:51:04Z (before)
+  - current email='rousseau.hugo@gmail.com' from dataset/user_identities.csv updated_at=2026-04-14T02:51:04Z (before)
+  - current phone='+33 6 25 80 78 18' from dataset/user_identities.csv updated_at=2026-04-14T02:51:04Z (before)
+  - current email_hash='62f8c80035fed5dac88cc9d96fe352993a87bb375186a5e0820c004d6d85bcd4' from dataset/user_identities.csv updated_at=2026-04-14T02:51:04Z (before)
+  - history email='rousseau.hugo80@gmail.com' from dataset/user_audit_log.csv audit_id=audit_244 event_time=2026-04-14T02:51:04Z (before)
+  - history email='rousseau.hugo@gmail.com' from dataset/user_audit_log.csv audit_id=audit_244 event_time=2026-04-14T02:51:04Z (before)
+  - history email_hash='fd79d0865c75adee320c41a8a0019172f429d4c33d053df45f0573a06fdb53cb' from dataset/user_audit_log.csv audit_id=audit_245 event_time=2026-04-14T02:51:04Z (before)
+  - history email_hash='62f8c80035fed5dac88cc9d96fe352993a87bb375186a5e0820c004d6d85bcd4' from dataset/user_audit_log.csv audit_id=audit_245 event_time=2026-04-14T02:51:04Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_13 | evidence/records/connector_configurations_20260812.json | resource=audit_record_7931 | category=SECURITY_AUDIT_LOG | captured=2026-08-12T09:00:00Z (at) | observed=2026-08-12T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_137
+- Request: email=jonas-eriksen@gmail.com; requested_at=2026-07-18T09:00:00Z; audit_at=2026-08-12T09:00:00Z.
+- Identity resolution: user_135; error: No explicit account presence/absence evidence for case_137.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_6779.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Jonas Eriksen' from dataset/user_identities.csv updated_at=2025-12-04T21:41:54Z (before)
+  - current email='jonas-eriksen@gmail.com' from dataset/user_identities.csv updated_at=2025-12-04T21:41:54Z (before)
+  - current phone='+46 70 423 60 89' from dataset/user_identities.csv updated_at=2025-12-04T21:41:54Z (before)
+  - current email_hash='e762852624f0f1b5add6e31845acfe4821181e6d485ad8a4f4033e16ce5cba9d' from dataset/user_identities.csv updated_at=2025-12-04T21:41:54Z (before)
+  - history phone='+46 70 586 05 72' from dataset/user_audit_log.csv audit_id=audit_117 event_time=2025-12-04T21:41:54Z (before)
+  - history phone='+46 70 423 60 89' from dataset/user_audit_log.csv audit_id=audit_117 event_time=2025-12-04T21:41:54Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_13 | evidence/records/connector_configurations_20260812.json | resource=audit_record_6779 | category=SECURITY_AUDIT_LOG | captured=2026-08-12T09:00:00Z (at) | observed=2026-08-12T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_138
+- Request: email=nhorvat1713@gmail.com; requested_at=2026-07-17T09:00:00Z; audit_at=2026-08-12T09:00:00Z.
+- Identity resolution: user_136; error: No explicit account presence/absence evidence for case_138.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_122.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Nadia Horvat' from dataset/user_identities.csv updated_at=2026-03-16T16:32:00Z (before)
+  - current email='nhorvat1713@gmail.com' from dataset/user_identities.csv updated_at=2026-03-16T16:32:00Z (before)
+  - current phone='+48 629 669 198' from dataset/user_identities.csv updated_at=2026-03-16T16:32:00Z (before)
+  - current email_hash='d126a2939d87a5883064b0e4168ebe93a9f8139c947fff93c8cd72d837e46949' from dataset/user_identities.csv updated_at=2026-03-16T16:32:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_13 | evidence/records/connector_configurations_20260812.json | resource=audit_record_122 | category=SECURITY_AUDIT_LOG | captured=2026-08-12T09:00:00Z (at) | observed=2026-08-12T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_139
+- Request: email=farah.n963283@outlook.com; requested_at=2026-07-16T09:00:00Z; audit_at=2026-08-12T09:00:00Z.
+- Identity resolution: user_137; error: No explicit account presence/absence evidence for case_139.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7689.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Farah Nasser' from dataset/user_identities.csv updated_at=2026-04-13T20:24:25Z (before)
+  - current email='farah.n9632@outlook.com' from dataset/user_identities.csv updated_at=2026-04-13T20:24:25Z (before)
+  - current phone='+971 50 016 2006' from dataset/user_identities.csv updated_at=2026-04-13T20:24:25Z (before)
+  - current email_hash='28d6de3b001e37a42104ab541f45cf87ecf2f7556246aca14cc919ece40c1337' from dataset/user_identities.csv updated_at=2026-04-13T20:24:25Z (before)
+  - history email='farah.n963283@outlook.com' from dataset/user_audit_log.csv audit_id=audit_240 event_time=2026-04-13T20:24:25Z (before)
+  - history email='farah.n9632@outlook.com' from dataset/user_audit_log.csv audit_id=audit_240 event_time=2026-04-13T20:24:25Z (before)
+  - history email_hash='f7a98fd673dd3964039c9f4db0998a06b900eb85486ac170cbda11ed9fd7f46b' from dataset/user_audit_log.csv audit_id=audit_241 event_time=2026-04-13T20:24:25Z (before)
+  - history email_hash='28d6de3b001e37a42104ab541f45cf87ecf2f7556246aca14cc919ece40c1337' from dataset/user_audit_log.csv audit_id=audit_241 event_time=2026-04-13T20:24:25Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_13 | evidence/records/connector_configurations_20260812.json | resource=audit_record_7689 | category=SECURITY_AUDIT_LOG | captured=2026-08-12T09:00:00Z (at) | observed=2026-08-12T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_140
+- Request: email=chidi.eze@outlook.com; requested_at=2026-07-15T09:00:00Z; audit_at=2026-08-12T09:00:00Z.
+- Identity resolution: user_138; error: No explicit account presence/absence evidence for case_140.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8086.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Chidi Eze' from dataset/user_identities.csv updated_at=2025-12-11T02:06:00Z (before)
+  - current email='chidi.eze@outlook.com' from dataset/user_identities.csv updated_at=2025-12-11T02:06:00Z (before)
+  - current phone='+234 803 088 2674' from dataset/user_identities.csv updated_at=2025-12-11T02:06:00Z (before)
+  - current email_hash='1368af67cb36fb97398ae991072a5121a382e62994fa8ecea794bd1800a0ed60' from dataset/user_identities.csv updated_at=2025-12-11T02:06:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_13 | evidence/records/connector_configurations_20260812.json | resource=audit_record_8086 | category=SECURITY_AUDIT_LOG | captured=2026-08-12T09:00:00Z (at) | observed=2026-08-12T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_141
+- Request: email=k.addo7085@yahoo.com; requested_at=2026-07-14T09:00:00Z; audit_at=2026-08-12T09:00:00Z.
+- Identity resolution: user_139; error: No explicit account presence/absence evidence for case_141.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_5497.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Kwame Addo' from dataset/user_identities.csv updated_at=2026-04-13T21:26:39Z (before)
+  - current email='k.addo70@yahoo.com' from dataset/user_identities.csv updated_at=2026-04-13T21:26:39Z (before)
+  - current phone='+233 24 778 1431' from dataset/user_identities.csv updated_at=2026-04-13T21:26:39Z (before)
+  - current email_hash='c59eb888fe5cb10e9294a11ed488fd8f2d4058728c655b47dd63a34b470eb88f' from dataset/user_identities.csv updated_at=2026-04-13T21:26:39Z (before)
+  - history email='k.addo7085@yahoo.com' from dataset/user_audit_log.csv audit_id=audit_242 event_time=2026-04-13T21:26:39Z (before)
+  - history email='k.addo70@yahoo.com' from dataset/user_audit_log.csv audit_id=audit_242 event_time=2026-04-13T21:26:39Z (before)
+  - history email_hash='8928d9d2f8eeac3fc108e2ac99d2131ff735f96a04ee63a183ba7f1ab4cddefe' from dataset/user_audit_log.csv audit_id=audit_243 event_time=2026-04-13T21:26:39Z (before)
+  - history email_hash='c59eb888fe5cb10e9294a11ed488fd8f2d4058728c655b47dd63a34b470eb88f' from dataset/user_audit_log.csv audit_id=audit_243 event_time=2026-04-13T21:26:39Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_13 | evidence/records/connector_configurations_20260812.json | resource=audit_record_5497 | category=SECURITY_AUDIT_LOG | captured=2026-08-12T09:00:00Z (at) | observed=2026-08-12T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_142
+- Request: email=molefe.thabo@icloud.com; requested_at=2026-08-02T09:00:00Z; audit_at=2026-08-12T09:00:00Z.
+- Identity resolution: user_140; error: No explicit account presence/absence evidence for case_142.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_280.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Thabo Molefe' from dataset/user_identities.csv updated_at=2025-09-25T16:16:29Z (before)
+  - current email='molefe.thabo@icloud.com' from dataset/user_identities.csv updated_at=2025-09-25T16:16:29Z (before)
+  - current phone='+27 72 292 8204' from dataset/user_identities.csv updated_at=2025-09-25T16:16:29Z (before)
+  - current email_hash='d6d532c1835d31d24a242436a2c0efa185f30680841df940d546b5224e2ae014' from dataset/user_identities.csv updated_at=2025-09-25T16:16:29Z (before)
+  - history phone='+27 72 026 3178' from dataset/user_audit_log.csv audit_id=audit_57 event_time=2025-09-25T16:16:29Z (before)
+  - history phone='+27 72 292 8204' from dataset/user_audit_log.csv audit_id=audit_57 event_time=2025-09-25T16:16:29Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_13 | evidence/records/connector_configurations_20260812.json | resource=audit_record_280 | category=SECURITY_AUDIT_LOG | captured=2026-08-12T09:00:00Z (at) | observed=2026-08-12T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_150
+- Request: email=iandersson6741@gmail.com; requested_at=2026-07-20T08:00:00Z; audit_at=2026-08-07T08:00:00Z.
+- Identity resolution: user_148; error: No explicit account presence/absence evidence for case_150.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1584.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Ingrid Andersson' from dataset/user_identities.csv updated_at=2024-09-02T03:56:00Z (before)
+  - current email='iandersson6741@gmail.com' from dataset/user_identities.csv updated_at=2024-09-02T03:56:00Z (before)
+  - current phone='+46 70 758 20 31' from dataset/user_identities.csv updated_at=2024-09-02T03:56:00Z (before)
+  - current email_hash='7427fe54da7783080b45ff25b7c3129b9eb5dd1b8fe2ba0785180b4885126dea' from dataset/user_identities.csv updated_at=2024-09-02T03:56:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_86 | evidence/records/service_resource_export_20260807_074104.json | resource=audit_record_1584 | category=SECURITY_AUDIT_LOG | captured=2026-08-07T07:41:04Z (before) | observed=2026-08-07T07:19:45Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_151
+- Request: email=elena.i4660@outlook.com; requested_at=2026-07-19T08:00:00Z; audit_at=2026-08-07T08:00:00Z.
+- Identity resolution: user_149; error: No explicit account presence/absence evidence for case_151.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8905, backup_9557, data_flow_2437, support_5400.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Elena Ionescu' from dataset/user_identities.csv updated_at=2024-07-15T20:43:00Z (before)
+  - current email='elena.i4660@outlook.com' from dataset/user_identities.csv updated_at=2024-07-15T20:43:00Z (before)
+  - current phone='+48 714 169 201' from dataset/user_identities.csv updated_at=2024-07-15T20:43:00Z (before)
+  - current email_hash='100c56bb311ad3b36460ad720fa690d25e23a17e11fa0284650c6032c330f7f5' from dataset/user_identities.csv updated_at=2024-07-15T20:43:00Z (before)
+- Directly matched evidence records across all capture times: 4; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_86 | evidence/records/service_resource_export_20260807_074104.json | resource=audit_record_8905 | category=SECURITY_AUDIT_LOG | captured=2026-08-07T07:41:04Z (before) | observed=2026-08-07T04:48:17Z (before) | cutoff_visible=True
+  - evidence_86 | evidence/records/service_resource_export_20260807_074104.json | resource=backup_9557 | category=BACKUP_ARCHIVE | captured=2026-08-07T07:41:04Z (before) | observed=2026-08-07T06:27:21Z (before) | cutoff_visible=True
+  - evidence_86 | evidence/records/service_resource_export_20260807_074104.json | resource=data_flow_2437 | category=DATA_FLOW | captured=2026-08-07T07:41:04Z (before) | observed=2026-08-07T06:10:12Z (before) | cutoff_visible=True
+  - evidence_86 | evidence/records/service_resource_export_20260807_074104.json | resource=support_5400 | category=SUPPORT_MESSAGE | captured=2026-08-07T07:41:04Z (before) | observed=2026-08-07T06:50:56Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_8905 | evidence_86 | evidence/records/service_resource_export_20260807_074104.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-08-07T07:41:04Z | observed=2026-08-07T04:48:17Z | cutoff_visible=True
+  - resource=backup_9557 | evidence_86 | evidence/records/service_resource_export_20260807_074104.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-08-07T07:41:04Z | observed=2026-08-07T06:27:21Z | cutoff_visible=True
+  - resource=data_flow_2437 | evidence_86 | evidence/records/service_resource_export_20260807_074104.json | category=DATA_FLOW | state=unspecified | captured=2026-08-07T07:41:04Z | observed=2026-08-07T06:10:12Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_152
+- Request: email=omar.elsayed96@outlook.com; requested_at=2026-07-18T08:00:00Z; audit_at=2026-08-07T08:00:00Z.
+- Identity resolution: user_150; error: No explicit account presence/absence evidence for case_152.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_3579.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Omar El-Sayed' from dataset/user_identities.csv updated_at=2026-04-08T18:07:56Z (before)
+  - current email='omar.elsayed@outlook.com' from dataset/user_identities.csv updated_at=2026-04-08T18:07:56Z (before)
+  - current phone='+971 52 404 1520' from dataset/user_identities.csv updated_at=2026-04-08T18:07:56Z (before)
+  - current email_hash='2b6faeeebf5fb3044eb18afef0d13482c5a430003962642cb052a08fb1001a9d' from dataset/user_identities.csv updated_at=2026-04-08T18:07:56Z (before)
+  - history email_hash='e444c124fe421f70d6847da3eae2d17611de903283ff3e64ee3d0989b18bacdc' from dataset/user_audit_log.csv audit_id=audit_234 event_time=2026-04-08T18:07:56Z (before)
+  - history email_hash='2b6faeeebf5fb3044eb18afef0d13482c5a430003962642cb052a08fb1001a9d' from dataset/user_audit_log.csv audit_id=audit_234 event_time=2026-04-08T18:07:56Z (before)
+  - history email='omar.elsayed96@outlook.com' from dataset/user_audit_log.csv audit_id=audit_235 event_time=2026-04-08T18:07:56Z (before)
+  - history email='omar.elsayed@outlook.com' from dataset/user_audit_log.csv audit_id=audit_235 event_time=2026-04-08T18:07:56Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_86 | evidence/records/service_resource_export_20260807_074104.json | resource=audit_record_3579 | category=SECURITY_AUDIT_LOG | captured=2026-08-07T07:41:04Z (before) | observed=2026-08-07T05:22:56Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_155
+- Request: email=thandiwe-dlamini99@proton.me; requested_at=2026-07-10T07:00:00Z; audit_at=2026-08-02T07:00:00Z.
+- Identity resolution: user_153; error: No explicit account presence/absence evidence for case_155.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4199, backup_161, data_flow_4305, support_7867.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Thandiwe Dlamini' from dataset/user_identities.csv updated_at=2026-04-04T02:40:17Z (before)
+  - current email='thandiwe-dlamini@proton.me' from dataset/user_identities.csv updated_at=2026-04-04T02:40:17Z (before)
+  - current phone='+27 72 561 3552' from dataset/user_identities.csv updated_at=2026-04-04T02:40:17Z (before)
+  - current email_hash='af1defa3067f7ef978568411cc6ab1f32dfac69c3734dc8d7baec8fd0c1df706' from dataset/user_identities.csv updated_at=2026-04-04T02:40:17Z (before)
+  - history email='thandiwe-dlamini99@proton.me' from dataset/user_audit_log.csv audit_id=audit_228 event_time=2026-04-04T02:40:17Z (before)
+  - history email='thandiwe-dlamini@proton.me' from dataset/user_audit_log.csv audit_id=audit_228 event_time=2026-04-04T02:40:17Z (before)
+  - history email_hash='207d622d48f389bfaca568102756ee67866d6f4f4f06d42d73ff13601b4b3830' from dataset/user_audit_log.csv audit_id=audit_229 event_time=2026-04-04T02:40:17Z (before)
+  - history email_hash='af1defa3067f7ef978568411cc6ab1f32dfac69c3734dc8d7baec8fd0c1df706' from dataset/user_audit_log.csv audit_id=audit_229 event_time=2026-04-04T02:40:17Z (before)
+- Directly matched evidence records across all capture times: 8; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 8.
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=audit_record_4199 | category=SECURITY_AUDIT_LOG | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=audit_record_4199 | category=SECURITY_AUDIT_LOG | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=backup_161 | category=BACKUP_ARCHIVE | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=backup_161 | category=BACKUP_ARCHIVE | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=data_flow_4305 | category=DATA_FLOW | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=data_flow_4305 | category=DATA_FLOW | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=support_7867 | category=SUPPORT_MESSAGE | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=support_7867 | category=SUPPORT_MESSAGE | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_4199 | evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-08-02T07:00:00Z | observed=2026-08-02T07:00:00Z | cutoff_visible=True
+  - resource=audit_record_4199 | evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-08-02T07:00:00Z | observed=2026-08-02T07:00:00Z | cutoff_visible=True
+  - resource=backup_161 | evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-08-02T07:00:00Z | observed=2026-08-02T07:00:00Z | cutoff_visible=True
+  - resource=backup_161 | evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-08-02T07:00:00Z | observed=2026-08-02T07:00:00Z | cutoff_visible=True
+  - resource=data_flow_4305 | evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | category=DATA_FLOW | state=unspecified | captured=2026-08-02T07:00:00Z | observed=2026-08-02T07:00:00Z | cutoff_visible=True
+  - resource=data_flow_4305 | evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | category=DATA_FLOW | state=unspecified | captured=2026-08-02T07:00:00Z | observed=2026-08-02T07:00:00Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_157
+- Request: email=soojin.l2174@zoho.com; requested_at=2026-07-08T07:00:00Z; audit_at=2026-08-02T07:00:00Z.
+- Identity resolution: user_155; error: No explicit account presence/absence evidence for case_157.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8821.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Soo-jin Lee' from dataset/user_identities.csv updated_at=2025-12-14T14:01:14Z (before)
+  - current email='soojin.l2174@zoho.com' from dataset/user_identities.csv updated_at=2025-12-14T14:01:14Z (before)
+  - current phone='+82 10 8537 6129' from dataset/user_identities.csv updated_at=2025-12-14T14:01:14Z (before)
+  - current email_hash='74249ed967034668ebe3ccb59ad17d6c6fd0d280d891c775f37462aa422e60d0' from dataset/user_identities.csv updated_at=2025-12-14T14:01:14Z (before)
+  - history phone='+82 10 6264 3983' from dataset/user_audit_log.csv audit_id=audit_123 event_time=2025-12-14T14:01:14Z (before)
+  - history phone='+82 10 8537 6129' from dataset/user_audit_log.csv audit_id=audit_123 event_time=2025-12-14T14:01:14Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=audit_record_8821 | category=SECURITY_AUDIT_LOG | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=audit_record_8821 | category=SECURITY_AUDIT_LOG | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_159
+- Request: email=a.basu1281@gmail.com; requested_at=2026-07-06T07:00:00Z; audit_at=2026-08-02T07:00:00Z.
+- Identity resolution: user_157; error: No explicit account presence/absence evidence for case_159.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8742.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Ananya Basu' from dataset/user_identities.csv updated_at=2026-04-04T04:44:45Z (before)
+  - current email='a.basu12@gmail.com' from dataset/user_identities.csv updated_at=2026-04-04T04:44:45Z (before)
+  - current phone='+91 94863 59898' from dataset/user_identities.csv updated_at=2026-04-04T04:44:45Z (before)
+  - current email_hash='e5d9db2558b93eaf5fc1731b4d7b1e21bc76e6c82e90633fd8675db1ccd1bc28' from dataset/user_identities.csv updated_at=2026-04-04T04:44:45Z (before)
+  - history email='a.basu1281@gmail.com' from dataset/user_audit_log.csv audit_id=audit_230 event_time=2026-04-04T04:44:45Z (before)
+  - history email='a.basu12@gmail.com' from dataset/user_audit_log.csv audit_id=audit_230 event_time=2026-04-04T04:44:45Z (before)
+  - history email_hash='d0ae25a96189696f76034675ef540308002b68d1cbd2ca9402609392a9275ec8' from dataset/user_audit_log.csv audit_id=audit_231 event_time=2026-04-04T04:44:45Z (before)
+  - history email_hash='e5d9db2558b93eaf5fc1731b4d7b1e21bc76e6c82e90633fd8675db1ccd1bc28' from dataset/user_audit_log.csv audit_id=audit_231 event_time=2026-04-04T04:44:45Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=audit_record_8742 | category=SECURITY_AUDIT_LOG | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=audit_record_8742 | category=SECURITY_AUDIT_LOG | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_162
+- Request: email=cmercier1769@gmail.com; requested_at=2026-07-23T07:00:00Z; audit_at=2026-08-02T07:00:00Z.
+- Identity resolution: user_160; error: No explicit account presence/absence evidence for case_162.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_6362.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Camille Mercier' from dataset/user_identities.csv updated_at=2025-10-06T00:36:49Z (before)
+  - current email='cmercier1769@gmail.com' from dataset/user_identities.csv updated_at=2025-10-06T00:36:49Z (before)
+  - current phone='+33 6 69 34 42 56' from dataset/user_identities.csv updated_at=2025-10-06T00:36:49Z (before)
+  - current email_hash='09ac440830074fa4959cf5d1e12261ce0745ac77da3ce60ea59490517a6d9e9b' from dataset/user_identities.csv updated_at=2025-10-06T00:36:49Z (before)
+  - history phone='+33 6 90 58 29 67' from dataset/user_audit_log.csv audit_id=audit_67 event_time=2025-10-06T00:36:49Z (before)
+  - history phone='+33 6 69 34 42 56' from dataset/user_audit_log.csv audit_id=audit_67 event_time=2025-10-06T00:36:49Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=audit_record_6362 | category=SECURITY_AUDIT_LOG | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+  - evidence_15 | evidence/databases/customer_data_read_replica_20260802.sql | resource=audit_record_6362 | category=SECURITY_AUDIT_LOG | captured=2026-08-02T07:00:00Z (at) | observed=2026-08-02T07:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_175
+- Request: email=louis.l471697@outlook.com; requested_at=2026-06-30T12:00:00Z; audit_at=2026-07-23T12:00:00Z.
+- Identity resolution: user_173; error: No explicit account presence/absence evidence for case_175.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7166, backup_549, data_flow_4319, support_8164.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Louis Lefèvre' from dataset/user_identities.csv updated_at=2026-03-25T02:00:37Z (before)
+  - current email='louis.l4716@outlook.com' from dataset/user_identities.csv updated_at=2026-03-25T02:00:37Z (before)
+  - current phone='+33 6 91 92 14 70' from dataset/user_identities.csv updated_at=2026-03-25T02:00:37Z (before)
+  - current email_hash='ca5d2ddada28be7230a88e4824993ebe9af24802bc6677100115a6f9faeeb7ce' from dataset/user_identities.csv updated_at=2026-03-25T02:00:37Z (before)
+  - history email='louis.l471697@outlook.com' from dataset/user_audit_log.csv audit_id=audit_218 event_time=2026-03-25T02:00:37Z (before)
+  - history email='louis.l4716@outlook.com' from dataset/user_audit_log.csv audit_id=audit_218 event_time=2026-03-25T02:00:37Z (before)
+  - history email_hash='83995776a8999aad971087ec81446dc45497a22f0c411fcd0925e8992b953be7' from dataset/user_audit_log.csv audit_id=audit_219 event_time=2026-03-25T02:00:37Z (before)
+  - history email_hash='ca5d2ddada28be7230a88e4824993ebe9af24802bc6677100115a6f9faeeb7ce' from dataset/user_audit_log.csv audit_id=audit_219 event_time=2026-03-25T02:00:37Z (before)
+- Directly matched evidence records across all capture times: 9; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_17 | evidence/records/customer_data_snapshot_bundle_20260725.json | resource=account_246 | category=USER_PROFILE | captured=2026-07-25T15:00:00Z (after) | observed=2026-07-25T12:00:00Z (after) | cutoff_visible=False
+  - evidence_17 | evidence/records/customer_data_snapshot_bundle_20260725.json | resource=audit_record_7166 | category=SECURITY_AUDIT_LOG | captured=2026-07-25T15:00:00Z (after) | observed=2026-07-23T12:00:00Z (at) | cutoff_visible=False
+  - evidence_17 | evidence/records/customer_data_snapshot_bundle_20260725.json | resource=backup_549 | category=BACKUP_ARCHIVE | captured=2026-07-25T15:00:00Z (after) | observed=2026-07-23T12:00:00Z (at) | cutoff_visible=False
+  - evidence_17 | evidence/records/customer_data_snapshot_bundle_20260725.json | resource=data_flow_4319 | category=DATA_FLOW | captured=2026-07-25T15:00:00Z (after) | observed=2026-07-23T12:00:00Z (at) | cutoff_visible=False
+  - evidence_17 | evidence/records/customer_data_snapshot_bundle_20260725.json | resource=support_8164 | category=SUPPORT_MESSAGE | captured=2026-07-25T15:00:00Z (after) | observed=2026-07-23T12:00:00Z (at) | cutoff_visible=False
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | resource=audit_record_7166 | category=SECURITY_AUDIT_LOG | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T10:24:29Z (before) | cutoff_visible=True
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | resource=backup_549 | category=BACKUP_ARCHIVE | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T10:08:55Z (before) | cutoff_visible=True
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | resource=data_flow_4319 | category=DATA_FLOW | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T10:05:10Z (before) | cutoff_visible=True
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | resource=support_8164 | category=SUPPORT_MESSAGE | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T09:57:41Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_7166 | evidence_17 | evidence/records/customer_data_snapshot_bundle_20260725.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-07-25T15:00:00Z | observed=2026-07-23T12:00:00Z | cutoff_visible=False
+  - resource=audit_record_7166 | evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-07-23T11:43:30Z | observed=2026-07-23T10:24:29Z | cutoff_visible=True
+  - resource=backup_549 | evidence_17 | evidence/records/customer_data_snapshot_bundle_20260725.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-07-25T15:00:00Z | observed=2026-07-23T12:00:00Z | cutoff_visible=False
+  - resource=backup_549 | evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-07-23T11:43:30Z | observed=2026-07-23T10:08:55Z | cutoff_visible=True
+  - resource=data_flow_4319 | evidence_17 | evidence/records/customer_data_snapshot_bundle_20260725.json | category=DATA_FLOW | state=unspecified | captured=2026-07-25T15:00:00Z | observed=2026-07-23T12:00:00Z | cutoff_visible=False
+  - resource=data_flow_4319 | evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | category=DATA_FLOW | state=unspecified | captured=2026-07-23T11:43:30Z | observed=2026-07-23T10:05:10Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_178
+- Request: email=rahman.laila@icloud.com; requested_at=2026-06-27T12:00:00Z; audit_at=2026-07-23T12:00:00Z.
+- Identity resolution: user_176; error: No explicit account presence/absence evidence for case_178.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 8 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8521.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Laila Rahman' from dataset/user_identities.csv updated_at=2025-12-07T03:52:00Z (before)
+  - current email='rahman.laila@icloud.com' from dataset/user_identities.csv updated_at=2025-12-07T03:52:00Z (before)
+  - current phone='+971 55 172 3231' from dataset/user_identities.csv updated_at=2025-12-07T03:52:00Z (before)
+  - current email_hash='bf7fb1c21b11790cd2dda1647863c44240d554d1cea4094cf146c98fe1eccbfe' from dataset/user_identities.csv updated_at=2025-12-07T03:52:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_17 | evidence/records/customer_data_snapshot_bundle_20260725.json | resource=audit_record_8521 | category=SECURITY_AUDIT_LOG | captured=2026-07-25T15:00:00Z (after) | observed=2026-07-23T12:00:00Z (at) | cutoff_visible=False
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | resource=audit_record_8521 | category=SECURITY_AUDIT_LOG | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T10:55:35Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 8; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_183
+- Request: email=s.jung68@gmail.com; requested_at=2026-07-07T11:00:00Z; audit_at=2026-07-18T11:00:00Z.
+- Identity resolution: user_181; error: No explicit account presence/absence evidence for case_183.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 7 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_3262.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Seo-yeon Jung' from dataset/user_identities.csv updated_at=2025-04-25T15:47:00Z (before)
+  - current email='s.jung68@gmail.com' from dataset/user_identities.csv updated_at=2025-04-25T15:47:00Z (before)
+  - current phone='+82 10 0210 4604' from dataset/user_identities.csv updated_at=2025-04-25T15:47:00Z (before)
+  - current email_hash='6be63fb740c737f2314590c448a26c83a32d33d9033d0b634b66bcc81be8d4ec' from dataset/user_identities.csv updated_at=2025-04-25T15:47:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_83 | evidence/records/service_resource_export_20260718_104335.json | resource=audit_record_3262 | category=SECURITY_AUDIT_LOG | captured=2026-07-18T10:43:35Z (before) | observed=2026-07-18T08:12:52Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 7; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_190
+- Request: email=PETRESCU.ANDREI@ICLOUD.COM; requested_at=2026-06-30T11:00:00Z; audit_at=2026-07-18T11:00:00Z.
+- Identity resolution: user_188; error: No explicit account presence/absence evidence for case_190.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 7 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4417.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Andrei Petrescu' from dataset/user_identities.csv updated_at=2024-05-24T14:16:00Z (before)
+  - current email='petrescu.andrei@icloud.com' from dataset/user_identities.csv updated_at=2024-05-24T14:16:00Z (before)
+  - current phone='+48 719 961 702' from dataset/user_identities.csv updated_at=2024-05-24T14:16:00Z (before)
+  - current email_hash='0d9530e9f968ea7ccc96dd553e5aae1df2f78b2e5158289ee23d821c2c514948' from dataset/user_identities.csv updated_at=2024-05-24T14:16:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_83 | evidence/records/service_resource_export_20260718_104335.json | resource=audit_record_4417 | category=SECURITY_AUDIT_LOG | captured=2026-07-18T10:43:35Z (before) | observed=2026-07-18T08:21:37Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 7; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_191
+- Request: email=KARIM-HADDAD@PROTON.ME; requested_at=2026-06-29T11:00:00Z; audit_at=2026-07-18T11:00:00Z.
+- Identity resolution: user_189; error: No explicit account presence/absence evidence for case_191.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 7 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7493, backup_3010, data_flow_1611, support_5049.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Karim Haddad' from dataset/user_identities.csv updated_at=2024-04-07T07:03:00Z (before)
+  - current email='karim-haddad@proton.me' from dataset/user_identities.csv updated_at=2024-04-07T07:03:00Z (before)
+  - current phone='+971 56 868 6752' from dataset/user_identities.csv updated_at=2024-04-07T07:03:00Z (before)
+  - current email_hash='44376f7cd89a3d14bcbf5f24f05c62c7b7dd769c6a94b02fe87b62ddb3bd912c' from dataset/user_identities.csv updated_at=2024-04-07T07:03:00Z (before)
+- Directly matched evidence records across all capture times: 4; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_83 | evidence/records/service_resource_export_20260718_104335.json | resource=audit_record_7493 | category=SECURITY_AUDIT_LOG | captured=2026-07-18T10:43:35Z (before) | observed=2026-07-18T09:12:12Z (before) | cutoff_visible=True
+  - evidence_83 | evidence/records/service_resource_export_20260718_104335.json | resource=backup_3010 | category=BACKUP_ARCHIVE | captured=2026-07-18T10:43:35Z (before) | observed=2026-07-18T09:01:16Z (before) | cutoff_visible=True
+  - evidence_83 | evidence/records/service_resource_export_20260718_104335.json | resource=data_flow_1611 | category=DATA_FLOW | captured=2026-07-18T10:43:35Z (before) | observed=2026-07-18T09:03:09Z (before) | cutoff_visible=True
+  - evidence_83 | evidence/records/service_resource_export_20260718_104335.json | resource=support_5049 | category=SUPPORT_MESSAGE | captured=2026-07-18T10:43:35Z (before) | observed=2026-07-18T10:43:35Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 7; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_7493 | evidence_83 | evidence/records/service_resource_export_20260718_104335.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-07-18T10:43:35Z | observed=2026-07-18T09:12:12Z | cutoff_visible=True
+  - resource=backup_3010 | evidence_83 | evidence/records/service_resource_export_20260718_104335.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-07-18T10:43:35Z | observed=2026-07-18T09:01:16Z | cutoff_visible=True
+  - resource=data_flow_1611 | evidence_83 | evidence/records/service_resource_export_20260718_104335.json | category=DATA_FLOW | state=unspecified | captured=2026-07-18T10:43:35Z | observed=2026-07-18T09:03:09Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_204
+- Request: email=sdarwish4367@fastmail.com; requested_at=2026-06-26T09:00:00Z; audit_at=2026-07-08T09:00:00Z.
+- Identity resolution: user_202; error: No explicit account presence/absence evidence for case_204.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 7 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_2736, backup_9519, data_flow_5877, support_9505.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Salma Darwish' from dataset/user_identities.csv updated_at=2025-01-17T10:14:00Z (before)
+  - current email='sdarwish4367@fastmail.com' from dataset/user_identities.csv updated_at=2025-01-17T10:14:00Z (before)
+  - current phone='+971 50 070 7476' from dataset/user_identities.csv updated_at=2025-01-17T10:14:00Z (before)
+  - current email_hash='8c1feb5f664f3ed7d14f31441a8f0c2e19b6cd131963452f0b1a3580d37e86fe' from dataset/user_identities.csv updated_at=2025-01-17T10:14:00Z (before)
+- Directly matched evidence records across all capture times: 8; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 8.
+  - evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | resource=audit_record_2736 | category=SECURITY_AUDIT_LOG | captured=2026-07-08T09:00:00Z (at) | observed=2026-07-08T09:00:00Z (at) | cutoff_visible=True
+  - evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | resource=audit_record_2736 | category=SECURITY_AUDIT_LOG | captured=2026-07-08T09:00:00Z (at) | observed=2026-07-08T09:00:00Z (at) | cutoff_visible=True
+  - evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | resource=backup_9519 | category=BACKUP_ARCHIVE | captured=2026-07-08T09:00:00Z (at) | observed=2026-07-08T09:00:00Z (at) | cutoff_visible=True
+  - evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | resource=backup_9519 | category=BACKUP_ARCHIVE | captured=2026-07-08T09:00:00Z (at) | observed=2026-07-08T09:00:00Z (at) | cutoff_visible=True
+  - evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | resource=data_flow_5877 | category=DATA_FLOW | captured=2026-07-08T09:00:00Z (at) | observed=2026-07-08T09:00:00Z (at) | cutoff_visible=True
+  - evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | resource=data_flow_5877 | category=DATA_FLOW | captured=2026-07-08T09:00:00Z (at) | observed=2026-07-08T09:00:00Z (at) | cutoff_visible=True
+  - evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | resource=support_9505 | category=SUPPORT_MESSAGE | captured=2026-07-08T09:00:00Z (at) | observed=2026-07-08T09:00:00Z (at) | cutoff_visible=True
+  - evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | resource=support_9505 | category=SUPPORT_MESSAGE | captured=2026-07-08T09:00:00Z (at) | observed=2026-07-08T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 7; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_2736 | evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-07-08T09:00:00Z | observed=2026-07-08T09:00:00Z | cutoff_visible=True
+  - resource=audit_record_2736 | evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-07-08T09:00:00Z | observed=2026-07-08T09:00:00Z | cutoff_visible=True
+  - resource=backup_9519 | evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-07-08T09:00:00Z | observed=2026-07-08T09:00:00Z | cutoff_visible=True
+  - resource=backup_9519 | evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-07-08T09:00:00Z | observed=2026-07-08T09:00:00Z | cutoff_visible=True
+  - resource=data_flow_5877 | evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | category=DATA_FLOW | state=unspecified | captured=2026-07-08T09:00:00Z | observed=2026-07-08T09:00:00Z | cutoff_visible=True
+  - resource=data_flow_5877 | evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | category=DATA_FLOW | state=unspecified | captured=2026-07-08T09:00:00Z | observed=2026-07-08T09:00:00Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_206
+- Request: email=ama.agyeman84@gmail.com; requested_at=2026-06-24T09:00:00Z; audit_at=2026-07-08T09:00:00Z.
+- Identity resolution: user_204; error: No explicit account presence/absence evidence for case_206.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 7 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_9878.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Ama Agyeman' from dataset/user_identities.csv updated_at=2026-03-09T16:01:14Z (before)
+  - current email='ama.agyeman@gmail.com' from dataset/user_identities.csv updated_at=2026-03-09T16:01:14Z (before)
+  - current phone='+233 24 151 8989' from dataset/user_identities.csv updated_at=2026-03-09T16:01:14Z (before)
+  - current email_hash='908163b3492b567ceb89bd9259d1122b1432bedd1a32fda48923a817fa9f2337' from dataset/user_identities.csv updated_at=2026-03-09T16:01:14Z (before)
+  - history email='ama.agyeman84@gmail.com' from dataset/user_audit_log.csv audit_id=audit_205 event_time=2026-03-09T16:01:14Z (before)
+  - history email='ama.agyeman@gmail.com' from dataset/user_audit_log.csv audit_id=audit_205 event_time=2026-03-09T16:01:14Z (before)
+  - history email_hash='c11489e018fb46b5b8292da1f2eaa897fdddf55041ad45e8d79a8787e5aa6b21' from dataset/user_audit_log.csv audit_id=audit_206 event_time=2026-03-09T16:01:14Z (before)
+  - history email_hash='908163b3492b567ceb89bd9259d1122b1432bedd1a32fda48923a817fa9f2337' from dataset/user_audit_log.csv audit_id=audit_206 event_time=2026-03-09T16:01:14Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | resource=audit_record_9878 | category=SECURITY_AUDIT_LOG | captured=2026-07-08T09:00:00Z (at) | observed=2026-07-08T09:00:00Z (at) | cutoff_visible=True
+  - evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | resource=audit_record_9878 | category=SECURITY_AUDIT_LOG | captured=2026-07-08T09:00:00Z (at) | observed=2026-07-08T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 7; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_207
+- Request: email=k.mthembu24@gmail.com; requested_at=2026-06-23T09:00:00Z; audit_at=2026-07-08T09:00:00Z.
+- Identity resolution: user_205; error: No explicit account presence/absence evidence for case_207.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 7 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_3578.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Kabelo Mthembu' from dataset/user_identities.csv updated_at=2025-07-23T02:51:04Z (before)
+  - current email='k.mthembu24@gmail.com' from dataset/user_identities.csv updated_at=2025-07-23T02:51:04Z (before)
+  - current phone='+27 72 614 5136' from dataset/user_identities.csv updated_at=2025-07-23T02:51:04Z (before)
+  - current email_hash='b992186fb60aa0a0d51f7cb2c68c3622bac6a3ad62438b168c5564e133d882e9' from dataset/user_identities.csv updated_at=2025-07-23T02:51:04Z (before)
+  - history phone='+27 72 210 4279' from dataset/user_audit_log.csv audit_id=audit_40 event_time=2025-07-23T02:51:04Z (before)
+  - history phone='+27 72 614 5136' from dataset/user_audit_log.csv audit_id=audit_40 event_time=2025-07-23T02:51:04Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | resource=audit_record_3578 | category=SECURITY_AUDIT_LOG | captured=2026-07-08T09:00:00Z (at) | observed=2026-07-08T09:00:00Z (at) | cutoff_visible=True
+  - evidence_20 | evidence/databases/customer_data_read_replica_20260708.sql | resource=audit_record_3578 | category=SECURITY_AUDIT_LOG | captured=2026-07-08T09:00:00Z (at) | observed=2026-07-08T09:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 7; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_213
+- Request: email=l.foster38@yahoo.com; requested_at=2026-06-12T08:00:00Z; audit_at=2026-07-03T08:00:00Z.
+- Identity resolution: user_211; error: No explicit account presence/absence evidence for case_213.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 7 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4413, backup_5626, data_flow_5279, support_1360.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Liam Foster' from dataset/user_identities.csv updated_at=2026-04-25T18:17:00Z (before)
+  - current email='l.foster38@yahoo.com' from dataset/user_identities.csv updated_at=2026-04-25T18:17:00Z (before)
+  - current phone='+1 (312) 555-0111' from dataset/user_identities.csv updated_at=2026-04-25T18:17:00Z (before)
+  - current email_hash='91d9097ceafd4538de471898444c1a3d8cbe70c23ae798e5afcd459a9a9923ea' from dataset/user_identities.csv updated_at=2026-04-25T18:17:00Z (before)
+- Directly matched evidence records across all capture times: 7; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_21 | evidence/logs/operations_stream_eu_central_20260705.log | resource=account_6674 | category=USER_PROFILE | captured=2026-07-05T07:54:27Z (after) | observed=2026-07-03T07:58:36Z (before) | cutoff_visible=False
+  - evidence_21 | evidence/logs/operations_stream_eu_central_20260705.log | resource=audit_record_4413 | category=SECURITY_AUDIT_LOG | captured=2026-07-05T07:54:27Z (after) | observed=2026-07-03T07:51:32Z (before) | cutoff_visible=False
+  - evidence_21 | evidence/logs/operations_stream_eu_central_20260705.log | resource=support_1360 | category=SUPPORT_MESSAGE | captured=2026-07-05T07:54:27Z (after) | observed=2026-07-03T07:58:41Z (before) | cutoff_visible=False
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | resource=audit_record_4413 | category=SECURITY_AUDIT_LOG | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T06:58:31Z (before) | cutoff_visible=True
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | resource=backup_5626 | category=BACKUP_ARCHIVE | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T05:19:10Z (before) | cutoff_visible=True
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | resource=data_flow_5279 | category=DATA_FLOW | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T04:52:47Z (before) | cutoff_visible=True
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | resource=support_1360 | category=SUPPORT_MESSAGE | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T06:55:06Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 7; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_4413 | evidence_21 | evidence/logs/operations_stream_eu_central_20260705.log | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-07-05T07:54:27Z | observed=2026-07-03T07:51:32Z | cutoff_visible=False
+  - resource=audit_record_4413 | evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-07-03T07:43:56Z | observed=2026-07-03T06:58:31Z | cutoff_visible=True
+  - resource=backup_5626 | evidence_21 | evidence/logs/operations_stream_eu_central_20260705.log | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-07-05T07:54:27Z | observed=2026-07-03T07:57:07Z | cutoff_visible=False
+  - resource=backup_5626 | evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-07-03T07:43:56Z | observed=2026-07-03T05:19:10Z | cutoff_visible=True
+  - resource=data_flow_5279 | evidence_21 | evidence/logs/operations_stream_eu_central_20260705.log | category=DATA_FLOW | state=unspecified | captured=2026-07-05T07:54:27Z | observed=2026-07-03T07:59:22Z | cutoff_visible=False
+  - resource=data_flow_5279 | evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | category=DATA_FLOW | state=unspecified | captured=2026-07-03T07:43:56Z | observed=2026-07-03T04:52:47Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_215
+- Request: email=nils-lindberg@proton.me; requested_at=2026-06-10T08:00:00Z; audit_at=2026-07-03T08:00:00Z.
+- Identity resolution: user_213; error: No explicit account presence/absence evidence for case_215.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 7 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1718.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Nils Lindberg' from dataset/user_identities.csv updated_at=2026-01-20T04:51:00Z (before)
+  - current email='nils-lindberg@proton.me' from dataset/user_identities.csv updated_at=2026-01-20T04:51:00Z (before)
+  - current phone='+46 70 945 52 01' from dataset/user_identities.csv updated_at=2026-01-20T04:51:00Z (before)
+  - current email_hash='ab0e7ffacd95eac905fff1e4dc3ee2db8c0eed4636d1381ca6e7af29202ff761' from dataset/user_identities.csv updated_at=2026-01-20T04:51:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_21 | evidence/logs/operations_stream_eu_central_20260705.log | resource=audit_record_1718 | category=SECURITY_AUDIT_LOG | captured=2026-07-05T07:54:27Z (after) | observed=2026-07-03T07:52:02Z (before) | cutoff_visible=False
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | resource=audit_record_1718 | category=SECURITY_AUDIT_LOG | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T04:52:06Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 7; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_218
+- Request: email=ikenna.adebayo@gmail.com; requested_at=2026-06-07T08:00:00Z; audit_at=2026-07-03T08:00:00Z.
+- Identity resolution: user_216; error: No explicit account presence/absence evidence for case_218.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 7 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8792.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Ikenna Adebayo' from dataset/user_identities.csv updated_at=2025-08-29T07:12:00Z (before)
+  - current email='ikenna.adebayo@gmail.com' from dataset/user_identities.csv updated_at=2025-08-29T07:12:00Z (before)
+  - current phone='+234 803 368 2869' from dataset/user_identities.csv updated_at=2025-08-29T07:12:00Z (before)
+  - current email_hash='37597a712f0ed67816336fecc8531eff4892fca5288ca6220d33854cbae86dc8' from dataset/user_identities.csv updated_at=2025-08-29T07:12:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | resource=audit_record_8792 | category=SECURITY_AUDIT_LOG | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T05:04:45Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 7; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_219
+- Request: email=y.owusu52@gmail.com; requested_at=2026-06-06T08:00:00Z; audit_at=2026-07-03T08:00:00Z.
+- Identity resolution: user_217; error: No explicit account presence/absence evidence for case_219.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 7 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_3382.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Yaw Owusu' from dataset/user_identities.csv updated_at=2025-07-12T00:59:00Z (before)
+  - current email='y.owusu52@gmail.com' from dataset/user_identities.csv updated_at=2025-07-12T00:59:00Z (before)
+  - current phone='+233 24 426 4004' from dataset/user_identities.csv updated_at=2025-07-12T00:59:00Z (before)
+  - current email_hash='2172a3b8447d18cd258b66963226405108b6a87ed4e21950de06bcec031e698d' from dataset/user_identities.csv updated_at=2025-07-12T00:59:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | resource=audit_record_3382 | category=SECURITY_AUDIT_LOG | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T05:35:08Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 7; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_221
+- Request: email=mei-tanaka@gmail.com; requested_at=2026-06-04T08:00:00Z; audit_at=2026-07-03T08:00:00Z.
+- Identity resolution: user_219; error: No explicit account presence/absence evidence for case_221.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 7 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_3880.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Mei Tanaka' from dataset/user_identities.csv updated_at=2025-04-06T10:33:00Z (before)
+  - current email='mei-tanaka@gmail.com' from dataset/user_identities.csv updated_at=2025-04-06T10:33:00Z (before)
+  - current phone='+81 90 6305 6407' from dataset/user_identities.csv updated_at=2025-04-06T10:33:00Z (before)
+  - current email_hash='5a5f713ad187cff8b1ded523e52f03f4ca22af3d8a5117be4b3ef31d301ce498' from dataset/user_identities.csv updated_at=2025-04-06T10:33:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | resource=audit_record_3880 | category=SECURITY_AUDIT_LOG | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T05:20:25Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 7; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_225
+- Request: email=a.rios66@yahoo.com; requested_at=2026-06-15T07:00:00Z; audit_at=2026-06-28T07:00:00Z.
+- Identity resolution: user_223; error: No explicit account presence/absence evidence for case_225.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 6 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_9389.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Andrés Ríos' from dataset/user_identities.csv updated_at=2024-10-12T05:41:00Z (before)
+  - current email='a.rios66@yahoo.com' from dataset/user_identities.csv updated_at=2024-10-12T05:41:00Z (before)
+  - current phone='+34 681 223 447' from dataset/user_identities.csv updated_at=2024-10-12T05:41:00Z (before)
+  - current email_hash='667702970300d3fc11dd9deb01287956fe1a7c7a5b9d27902d57ac4e8f20b82b' from dataset/user_identities.csv updated_at=2024-10-12T05:41:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_22 | evidence/records/customer_data_snapshot_bundle_20260630.json | resource=audit_record_9389 | category=SECURITY_AUDIT_LOG | captured=2026-06-30T07:00:00Z (after) | observed=2026-06-28T07:00:00Z (at) | cutoff_visible=False
+  - evidence_80 | evidence/records/service_resource_export_20260628_062556.json | resource=audit_record_9389 | category=SECURITY_AUDIT_LOG | captured=2026-06-28T06:25:56Z (before) | observed=2026-06-28T05:56:04Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 6; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_226
+- Request: email=wright.sophie@icloud.com; requested_at=2026-06-14T07:00:00Z; audit_at=2026-06-28T07:00:00Z.
+- Identity resolution: user_224; error: No explicit account presence/absence evidence for case_226.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 6 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_9964.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Sophie Wright' from dataset/user_identities.csv updated_at=2024-08-24T22:28:00Z (before)
+  - current email='wright.sophie@icloud.com' from dataset/user_identities.csv updated_at=2024-08-24T22:28:00Z (before)
+  - current phone='+44 7700 900224' from dataset/user_identities.csv updated_at=2024-08-24T22:28:00Z (before)
+  - current email_hash='953969e2f9d0ccfcff46d86a0f01d7b4660cd9e20aa75040c1c75ef995fc32a0' from dataset/user_identities.csv updated_at=2024-08-24T22:28:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_22 | evidence/records/customer_data_snapshot_bundle_20260630.json | resource=audit_record_9964 | category=SECURITY_AUDIT_LOG | captured=2026-06-30T07:00:00Z (after) | observed=2026-06-28T07:00:00Z (at) | cutoff_visible=False
+  - evidence_80 | evidence/records/service_resource_export_20260628_062556.json | resource=audit_record_9964 | category=SECURITY_AUDIT_LOG | captured=2026-06-28T06:25:56Z (before) | observed=2026-06-28T05:52:58Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 6; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_231
+- Request: email=c.chukwu80@gmail.com; requested_at=2026-06-09T07:00:00Z; audit_at=2026-06-28T07:00:00Z.
+- Identity resolution: user_229; error: No explicit account presence/absence evidence for case_231.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 6 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4425, backup_6564, data_flow_2576, support_3964.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Chioma Chukwu' from dataset/user_identities.csv updated_at=2023-12-28T11:23:00Z (before)
+  - current email='c.chukwu80@gmail.com' from dataset/user_identities.csv updated_at=2023-12-28T11:23:00Z (before)
+  - current phone='+234 803 245 0897' from dataset/user_identities.csv updated_at=2023-12-28T11:23:00Z (before)
+  - current email_hash='5534281fa30931b99e7bf5dac654fcfd0de32917ecb4f2745e772a40d35dca78' from dataset/user_identities.csv updated_at=2023-12-28T11:23:00Z (before)
+- Directly matched evidence records across all capture times: 9; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_22 | evidence/records/customer_data_snapshot_bundle_20260630.json | resource=account_7324 | category=USER_PROFILE | captured=2026-06-30T07:00:00Z (after) | observed=2026-06-30T07:00:00Z (after) | cutoff_visible=False
+  - evidence_22 | evidence/records/customer_data_snapshot_bundle_20260630.json | resource=audit_record_4425 | category=SECURITY_AUDIT_LOG | captured=2026-06-30T07:00:00Z (after) | observed=2026-06-28T07:00:00Z (at) | cutoff_visible=False
+  - evidence_22 | evidence/records/customer_data_snapshot_bundle_20260630.json | resource=backup_6564 | category=BACKUP_ARCHIVE | captured=2026-06-30T07:00:00Z (after) | observed=2026-06-28T07:00:00Z (at) | cutoff_visible=False
+  - evidence_22 | evidence/records/customer_data_snapshot_bundle_20260630.json | resource=data_flow_2576 | category=DATA_FLOW | captured=2026-06-30T07:00:00Z (after) | observed=2026-06-28T07:00:00Z (at) | cutoff_visible=False
+  - evidence_22 | evidence/records/customer_data_snapshot_bundle_20260630.json | resource=support_3964 | category=SUPPORT_MESSAGE | captured=2026-06-30T07:00:00Z (after) | observed=2026-06-28T07:00:00Z (at) | cutoff_visible=False
+  - evidence_80 | evidence/records/service_resource_export_20260628_062556.json | resource=audit_record_4425 | category=SECURITY_AUDIT_LOG | captured=2026-06-28T06:25:56Z (before) | observed=2026-06-28T04:27:47Z (before) | cutoff_visible=True
+  - evidence_80 | evidence/records/service_resource_export_20260628_062556.json | resource=backup_6564 | category=BACKUP_ARCHIVE | captured=2026-06-28T06:25:56Z (before) | observed=2026-06-28T05:00:11Z (before) | cutoff_visible=True
+  - evidence_80 | evidence/records/service_resource_export_20260628_062556.json | resource=data_flow_2576 | category=DATA_FLOW | captured=2026-06-28T06:25:56Z (before) | observed=2026-06-28T04:41:54Z (before) | cutoff_visible=True
+  - evidence_80 | evidence/records/service_resource_export_20260628_062556.json | resource=support_3964 | category=SUPPORT_MESSAGE | captured=2026-06-28T06:25:56Z (before) | observed=2026-06-28T04:32:57Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 6; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_4425 | evidence_22 | evidence/records/customer_data_snapshot_bundle_20260630.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-06-30T07:00:00Z | observed=2026-06-28T07:00:00Z | cutoff_visible=False
+  - resource=audit_record_4425 | evidence_80 | evidence/records/service_resource_export_20260628_062556.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-06-28T06:25:56Z | observed=2026-06-28T04:27:47Z | cutoff_visible=True
+  - resource=backup_6564 | evidence_22 | evidence/records/customer_data_snapshot_bundle_20260630.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-06-30T07:00:00Z | observed=2026-06-28T07:00:00Z | cutoff_visible=False
+  - resource=backup_6564 | evidence_80 | evidence/records/service_resource_export_20260628_062556.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-06-28T06:25:56Z | observed=2026-06-28T05:00:11Z | cutoff_visible=True
+  - resource=data_flow_2576 | evidence_22 | evidence/records/customer_data_snapshot_bundle_20260630.json | category=DATA_FLOW | state=unspecified | captured=2026-06-30T07:00:00Z | observed=2026-06-28T07:00:00Z | cutoff_visible=False
+  - resource=data_flow_2576 | evidence_80 | evidence/records/service_resource_export_20260628_062556.json | category=DATA_FLOW | state=unspecified | captured=2026-06-28T06:25:56Z | observed=2026-06-28T04:41:54Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_243
+- Request: email=s.hamdan08@gmail.com; requested_at=2026-06-07T12:00:00Z; audit_at=2026-06-18T12:00:00Z.
+- Identity resolution: user_241; error: No explicit account presence/absence evidence for case_243.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 6 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7202.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Sami Hamdan' from dataset/user_identities.csv updated_at=2024-11-27T04:47:00Z (before)
+  - current email='s.hamdan08@gmail.com' from dataset/user_identities.csv updated_at=2024-11-27T04:47:00Z (before)
+  - current phone='+971 55 580 6240' from dataset/user_identities.csv updated_at=2024-11-27T04:47:00Z (before)
+  - current email_hash='13cf66da011b67bb6ee4935e8a2e1a7835f0fa4e3a0130d829476e225218ddc2' from dataset/user_identities.csv updated_at=2024-11-27T04:47:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | resource=audit_record_7202 | category=SECURITY_AUDIT_LOG | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T09:16:07Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 6; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_244
+- Request: email=ogunleye.obinna@gmail.com; requested_at=2026-06-06T12:00:00Z; audit_at=2026-06-18T12:00:00Z.
+- Identity resolution: user_242; error: No explicit account presence/absence evidence for case_244.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 6 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_9314.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Obinna Ogunleye' from dataset/user_identities.csv updated_at=2024-10-09T21:34:00Z (before)
+  - current email='ogunleye.obinna@gmail.com' from dataset/user_identities.csv updated_at=2024-10-09T21:34:00Z (before)
+  - current phone='+234 803 182 7611' from dataset/user_identities.csv updated_at=2024-10-09T21:34:00Z (before)
+  - current email_hash='f7fc10a9d4337ade5b8f975f2a5b4ebf678efa746ee7966593662f10ad59795a' from dataset/user_identities.csv updated_at=2024-10-09T21:34:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | resource=audit_record_9314 | category=SECURITY_AUDIT_LOG | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T09:53:41Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 6; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_253
+- Request: email=mathis.l2398@zoho.com; requested_at=2026-05-23T11:00:00Z; audit_at=2026-06-13T11:00:00Z.
+- Identity resolution: user_251; error: No explicit account presence/absence evidence for case_253.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 5 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_2927.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Mathis Laurent' from dataset/user_identities.csv updated_at=2026-01-16T05:37:00Z (before)
+  - current email='mathis.l2398@zoho.com' from dataset/user_identities.csv updated_at=2026-01-16T05:37:00Z (before)
+  - current phone='+33 6 06 69 09 52' from dataset/user_identities.csv updated_at=2026-01-16T05:37:00Z (before)
+  - current email_hash='532cfb4c4fb9a17f0f867577d68a89458ba17f72f794ec073a0dfd90548e86ff' from dataset/user_identities.csv updated_at=2026-01-16T05:37:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_24 | evidence/databases/customer_data_read_replica_20260613.sql | resource=audit_record_2927 | category=SECURITY_AUDIT_LOG | captured=2026-06-13T11:00:00Z (at) | observed=2026-06-13T11:00:00Z (at) | cutoff_visible=True
+  - evidence_24 | evidence/databases/customer_data_read_replica_20260613.sql | resource=audit_record_2927 | category=SECURITY_AUDIT_LOG | captured=2026-06-13T11:00:00Z (at) | observed=2026-06-13T11:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_255
+- Request: email=K.KOWALSKI36@GMAIL.COM; requested_at=2026-05-21T11:00:00Z; audit_at=2026-06-13T11:00:00Z.
+- Identity resolution: user_253; error: No explicit account presence/absence evidence for case_255.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 5 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_2513.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Katarina Kowalski' from dataset/user_identities.csv updated_at=2025-10-11T15:11:00Z (before)
+  - current email='k.kowalski36@gmail.com' from dataset/user_identities.csv updated_at=2025-10-11T15:11:00Z (before)
+  - current phone='+48 789 951 500' from dataset/user_identities.csv updated_at=2025-10-11T15:11:00Z (before)
+  - current email_hash='bbe3d96d55b6c980122d80ece4f06d012f0a5a1b239ed137bb9f8ee4f03c7b6b' from dataset/user_identities.csv updated_at=2025-10-11T15:11:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_24 | evidence/databases/customer_data_read_replica_20260613.sql | resource=audit_record_2513 | category=SECURITY_AUDIT_LOG | captured=2026-06-13T11:00:00Z (at) | observed=2026-06-13T11:00:00Z (at) | cutoff_visible=True
+  - evidence_24 | evidence/databases/customer_data_read_replica_20260613.sql | resource=audit_record_2513 | category=SECURITY_AUDIT_LOG | captured=2026-06-13T11:00:00Z (at) | observed=2026-06-13T11:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_257
+- Request: email=yetunde-nwosu@gmail.com; requested_at=2026-05-19T11:00:00Z; audit_at=2026-06-13T11:00:00Z.
+- Identity resolution: user_255; error: No explicit account presence/absence evidence for case_257.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 5 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7193.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Yetunde Nwosu' from dataset/user_identities.csv updated_at=2026-02-02T23:41:54Z (before)
+  - current email='yetunde-nwosu@gmail.com' from dataset/user_identities.csv updated_at=2026-02-02T23:41:54Z (before)
+  - current phone='+234 803 836 6074' from dataset/user_identities.csv updated_at=2026-02-02T23:41:54Z (before)
+  - current email_hash='47dbc43341eae9626b2c4e3ed47b216bf368cd5a32eefa432b3fd71bb266420c' from dataset/user_identities.csv updated_at=2026-02-02T23:41:54Z (before)
+  - history phone='+234 803 966 1847' from dataset/user_audit_log.csv audit_id=audit_176 event_time=2026-02-02T23:41:54Z (before)
+  - history phone='+234 803 836 6074' from dataset/user_audit_log.csv audit_id=audit_176 event_time=2026-02-02T23:41:54Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_24 | evidence/databases/customer_data_read_replica_20260613.sql | resource=audit_record_7193 | category=SECURITY_AUDIT_LOG | captured=2026-06-13T11:00:00Z (at) | observed=2026-06-13T11:00:00Z (at) | cutoff_visible=True
+  - evidence_24 | evidence/databases/customer_data_read_replica_20260613.sql | resource=audit_record_7193 | category=SECURITY_AUDIT_LOG | captured=2026-06-13T11:00:00Z (at) | observed=2026-06-13T11:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_260
+- Request: email=daichi.takahashi@outlook.com; requested_at=2026-05-16T11:00:00Z; audit_at=2026-06-13T11:00:00Z.
+- Identity resolution: user_258; error: No explicit account presence/absence evidence for case_260.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 5 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1876.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Daichi Takahashi' from dataset/user_identities.csv updated_at=2025-02-14T04:06:00Z (before)
+  - current email='daichi.takahashi@outlook.com' from dataset/user_identities.csv updated_at=2025-02-14T04:06:00Z (before)
+  - current phone='+81 90 4364 0133' from dataset/user_identities.csv updated_at=2025-02-14T04:06:00Z (before)
+  - current email_hash='547d24ada073da76d32020eb8e8fe5da9b04af0a8cac5abe932a6a0bd3c7fba9' from dataset/user_identities.csv updated_at=2025-02-14T04:06:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_24 | evidence/databases/customer_data_read_replica_20260613.sql | resource=audit_record_1876 | category=SECURITY_AUDIT_LOG | captured=2026-06-13T11:00:00Z (at) | observed=2026-06-13T11:00:00Z (at) | cutoff_visible=True
+  - evidence_24 | evidence/databases/customer_data_read_replica_20260613.sql | resource=audit_record_1876 | category=SECURITY_AUDIT_LOG | captured=2026-06-13T11:00:00Z (at) | observed=2026-06-13T11:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_264
+- Request: email=mrios950798@fastmail.com; requested_at=2026-05-27T10:00:00Z; audit_at=2026-06-08T10:00:00Z.
+- Identity resolution: user_262; error: No explicit account presence/absence evidence for case_264.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 5 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: support_9996.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Mateo Ríos' from dataset/user_identities.csv updated_at=2026-02-08T08:00:00Z (before)
+  - current email='mrios9507@fastmail.com' from dataset/user_identities.csv updated_at=2026-02-08T08:00:00Z (before)
+  - current phone='+34 720 474 294' from dataset/user_identities.csv updated_at=2026-02-08T08:00:00Z (before)
+  - current email_hash='b1e7764ddba7d80bb6f46c537ad5d9d42df27e19ea74ea3466d8f52c1c5c7888' from dataset/user_identities.csv updated_at=2026-02-08T08:00:00Z (before)
+  - history email='mrios950798@fastmail.com' from dataset/user_audit_log.csv audit_id=audit_182 event_time=2026-02-08T08:00:00Z (before)
+  - history email='mrios9507@fastmail.com' from dataset/user_audit_log.csv audit_id=audit_182 event_time=2026-02-08T08:00:00Z (before)
+  - history email_hash='21adc4efb2afb62529f60acf94873852fe7044684b092bfeb6204facae92acc2' from dataset/user_audit_log.csv audit_id=audit_183 event_time=2026-02-08T08:00:00Z (before)
+  - history email_hash='b1e7764ddba7d80bb6f46c537ad5d9d42df27e19ea74ea3466d8f52c1c5c7888' from dataset/user_audit_log.csv audit_id=audit_183 event_time=2026-02-08T08:00:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_25 | evidence/logs/cloud_runtime_export_us_west_20260608.log | resource=support_9996 | category=SUPPORT_MESSAGE | captured=2026-06-08T09:58:28Z (before) | observed=2026-06-08T09:51:47Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_265
+- Request: email=oliver.w7426@zoho.com; requested_at=2026-05-26T10:00:00Z; audit_at=2026-06-08T10:00:00Z.
+- Identity resolution: user_263; error: No time-valid evidence was linked to case_265.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: no subject-linked state record or resource ID found in cutoff-visible participant evidence; absence is not proven
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: none.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Oliver Wright' from dataset/user_identities.csv updated_at=2024-07-03T16:01:00Z (before)
+  - current email='oliver.w7426@zoho.com' from dataset/user_identities.csv updated_at=2024-07-03T16:01:00Z (before)
+  - current phone='+1 (718) 555-0163' from dataset/user_identities.csv updated_at=2024-07-03T16:01:00Z (before)
+  - current email_hash='d56ce0b916c65ac560d2871e78ef8dac201ab37cb686f5cb6ec1bdff1e5c1340' from dataset/user_identities.csv updated_at=2024-07-03T16:01:00Z (before)
+- Directly matched evidence records across all capture times: 0; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_267
+- Request: email=j.nystrom64@gmail.com; requested_at=2026-05-24T10:00:00Z; audit_at=2026-06-08T10:00:00Z.
+- Identity resolution: user_265; error: No time-valid evidence was linked to case_267.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: no subject-linked state record or resource ID found in cutoff-visible participant evidence; absence is not proven
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: none.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Jonas Nyström' from dataset/user_identities.csv updated_at=2025-08-22T03:51:04Z (before)
+  - current email='j.nystrom64@gmail.com' from dataset/user_identities.csv updated_at=2025-08-22T03:51:04Z (before)
+  - current phone='+46 70 864 85 96' from dataset/user_identities.csv updated_at=2025-08-22T03:51:04Z (before)
+  - current email_hash='10269c360846968776cb23a89d96e2b92b7557cfcbca50e6912b1ca57264b6e2' from dataset/user_identities.csv updated_at=2025-08-22T03:51:04Z (before)
+  - history phone='+46 70 146 34 42' from dataset/user_audit_log.csv audit_id=audit_45 event_time=2025-08-22T03:51:04Z (before)
+  - history phone='+46 70 864 85 96' from dataset/user_audit_log.csv audit_id=audit_45 event_time=2025-08-22T03:51:04Z (before)
+- Directly matched evidence records across all capture times: 0; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_271
+- Request: email=kwame.g4940@outlook.com; requested_at=2026-05-20T10:00:00Z; audit_at=2026-06-08T10:00:00Z.
+- Identity resolution: user_269; error: No time-valid evidence was linked to case_271.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: no subject-linked state record or resource ID found in cutoff-visible participant evidence; absence is not proven
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: none.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Kwame Gyasi' from dataset/user_identities.csv updated_at=2026-03-07T22:43:00Z (before)
+  - current email='kwame.g4940@outlook.com' from dataset/user_identities.csv updated_at=2026-03-07T22:43:00Z (before)
+  - current phone='+233 24 805 0311' from dataset/user_identities.csv updated_at=2026-03-07T22:43:00Z (before)
+  - current email_hash='6f2c1494546867474f81aae4bc883a3bf9de29ec9d197f5012fa491ad9c4df39' from dataset/user_identities.csv updated_at=2026-03-07T22:43:00Z (before)
+- Directly matched evidence records across all capture times: 0; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_272
+- Request: email=thabo.masuku@outlook.com; requested_at=2026-05-19T10:00:00Z; audit_at=2026-06-08T10:00:00Z.
+- Identity resolution: user_270; error: No time-valid evidence was linked to case_272.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: no subject-linked state record or resource ID found in cutoff-visible participant evidence; absence is not proven
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: none.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Thabo Masuku' from dataset/user_identities.csv updated_at=2025-05-23T22:26:39Z (before)
+  - current email='thabo.masuku@outlook.com' from dataset/user_identities.csv updated_at=2025-05-23T22:26:39Z (before)
+  - current phone='+27 72 141 6256' from dataset/user_identities.csv updated_at=2025-05-23T22:26:39Z (before)
+  - current email_hash='442a3ee4d7c9dbe8784a6956a6f051053efc76e4e8f3d990c9c689d69b6eebc9' from dataset/user_identities.csv updated_at=2025-05-23T22:26:39Z (before)
+  - history phone='+27 72 976 7606' from dataset/user_audit_log.csv audit_id=audit_23 event_time=2025-05-23T22:26:39Z (before)
+  - history phone='+27 72 141 6256' from dataset/user_audit_log.csv audit_id=audit_23 event_time=2025-05-23T22:26:39Z (before)
+- Directly matched evidence records across all capture times: 0; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_274
+- Request: email=han.minjun86@icloud.com; requested_at=2026-05-12T09:00:00Z; audit_at=2026-06-03T09:00:00Z.
+- Identity resolution: user_272; error: No explicit account presence/absence evidence for case_274.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 5 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_6398.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Min-jun Han' from dataset/user_identities.csv updated_at=2026-02-02T20:09:10Z (before)
+  - current email='han.minjun@icloud.com' from dataset/user_identities.csv updated_at=2026-02-02T20:09:10Z (before)
+  - current phone='+82 10 3894 1110' from dataset/user_identities.csv updated_at=2026-02-02T20:09:10Z (before)
+  - current email_hash='2a9cf37e38a094019338fae366eb242429a820b5ea7599b015c013e12ef9e368' from dataset/user_identities.csv updated_at=2026-02-02T20:09:10Z (before)
+  - history email='han.minjun86@icloud.com' from dataset/user_audit_log.csv audit_id=audit_174 event_time=2026-02-02T20:09:10Z (before)
+  - history email='han.minjun@icloud.com' from dataset/user_audit_log.csv audit_id=audit_174 event_time=2026-02-02T20:09:10Z (before)
+  - history email_hash='80a12bcef230f63b7249033e434ef511b2aeee0bed2e798e7af2837658cafbaf' from dataset/user_audit_log.csv audit_id=audit_175 event_time=2026-02-02T20:09:10Z (before)
+  - history email_hash='2a9cf37e38a094019338fae366eb242429a820b5ea7599b015c013e12ef9e368' from dataset/user_audit_log.csv audit_id=audit_175 event_time=2026-02-02T20:09:10Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_26 | evidence/records/customer_data_snapshot_bundle_20260605.json | resource=audit_record_6398 | category=SECURITY_AUDIT_LOG | captured=2026-06-05T12:00:00Z (after) | observed=2026-06-03T09:00:00Z (at) | cutoff_visible=False
+  - evidence_77 | evidence/records/service_resource_export_20260603_083457.json | resource=audit_record_6398 | category=SECURITY_AUDIT_LOG | captured=2026-06-03T08:34:57Z (before) | observed=2026-06-03T07:19:10Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_276
+- Request: email=akapoor4535@fastmail.com; requested_at=2026-05-10T09:00:00Z; audit_at=2026-06-03T09:00:00Z.
+- Identity resolution: user_274; error: No explicit account presence/absence evidence for case_276.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 5 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8323.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Aditi Kapoor' from dataset/user_identities.csv updated_at=2025-07-05T10:38:00Z (before)
+  - current email='akapoor4535@fastmail.com' from dataset/user_identities.csv updated_at=2025-07-05T10:38:00Z (before)
+  - current phone='+91 98227 63524' from dataset/user_identities.csv updated_at=2025-07-05T10:38:00Z (before)
+  - current email_hash='307ad2acee350a92ac79b5b246328e9460f89872e2f25c169a35bf643830d504' from dataset/user_identities.csv updated_at=2025-07-05T10:38:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_26 | evidence/records/customer_data_snapshot_bundle_20260605.json | resource=audit_record_8323 | category=SECURITY_AUDIT_LOG | captured=2026-06-05T12:00:00Z (after) | observed=2026-06-03T09:00:00Z (at) | cutoff_visible=False
+  - evidence_77 | evidence/records/service_resource_export_20260603_083457.json | resource=audit_record_8323 | category=SECURITY_AUDIT_LOG | captured=2026-06-03T08:34:57Z (before) | observed=2026-06-03T08:34:57Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_277
+- Request: email=lucia.r2454@zoho.com; requested_at=2026-05-09T09:00:00Z; audit_at=2026-06-03T09:00:00Z.
+- Identity resolution: user_275; error: No explicit account presence/absence evidence for case_277.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 5 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8228, backup_9728, data_flow_2439, support_2036.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Lucía Romero' from dataset/user_identities.csv updated_at=2025-02-17T16:01:14Z (before)
+  - current email='lucia.r2454@zoho.com' from dataset/user_identities.csv updated_at=2025-02-17T16:01:14Z (before)
+  - current phone='+34 628 427 174' from dataset/user_identities.csv updated_at=2025-02-17T16:01:14Z (before)
+  - current email_hash='ee30fe95ce1911c9a55263e1ad3ecc64585c0a8fb6a3e8786559dc74f874ce5a' from dataset/user_identities.csv updated_at=2025-02-17T16:01:14Z (before)
+  - history phone='+34 659 253 340' from dataset/user_audit_log.csv audit_id=audit_06 event_time=2025-02-17T16:01:14Z (before)
+  - history phone='+34 628 427 174' from dataset/user_audit_log.csv audit_id=audit_06 event_time=2025-02-17T16:01:14Z (before)
+- Directly matched evidence records across all capture times: 8; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_26 | evidence/records/customer_data_snapshot_bundle_20260605.json | resource=audit_record_8228 | category=SECURITY_AUDIT_LOG | captured=2026-06-05T12:00:00Z (after) | observed=2026-06-03T09:00:00Z (at) | cutoff_visible=False
+  - evidence_26 | evidence/records/customer_data_snapshot_bundle_20260605.json | resource=backup_9728 | category=BACKUP_ARCHIVE | captured=2026-06-05T12:00:00Z (after) | observed=2026-06-03T09:00:00Z (at) | cutoff_visible=False
+  - evidence_26 | evidence/records/customer_data_snapshot_bundle_20260605.json | resource=data_flow_2439 | category=DATA_FLOW | captured=2026-06-05T12:00:00Z (after) | observed=2026-06-03T09:00:00Z (at) | cutoff_visible=False
+  - evidence_26 | evidence/records/customer_data_snapshot_bundle_20260605.json | resource=support_2036 | category=SUPPORT_MESSAGE | captured=2026-06-05T12:00:00Z (after) | observed=2026-06-03T09:00:00Z (at) | cutoff_visible=False
+  - evidence_77 | evidence/records/service_resource_export_20260603_083457.json | resource=audit_record_8228 | category=SECURITY_AUDIT_LOG | captured=2026-06-03T08:34:57Z (before) | observed=2026-06-03T06:23:47Z (before) | cutoff_visible=True
+  - evidence_77 | evidence/records/service_resource_export_20260603_083457.json | resource=backup_9728 | category=BACKUP_ARCHIVE | captured=2026-06-03T08:34:57Z (before) | observed=2026-06-03T08:23:14Z (before) | cutoff_visible=True
+  - evidence_77 | evidence/records/service_resource_export_20260603_083457.json | resource=data_flow_2439 | category=DATA_FLOW | captured=2026-06-03T08:34:57Z (before) | observed=2026-06-03T07:47:13Z (before) | cutoff_visible=True
+  - evidence_77 | evidence/records/service_resource_export_20260603_083457.json | resource=support_2036 | category=SUPPORT_MESSAGE | captured=2026-06-03T08:34:57Z (before) | observed=2026-06-03T06:38:46Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_8228 | evidence_26 | evidence/records/customer_data_snapshot_bundle_20260605.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-06-05T12:00:00Z | observed=2026-06-03T09:00:00Z | cutoff_visible=False
+  - resource=audit_record_8228 | evidence_77 | evidence/records/service_resource_export_20260603_083457.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-06-03T08:34:57Z | observed=2026-06-03T06:23:47Z | cutoff_visible=True
+  - resource=backup_9728 | evidence_26 | evidence/records/customer_data_snapshot_bundle_20260605.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-06-05T12:00:00Z | observed=2026-06-03T09:00:00Z | cutoff_visible=False
+  - resource=backup_9728 | evidence_77 | evidence/records/service_resource_export_20260603_083457.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-06-03T08:34:57Z | observed=2026-06-03T08:23:14Z | cutoff_visible=True
+  - resource=data_flow_2439 | evidence_26 | evidence/records/customer_data_snapshot_bundle_20260605.json | category=DATA_FLOW | state=unspecified | captured=2026-06-05T12:00:00Z | observed=2026-06-03T09:00:00Z | cutoff_visible=False
+  - resource=data_flow_2439 | evidence_77 | evidence/records/service_resource_export_20260603_083457.json | category=DATA_FLOW | state=unspecified | captured=2026-06-03T08:34:57Z | observed=2026-06-03T07:47:13Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_294
+- Request: email=tkowalski7077@gmail.com; requested_at=2026-05-02T07:00:00Z; audit_at=2026-05-24T07:00:00Z.
+- Identity resolution: user_292; error: No explicit account presence/absence evidence for case_294.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 5 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4387.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Tomasz Kowalski' from dataset/user_identities.csv updated_at=2025-08-21T02:44:00Z (before)
+  - current email='tkowalski7077@gmail.com' from dataset/user_identities.csv updated_at=2025-08-21T02:44:00Z (before)
+  - current phone='+48 744 480 636' from dataset/user_identities.csv updated_at=2025-08-21T02:44:00Z (before)
+  - current email_hash='89eb9b9b6ad47329fa012e7491a1fa6272dd4fecd2927bb2ee3938e357d7e916' from dataset/user_identities.csv updated_at=2025-08-21T02:44:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | resource=audit_record_4387 | category=SECURITY_AUDIT_LOG | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T05:52:36Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_295
+- Request: email=noor.m4996@outlook.com; requested_at=2026-05-01T07:00:00Z; audit_at=2026-05-24T07:00:00Z.
+- Identity resolution: user_293; error: No explicit account presence/absence evidence for case_295.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 5 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1269.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Noor Mansour' from dataset/user_identities.csv updated_at=2025-07-03T19:31:00Z (before)
+  - current email='noor.m4996@outlook.com' from dataset/user_identities.csv updated_at=2025-07-03T19:31:00Z (before)
+  - current phone='+971 54 987 0677' from dataset/user_identities.csv updated_at=2025-07-03T19:31:00Z (before)
+  - current email_hash='61bb9ecfa9e0aee816e6339a6155def5af25974406300583088b9cba161675f7' from dataset/user_identities.csv updated_at=2025-07-03T19:31:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | resource=audit_record_1269 | category=SECURITY_AUDIT_LOG | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T04:34:11Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_297
+- Request: email=a.osei34@yahoo.com; requested_at=2026-04-29T07:00:00Z; audit_at=2026-05-24T07:00:00Z.
+- Identity resolution: user_295; error: No explicit account presence/absence evidence for case_297.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 5 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7878, backup_7308, data_flow_3391, support_1983.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Abena Osei' from dataset/user_identities.csv updated_at=2025-02-28T00:21:34Z (before)
+  - current email='a.osei34@yahoo.com' from dataset/user_identities.csv updated_at=2025-02-28T00:21:34Z (before)
+  - current phone='+233 24 352 7302' from dataset/user_identities.csv updated_at=2025-02-28T00:21:34Z (before)
+  - current email_hash='4b4a32020fe9c65d030904437e5b1fdec13bbcfb60977874b2f0d441ff28dfd9' from dataset/user_identities.csv updated_at=2025-02-28T00:21:34Z (before)
+  - history phone='+233 24 863 3363' from dataset/user_audit_log.csv audit_id=audit_08 event_time=2025-02-28T00:21:34Z (before)
+  - history phone='+233 24 352 7302' from dataset/user_audit_log.csv audit_id=audit_08 event_time=2025-02-28T00:21:34Z (before)
+- Directly matched evidence records across all capture times: 4; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | resource=audit_record_7878 | category=SECURITY_AUDIT_LOG | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T04:30:23Z (before) | cutoff_visible=True
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | resource=backup_7308 | category=BACKUP_ARCHIVE | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T05:25:36Z (before) | cutoff_visible=True
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | resource=data_flow_3391 | category=DATA_FLOW | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T04:33:39Z (before) | cutoff_visible=True
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | resource=support_1983 | category=SUPPORT_MESSAGE | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_7878 | evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-05-24T06:39:55Z | observed=2026-05-24T04:30:23Z | cutoff_visible=True
+  - resource=backup_7308 | evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-05-24T06:39:55Z | observed=2026-05-24T05:25:36Z | cutoff_visible=True
+  - resource=data_flow_3391 | evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | category=DATA_FLOW | state=unspecified | captured=2026-05-24T06:39:55Z | observed=2026-05-24T04:33:39Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_299
+- Request: email=yuki-takahashi@proton.me; requested_at=2026-04-27T07:00:00Z; audit_at=2026-05-24T07:00:00Z.
+- Identity resolution: user_297; error: No explicit account presence/absence evidence for case_299.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 5 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_5194.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Yuki Takahashi' from dataset/user_identities.csv updated_at=2024-12-23T15:39:00Z (before)
+  - current email='yuki-takahashi@proton.me' from dataset/user_identities.csv updated_at=2024-12-23T15:39:00Z (before)
+  - current phone='+81 90 7084 1570' from dataset/user_identities.csv updated_at=2024-12-23T15:39:00Z (before)
+  - current email_hash='d55b19046b9d2a1aaf29881dbe22e51c7a20f83ba2f57363319d1fa6735ff347' from dataset/user_identities.csv updated_at=2024-12-23T15:39:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | resource=audit_record_5194 | category=SECURITY_AUDIT_LOG | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T05:02:17Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 5; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_303
+- Request: email=j.castillo4893@gmail.com; requested_at=2026-05-08T06:00:00Z; audit_at=2026-05-19T06:00:00Z.
+- Identity resolution: user_301; error: No explicit account presence/absence evidence for case_303.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 4 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7923.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Javier Castillo' from dataset/user_identities.csv updated_at=2026-01-19T00:08:33Z (before)
+  - current email='j.castillo48@gmail.com' from dataset/user_identities.csv updated_at=2026-01-19T00:08:33Z (before)
+  - current phone='+34 680 118 916' from dataset/user_identities.csv updated_at=2026-01-19T00:08:33Z (before)
+  - current email_hash='2af7b8d5c134adcdf2efad944beab7a99f0704f1cc665b9a2c194df8464fdd83' from dataset/user_identities.csv updated_at=2026-01-19T00:08:33Z (before)
+  - history email='j.castillo4893@gmail.com' from dataset/user_audit_log.csv audit_id=audit_162 event_time=2026-01-19T00:08:33Z (before)
+  - history email='j.castillo48@gmail.com' from dataset/user_audit_log.csv audit_id=audit_162 event_time=2026-01-19T00:08:33Z (before)
+  - history email_hash='26f9a90e477109d93536cff216ed8334e37192092b0991bbd9090c2ae823635d' from dataset/user_audit_log.csv audit_id=audit_163 event_time=2026-01-19T00:08:33Z (before)
+  - history email_hash='2af7b8d5c134adcdf2efad944beab7a99f0704f1cc665b9a2c194df8464fdd83' from dataset/user_audit_log.csv audit_id=audit_163 event_time=2026-01-19T00:08:33Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 3.
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=audit_record_7923 | category=SECURITY_AUDIT_LOG | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=audit_record_7923 | category=SECURITY_AUDIT_LOG | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=audit_record_7923 | category=SECURITY_AUDIT_LOG | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 4; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_304
+- Request: email=walker.charlotte@gmail.com; requested_at=2026-05-07T06:00:00Z; audit_at=2026-05-19T06:00:00Z.
+- Identity resolution: user_302; error: No explicit account presence/absence evidence for case_304.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 4 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4759.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Charlotte Walker' from dataset/user_identities.csv updated_at=2024-05-13T03:34:00Z (before)
+  - current email='walker.charlotte@gmail.com' from dataset/user_identities.csv updated_at=2024-05-13T03:34:00Z (before)
+  - current phone='+44 7700 900302' from dataset/user_identities.csv updated_at=2024-05-13T03:34:00Z (before)
+  - current email_hash='a60efa094a22f64e9b2d5e76d3fcd46956ba89e9cc7f2bb29867d47c355c457c' from dataset/user_identities.csv updated_at=2024-05-13T03:34:00Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 3.
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=audit_record_4759 | category=SECURITY_AUDIT_LOG | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=audit_record_4759 | category=SECURITY_AUDIT_LOG | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=audit_record_4759 | category=SECURITY_AUDIT_LOG | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 4; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_308
+- Request: email=laila.saleh@outlook.com; requested_at=2026-05-03T06:00:00Z; audit_at=2026-05-19T06:00:00Z.
+- Identity resolution: user_306; error: No explicit account presence/absence evidence for case_308.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 4 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_3221, backup_4917, data_flow_8933, support_6046.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Laila Saleh' from dataset/user_identities.csv updated_at=2023-11-02T23:42:00Z (before)
+  - current email='laila.saleh@outlook.com' from dataset/user_identities.csv updated_at=2023-11-02T23:42:00Z (before)
+  - current phone='+971 55 860 4168' from dataset/user_identities.csv updated_at=2023-11-02T23:42:00Z (before)
+  - current email_hash='54f049d0213b78ccf069079a69758183e5680955e4484a8ac25750ac25067746' from dataset/user_identities.csv updated_at=2023-11-02T23:42:00Z (before)
+- Directly matched evidence records across all capture times: 12; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 12.
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=audit_record_3221 | category=SECURITY_AUDIT_LOG | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=audit_record_3221 | category=SECURITY_AUDIT_LOG | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=audit_record_3221 | category=SECURITY_AUDIT_LOG | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=backup_4917 | category=BACKUP_ARCHIVE | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=backup_4917 | category=BACKUP_ARCHIVE | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=backup_4917 | category=BACKUP_ARCHIVE | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=data_flow_8933 | category=DATA_FLOW | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=data_flow_8933 | category=DATA_FLOW | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=data_flow_8933 | category=DATA_FLOW | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=support_6046 | category=SUPPORT_MESSAGE | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=support_6046 | category=SUPPORT_MESSAGE | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=support_6046 | category=SUPPORT_MESSAGE | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 4; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_3221 | evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-05-19T06:00:00Z | observed=2026-05-19T06:00:00Z | cutoff_visible=True
+  - resource=audit_record_3221 | evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-05-19T06:00:00Z | observed=2026-05-19T06:00:00Z | cutoff_visible=True
+  - resource=audit_record_3221 | evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-05-19T06:00:00Z | observed=2026-05-19T06:00:00Z | cutoff_visible=True
+  - resource=backup_4917 | evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-05-19T06:00:00Z | observed=2026-05-19T06:00:00Z | cutoff_visible=True
+  - resource=backup_4917 | evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-05-19T06:00:00Z | observed=2026-05-19T06:00:00Z | cutoff_visible=True
+  - resource=backup_4917 | evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-05-19T06:00:00Z | observed=2026-05-19T06:00:00Z | cutoff_visible=True
+  - resource=data_flow_8933 | evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | category=DATA_FLOW | state=unspecified | captured=2026-05-19T06:00:00Z | observed=2026-05-19T06:00:00Z | cutoff_visible=True
+  - resource=data_flow_8933 | evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | category=DATA_FLOW | state=unspecified | captured=2026-05-19T06:00:00Z | observed=2026-05-19T06:00:00Z | cutoff_visible=True
+  - resource=data_flow_8933 | evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | category=DATA_FLOW | state=unspecified | captured=2026-05-19T06:00:00Z | observed=2026-05-19T06:00:00Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_309
+- Request: email=t.oladipo62@yahoo.com; requested_at=2026-05-02T06:00:00Z; audit_at=2026-05-19T06:00:00Z.
+- Identity resolution: user_307; error: No explicit account presence/absence evidence for case_309.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 4 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1945.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Tunde Oladipo' from dataset/user_identities.csv updated_at=2026-03-03T16:29:00Z (before)
+  - current email='t.oladipo62@yahoo.com' from dataset/user_identities.csv updated_at=2026-03-03T16:29:00Z (before)
+  - current phone='+234 803 320 5597' from dataset/user_identities.csv updated_at=2026-03-03T16:29:00Z (before)
+  - current email_hash='b7dd4d878f59503f47a8b4607db197e9be679303f1809bae212ad1a5534bd8f2' from dataset/user_identities.csv updated_at=2026-03-03T16:29:00Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 3.
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=audit_record_1945 | category=SECURITY_AUDIT_LOG | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=audit_record_1945 | category=SECURITY_AUDIT_LOG | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+  - evidence_29 | evidence/databases/customer_data_regional_replicas_20260519.sql | resource=audit_record_1945 | category=SECURITY_AUDIT_LOG | captured=2026-05-19T06:00:00Z (at) | observed=2026-05-19T06:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 4; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_313
+- Request: email=seoyeon.l7538@zoho.com; requested_at=2026-04-23T12:00:00Z; audit_at=2026-05-14T12:00:00Z.
+- Identity resolution: user_311; error: No explicit account presence/absence evidence for case_313.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 4 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7020.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Seo-yeon Lim' from dataset/user_identities.csv updated_at=2025-08-18T18:37:00Z (before)
+  - current email='seoyeon.l7538@zoho.com' from dataset/user_identities.csv updated_at=2025-08-18T18:37:00Z (before)
+  - current phone='+82 10 6054 7162' from dataset/user_identities.csv updated_at=2025-08-18T18:37:00Z (before)
+  - current email_hash='dbb011e9a94504769080a98f9c8401d9cb66fed5de8ab5bfe5f6bdb6cdebd4a0' from dataset/user_identities.csv updated_at=2025-08-18T18:37:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_30 | evidence/logs/service_events_sa_east_20260516.log | resource=account_8264 | category=USER_PROFILE | captured=2026-05-16T11:58:25Z (after) | observed=2026-05-14T11:54:21Z (before) | cutoff_visible=False
+  - evidence_74 | evidence/records/service_resource_export_20260514_114454.json | resource=audit_record_7020 | category=SECURITY_AUDIT_LOG | captured=2026-05-14T11:44:54Z (before) | observed=2026-05-14T09:59:53Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 4; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_314
+- Request: email=beatriz.lima@gmail.com; requested_at=2026-04-22T12:00:00Z; audit_at=2026-05-14T12:00:00Z.
+- Identity resolution: user_312; error: No explicit account presence/absence evidence for case_314.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 4 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7893.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Beatriz Lima' from dataset/user_identities.csv updated_at=2025-07-02T11:24:00Z (before)
+  - current email='beatriz.lima@gmail.com' from dataset/user_identities.csv updated_at=2025-07-02T11:24:00Z (before)
+  - current phone='+55 61 94243-8528' from dataset/user_identities.csv updated_at=2025-07-02T11:24:00Z (before)
+  - current email_hash='420446ca2e67f0dc536baf145c0941e3647338bb7ffa64ed3227c84fc668d1c8' from dataset/user_identities.csv updated_at=2025-07-02T11:24:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_30 | evidence/logs/service_events_sa_east_20260516.log | resource=account_591 | category=USER_PROFILE | captured=2026-05-16T11:58:25Z (after) | observed=2026-05-14T11:57:49Z (before) | cutoff_visible=False
+  - evidence_74 | evidence/records/service_resource_export_20260514_114454.json | resource=audit_record_7893 | category=SECURITY_AUDIT_LOG | captured=2026-05-14T11:44:54Z (before) | observed=2026-05-14T11:33:14Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 4; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_319
+- Request: email=lars.e5052@outlook.com; requested_at=2026-04-17T12:00:00Z; audit_at=2026-05-14T12:00:00Z.
+- Identity resolution: user_317; error: No explicit account presence/absence evidence for case_319.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 4 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7337.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Lars Eriksen' from dataset/user_identities.csv updated_at=2024-11-04T00:19:00Z (before)
+  - current email='lars.e5052@outlook.com' from dataset/user_identities.csv updated_at=2024-11-04T00:19:00Z (before)
+  - current phone='+46 70 103 87 47' from dataset/user_identities.csv updated_at=2024-11-04T00:19:00Z (before)
+  - current email_hash='9f67397f42cb24ae15568abc54cef69600177d30ae259d6360ccb49b82902ec7' from dataset/user_identities.csv updated_at=2024-11-04T00:19:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_74 | evidence/records/service_resource_export_20260514_114454.json | resource=audit_record_7337 | category=SECURITY_AUDIT_LOG | captured=2026-05-14T11:44:54Z (before) | observed=2026-05-14T11:02:53Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 4; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_322
+- Request: email=eze.emeka@icloud.com; requested_at=2026-05-04T12:00:00Z; audit_at=2026-05-14T12:00:00Z.
+- Identity resolution: user_320; error: No explicit account presence/absence evidence for case_322.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 4 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_3201.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Emeka Eze' from dataset/user_identities.csv updated_at=2025-12-24T19:16:29Z (before)
+  - current email='eze.emeka@icloud.com' from dataset/user_identities.csv updated_at=2025-12-24T19:16:29Z (before)
+  - current phone='+234 803 618 5938' from dataset/user_identities.csv updated_at=2025-12-24T19:16:29Z (before)
+  - current email_hash='430fedaa7e633976ce36804c722163aa713b08f6f72520a4f6589a70c3b82e43' from dataset/user_identities.csv updated_at=2025-12-24T19:16:29Z (before)
+  - history phone='+234 803 450 9724' from dataset/user_audit_log.csv audit_id=audit_138 event_time=2025-12-24T19:16:29Z (before)
+  - history phone='+234 803 618 5938' from dataset/user_audit_log.csv audit_id=audit_138 event_time=2025-12-24T19:16:29Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_30 | evidence/logs/service_events_sa_east_20260516.log | resource=account_9354 | category=USER_PROFILE | captured=2026-05-16T11:58:25Z (after) | observed=2026-05-14T11:54:06Z (before) | cutoff_visible=False
+  - evidence_74 | evidence/records/service_resource_export_20260514_114454.json | resource=audit_record_3201 | category=SECURITY_AUDIT_LOG | captured=2026-05-14T11:44:54Z (before) | observed=2026-05-14T11:35:50Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 4; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_335
+- Request: email=nneka-adeyemi81@proton.me; requested_at=2026-04-11T10:00:00Z; audit_at=2026-05-04T10:00:00Z.
+- Identity resolution: user_333; error: No explicit account presence/absence evidence for case_335.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 4 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_711, backup_3136, data_flow_7452, support_4712.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Nneka Adeyemi' from dataset/user_identities.csv updated_at=2026-01-04T05:40:17Z (before)
+  - current email='nneka-adeyemi@proton.me' from dataset/user_identities.csv updated_at=2026-01-04T05:40:17Z (before)
+  - current phone='+234 803 644 6526' from dataset/user_identities.csv updated_at=2026-01-04T05:40:17Z (before)
+  - current email_hash='ae0e06ab68a59d30ef43709e2d954178bb78acec9efc7fe7d4d9594fa6b1ea14' from dataset/user_identities.csv updated_at=2026-01-04T05:40:17Z (before)
+  - history email='nneka-adeyemi81@proton.me' from dataset/user_audit_log.csv audit_id=audit_146 event_time=2026-01-04T05:40:17Z (before)
+  - history email='nneka-adeyemi@proton.me' from dataset/user_audit_log.csv audit_id=audit_146 event_time=2026-01-04T05:40:17Z (before)
+  - history email_hash='19f8c8e9c315ada0c16a574d34d88e2346a1248f2819abafcd4ddac13a1a3f80' from dataset/user_audit_log.csv audit_id=audit_147 event_time=2026-01-04T05:40:17Z (before)
+  - history email_hash='ae0e06ab68a59d30ef43709e2d954178bb78acec9efc7fe7d4d9594fa6b1ea14' from dataset/user_audit_log.csv audit_id=audit_147 event_time=2026-01-04T05:40:17Z (before)
+- Directly matched evidence records across all capture times: 10; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | resource=account_8892 | category=USER_PROFILE | captured=2026-05-11T11:00:00Z (after) | observed=2026-05-04T10:00:00Z (at) | cutoff_visible=False
+  - evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | resource=account_8892 | category=USER_PROFILE | captured=2026-05-11T11:00:00Z (after) | observed=2026-05-06T10:00:00Z (after) | cutoff_visible=False
+  - evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | resource=audit_record_711 | category=SECURITY_AUDIT_LOG | captured=2026-05-11T11:00:00Z (after) | observed=2026-05-04T10:00:00Z (at) | cutoff_visible=False
+  - evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | resource=backup_3136 | category=BACKUP_ARCHIVE | captured=2026-05-11T11:00:00Z (after) | observed=2026-05-04T10:00:00Z (at) | cutoff_visible=False
+  - evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | resource=data_flow_7452 | category=UNKNOWN | captured=2026-05-11T11:00:00Z (after) | observed=2026-05-04T10:00:00Z (at) | cutoff_visible=False
+  - evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | resource=support_4712 | category=SUPPORT_MESSAGE | captured=2026-05-11T11:00:00Z (after) | observed=2026-05-04T10:00:00Z (at) | cutoff_visible=False
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | resource=audit_record_711 | category=SECURITY_AUDIT_LOG | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T08:12:14Z (before) | cutoff_visible=True
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | resource=backup_3136 | category=BACKUP_ARCHIVE | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T07:37:34Z (before) | cutoff_visible=True
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | resource=data_flow_7452 | category=DATA_FLOW | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:26:37Z (before) | cutoff_visible=True
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | resource=support_4712 | category=SUPPORT_MESSAGE | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:18:47Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 4; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_711 | evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-05-11T11:00:00Z | observed=2026-05-04T10:00:00Z | cutoff_visible=False
+  - resource=audit_record_711 | evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-05-04T09:41:47Z | observed=2026-05-04T08:12:14Z | cutoff_visible=True
+  - resource=backup_3136 | evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-05-11T11:00:00Z | observed=2026-05-04T10:00:00Z | cutoff_visible=False
+  - resource=backup_3136 | evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-05-04T09:41:47Z | observed=2026-05-04T07:37:34Z | cutoff_visible=True
+  - resource=data_flow_7452 | evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | category=UNKNOWN | state=unspecified | captured=2026-05-11T11:00:00Z | observed=2026-05-04T10:00:00Z | cutoff_visible=False
+  - resource=data_flow_7452 | evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | category=DATA_FLOW | state=unspecified | captured=2026-05-04T09:41:47Z | observed=2026-05-04T09:26:37Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_336
+- Request: email=aboateng9675@fastmail.com; requested_at=2026-04-10T10:00:00Z; audit_at=2026-05-04T10:00:00Z.
+- Identity resolution: user_334; error: No explicit account presence/absence evidence for case_336.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 4 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_5022.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Ama Boateng' from dataset/user_identities.csv updated_at=2025-02-05T23:38:00Z (before)
+  - current email='aboateng9675@fastmail.com' from dataset/user_identities.csv updated_at=2025-02-05T23:38:00Z (before)
+  - current phone='+233 24 286 3559' from dataset/user_identities.csv updated_at=2025-02-05T23:38:00Z (before)
+  - current email_hash='0ee16484555f03e7e3f6e7fe111c05aa0407b569a4edae4f73782ec0f2f05f80' from dataset/user_identities.csv updated_at=2025-02-05T23:38:00Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | resource=account_2282 | category=USER_PROFILE | captured=2026-05-11T11:00:00Z (after) | observed=2026-05-04T10:00:00Z (at) | cutoff_visible=False
+  - evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | resource=audit_record_5022 | category=SECURITY_AUDIT_LOG | captured=2026-05-11T11:00:00Z (after) | observed=2026-05-04T10:00:00Z (at) | cutoff_visible=False
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | resource=audit_record_5022 | category=SECURITY_AUDIT_LOG | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T08:05:28Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 4; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_339
+- Request: email=j.lee32@gmail.com; requested_at=2026-04-07T10:00:00Z; audit_at=2026-05-04T10:00:00Z.
+- Identity resolution: user_337; error: No explicit account presence/absence evidence for case_339.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 4 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_2922.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Ji-eun Lee' from dataset/user_identities.csv updated_at=2024-09-15T02:59:00Z (before)
+  - current email='j.lee32@gmail.com' from dataset/user_identities.csv updated_at=2024-09-15T02:59:00Z (before)
+  - current phone='+82 10 3469 4061' from dataset/user_identities.csv updated_at=2024-09-15T02:59:00Z (before)
+  - current email_hash='df6d0db2d08aa62ad84e7dcd88a1ea99e42a1e5364f7dc603e9145903adeefd7' from dataset/user_identities.csv updated_at=2024-09-15T02:59:00Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | resource=account_1340 | category=USER_PROFILE | captured=2026-05-11T11:00:00Z (after) | observed=2026-05-04T10:00:00Z (at) | cutoff_visible=False
+  - evidence_31 | evidence/records/customer_data_snapshot_bundle_20260511.json | resource=audit_record_2922 | category=SECURITY_AUDIT_LOG | captured=2026-05-11T11:00:00Z (after) | observed=2026-05-04T10:00:00Z (at) | cutoff_visible=False
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | resource=audit_record_2922 | category=SECURITY_AUDIT_LOG | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T08:55:19Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 4; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_343
+- Request: email=liam.s5108@outlook.com; requested_at=2026-04-18T09:00:00Z; audit_at=2026-04-29T09:00:00Z.
+- Identity resolution: user_341; error: No explicit account presence/absence evidence for case_343.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_9233.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Liam Sullivan' from dataset/user_identities.csv updated_at=2024-03-21T21:07:00Z (before)
+  - current email='liam.s5108@outlook.com' from dataset/user_identities.csv updated_at=2024-03-21T21:07:00Z (before)
+  - current phone='+1 (646) 555-0141' from dataset/user_identities.csv updated_at=2024-03-21T21:07:00Z (before)
+  - current email_hash='8f6928e3250f6288cd860508f9db51870cde16cbc228f330cce20994ad68a251' from dataset/user_identities.csv updated_at=2024-03-21T21:07:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_71 | evidence/records/service_resource_export_20260429_083222.json | resource=audit_record_9233 | category=SECURITY_AUDIT_LOG | captured=2026-04-29T08:32:22Z (before) | observed=2026-04-29T08:01:21Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_345
+- Request: email=n.holm46@yahoo.com; requested_at=2026-04-16T09:00:00Z; audit_at=2026-04-29T09:00:00Z.
+- Identity resolution: user_343; error: No explicit account presence/absence evidence for case_345.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_454.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Nils Holm' from dataset/user_identities.csv updated_at=2023-12-17T07:41:00Z (before)
+  - current email='n.holm46@yahoo.com' from dataset/user_identities.csv updated_at=2023-12-17T07:41:00Z (before)
+  - current phone='+46 70 711 40 51' from dataset/user_identities.csv updated_at=2023-12-17T07:41:00Z (before)
+  - current email_hash='0ac556340326c71729d6ae486f884b56d485d5d1e74374d7bc15e883c8596ae1' from dataset/user_identities.csv updated_at=2023-12-17T07:41:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_71 | evidence/records/service_resource_export_20260429_083222.json | resource=audit_record_454 | category=SECURITY_AUDIT_LOG | captured=2026-04-29T08:32:22Z (before) | observed=2026-04-29T08:15:11Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_346
+- Request: email=stojanovic.marek@icloud.com; requested_at=2026-04-15T09:00:00Z; audit_at=2026-04-29T09:00:00Z.
+- Identity resolution: user_344; error: No explicit account presence/absence evidence for case_346.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1700.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Marek Stojanović' from dataset/user_identities.csv updated_at=2023-10-30T00:28:00Z (before)
+  - current email='stojanovic.marek@icloud.com' from dataset/user_identities.csv updated_at=2023-10-30T00:28:00Z (before)
+  - current phone='+48 555 962 450' from dataset/user_identities.csv updated_at=2023-10-30T00:28:00Z (before)
+  - current email_hash='3cd818c23625e61fe0b24a32523cb6b30418a8cc73d8f1baeb0bfed79abf4c28' from dataset/user_identities.csv updated_at=2023-10-30T00:28:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_71 | evidence/records/service_resource_export_20260429_083222.json | resource=audit_record_1700 | category=SECURITY_AUDIT_LOG | captured=2026-04-29T08:32:22Z (before) | observed=2026-04-29T07:50:23Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_351
+- Request: email=m.kobayashi60@gmail.com; requested_at=2026-04-10T09:00:00Z; audit_at=2026-04-29T09:00:00Z.
+- Identity resolution: user_349; error: No explicit account presence/absence evidence for case_351.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8787, backup_024, data_flow_4323, support_7137.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Mei Kobayashi' from dataset/user_identities.csv updated_at=2025-08-19T13:23:00Z (before)
+  - current email='m.kobayashi60@gmail.com' from dataset/user_identities.csv updated_at=2025-08-19T13:23:00Z (before)
+  - current phone='+81 90 7777 6048' from dataset/user_identities.csv updated_at=2025-08-19T13:23:00Z (before)
+  - current email_hash='43a2ccbe7d85ef2fc58afff74850b7c90121413fccb1a775918729867814c8f4' from dataset/user_identities.csv updated_at=2025-08-19T13:23:00Z (before)
+- Directly matched evidence records across all capture times: 4; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_71 | evidence/records/service_resource_export_20260429_083222.json | resource=audit_record_8787 | category=SECURITY_AUDIT_LOG | captured=2026-04-29T08:32:22Z (before) | observed=2026-04-29T08:27:54Z (before) | cutoff_visible=True
+  - evidence_71 | evidence/records/service_resource_export_20260429_083222.json | resource=backup_024 | category=BACKUP_ARCHIVE | captured=2026-04-29T08:32:22Z (before) | observed=2026-04-29T07:17:59Z (before) | cutoff_visible=True
+  - evidence_71 | evidence/records/service_resource_export_20260429_083222.json | resource=data_flow_4323 | category=DATA_FLOW | captured=2026-04-29T08:32:22Z (before) | observed=2026-04-29T06:29:15Z (before) | cutoff_visible=True
+  - evidence_71 | evidence/records/service_resource_export_20260429_083222.json | resource=support_7137 | category=SUPPORT_MESSAGE | captured=2026-04-29T08:32:22Z (before) | observed=2026-04-29T08:06:22Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_8787 | evidence_71 | evidence/records/service_resource_export_20260429_083222.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-04-29T08:32:22Z | observed=2026-04-29T08:27:54Z | cutoff_visible=True
+  - resource=backup_024 | evidence_71 | evidence/records/service_resource_export_20260429_083222.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-04-29T08:32:22Z | observed=2026-04-29T07:17:59Z | cutoff_visible=True
+  - resource=data_flow_4323 | evidence_71 | evidence/records/service_resource_export_20260429_083222.json | category=DATA_FLOW | state=unspecified | captured=2026-04-29T08:32:22Z | observed=2026-04-29T06:29:15Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_354
+- Request: email=nmenon2217@gmail.com; requested_at=2026-04-02T08:00:00Z; audit_at=2026-04-24T08:00:00Z.
+- Identity resolution: user_352; error: No explicit account presence/absence evidence for case_354.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_9286.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Neel Menon' from dataset/user_identities.csv updated_at=2025-03-23T15:44:00Z (before)
+  - current email='nmenon2217@gmail.com' from dataset/user_identities.csv updated_at=2025-03-23T15:44:00Z (before)
+  - current phone='+91 98815 74743' from dataset/user_identities.csv updated_at=2025-03-23T15:44:00Z (before)
+  - current email_hash='3602f759d555dfd6e777a13f3fd058a21ade279a64c3cd62e10ca3baa19f10e3' from dataset/user_identities.csv updated_at=2025-03-23T15:44:00Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 3.
+  - evidence_33 | evidence/databases/customer_data_regional_replicas_20260424.sql | resource=audit_record_9286 | category=SECURITY_AUDIT_LOG | captured=2026-04-24T08:00:00Z (at) | observed=2026-04-24T08:00:00Z (at) | cutoff_visible=True
+  - evidence_33 | evidence/databases/customer_data_regional_replicas_20260424.sql | resource=audit_record_9286 | category=SECURITY_AUDIT_LOG | captured=2026-04-24T08:00:00Z (at) | observed=2026-04-24T08:00:00Z (at) | cutoff_visible=True
+  - evidence_33 | evidence/databases/customer_data_regional_replicas_20260424.sql | resource=audit_record_9286 | category=SECURITY_AUDIT_LOG | captured=2026-04-24T08:00:00Z (at) | observed=2026-04-24T08:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_362
+- Request: email=efua.asante@gmail.com; requested_at=2026-04-14T08:00:00Z; audit_at=2026-04-24T08:00:00Z.
+- Identity resolution: user_360; error: No explicit account presence/absence evidence for case_362.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8638.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Efua Asante' from dataset/user_identities.csv updated_at=2026-01-13T20:56:09Z (before)
+  - current email='efua.asante@gmail.com' from dataset/user_identities.csv updated_at=2026-01-13T20:56:09Z (before)
+  - current phone='+233 24 955 4457' from dataset/user_identities.csv updated_at=2026-01-13T20:56:09Z (before)
+  - current email_hash='8cd4ae2f80cea470305adf910661e9977a1fe300cf3681ec187a4750233adf1b' from dataset/user_identities.csv updated_at=2026-01-13T20:56:09Z (before)
+  - history phone='+233 24 052 8925' from dataset/user_audit_log.csv audit_id=audit_157 event_time=2026-01-13T20:56:09Z (before)
+  - history phone='+233 24 955 4457' from dataset/user_audit_log.csv audit_id=audit_157 event_time=2026-01-13T20:56:09Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 3.
+  - evidence_33 | evidence/databases/customer_data_regional_replicas_20260424.sql | resource=audit_record_8638 | category=SECURITY_AUDIT_LOG | captured=2026-04-24T08:00:00Z (at) | observed=2026-04-24T08:00:00Z (at) | cutoff_visible=True
+  - evidence_33 | evidence/databases/customer_data_regional_replicas_20260424.sql | resource=audit_record_8638 | category=SECURITY_AUDIT_LOG | captured=2026-04-24T08:00:00Z (at) | observed=2026-04-24T08:00:00Z (at) | cutoff_visible=True
+  - evidence_33 | evidence/databases/customer_data_regional_replicas_20260424.sql | resource=audit_record_8638 | category=SECURITY_AUDIT_LOG | captured=2026-04-24T08:00:00Z (at) | observed=2026-04-24T08:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_383
+- Request: email=mathis-girard@proton.me; requested_at=2026-03-29T12:00:00Z; audit_at=2026-04-09T12:00:00Z.
+- Identity resolution: user_381; error: No explicit account presence/absence evidence for case_383.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_989.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Mathis Girard' from dataset/user_identities.csv updated_at=2023-12-13T08:27:00Z (before)
+  - current email='mathis-girard@proton.me' from dataset/user_identities.csv updated_at=2023-12-13T08:27:00Z (before)
+  - current phone='+33 6 85 76 80 49' from dataset/user_identities.csv updated_at=2023-12-13T08:27:00Z (before)
+  - current email_hash='716038b485e3cfda88dd59473d344f7ca69f13dfb1cc34090f0507585ef59509' from dataset/user_identities.csv updated_at=2023-12-13T08:27:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_36 | evidence/records/customer_export_manifest_20260409.json | resource=audit_record_989 | category=SECURITY_AUDIT_LOG | captured=2026-04-09T12:00:00Z (at) | observed=2026-04-09T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_384
+- Request: email=LDAHL9787@FASTMAIL.COM; requested_at=2026-03-28T12:00:00Z; audit_at=2026-04-09T12:00:00Z.
+- Identity resolution: user_382; error: No explicit account presence/absence evidence for case_384.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_2342.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Linnea Dahl' from dataset/user_identities.csv updated_at=2023-10-26T01:14:00Z (before)
+  - current email='ldahl9787@fastmail.com' from dataset/user_identities.csv updated_at=2023-10-26T01:14:00Z (before)
+  - current phone='+46 70 849 35 33' from dataset/user_identities.csv updated_at=2023-10-26T01:14:00Z (before)
+  - current email_hash='a4052aa7d29ae71014c2c92966ddb831cdcb39e4367999270d11ddc500bbad01' from dataset/user_identities.csv updated_at=2023-10-26T01:14:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_36 | evidence/records/customer_export_manifest_20260409.json | resource=audit_record_2342 | category=SECURITY_AUDIT_LOG | captured=2026-04-09T12:00:00Z (at) | observed=2026-04-09T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_385
+- Request: email=katarina.v7706@zoho.com; requested_at=2026-03-27T12:00:00Z; audit_at=2026-04-09T12:00:00Z.
+- Identity resolution: user_383; error: No explicit account presence/absence evidence for case_385.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_3007.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Katarina Varga' from dataset/user_identities.csv updated_at=2026-02-23T18:01:00Z (before)
+  - current email='katarina.v7706@zoho.com' from dataset/user_identities.csv updated_at=2026-02-23T18:01:00Z (before)
+  - current phone='+48 535 842 818' from dataset/user_identities.csv updated_at=2026-02-23T18:01:00Z (before)
+  - current email_hash='4346bd311ca2fe7b53f0e0a7fe9dfca890d1fb91c7f504d84622b55e0f41ca61' from dataset/user_identities.csv updated_at=2026-02-23T18:01:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_36 | evidence/records/customer_export_manifest_20260409.json | resource=audit_record_3007 | category=SECURITY_AUDIT_LOG | captured=2026-04-09T12:00:00Z (at) | observed=2026-04-09T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_386
+- Request: email=yasmine.darwish@gmail.com; requested_at=2026-03-26T12:00:00Z; audit_at=2026-04-09T12:00:00Z.
+- Identity resolution: user_384; error: No explicit account presence/absence evidence for case_386.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8245.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Yasmine Darwish' from dataset/user_identities.csv updated_at=2026-01-07T11:48:00Z (before)
+  - current email='yasmine.darwish@gmail.com' from dataset/user_identities.csv updated_at=2026-01-07T11:48:00Z (before)
+  - current phone='+971 56 631 2739' from dataset/user_identities.csv updated_at=2026-01-07T11:48:00Z (before)
+  - current email_hash='43f01671cf3731a57272ef370b9035b973f2b93449829117785ac63110bd0b26' from dataset/user_identities.csv updated_at=2026-01-07T11:48:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_36 | evidence/records/customer_export_manifest_20260409.json | resource=audit_record_8245 | category=SECURITY_AUDIT_LOG | captured=2026-04-09T12:00:00Z (at) | observed=2026-04-09T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_387
+- Request: email=y.okeke4489@gmail.com; requested_at=2026-03-25T12:00:00Z; audit_at=2026-04-09T12:00:00Z.
+- Identity resolution: user_385; error: No explicit account presence/absence evidence for case_387.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_2536.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Yetunde Okeke' from dataset/user_identities.csv updated_at=2025-12-10T03:32:21Z (before)
+  - current email='y.okeke44@gmail.com' from dataset/user_identities.csv updated_at=2025-12-10T03:32:21Z (before)
+  - current phone='+234 803 653 7959' from dataset/user_identities.csv updated_at=2025-12-10T03:32:21Z (before)
+  - current email_hash='677ae6b93c50a3c0cc4b6934ad2d4bb42fa1fb15455870cc9687ce028927ae53' from dataset/user_identities.csv updated_at=2025-12-10T03:32:21Z (before)
+  - history email='y.okeke4489@gmail.com' from dataset/user_audit_log.csv audit_id=audit_119 event_time=2025-12-10T03:32:21Z (before)
+  - history email='y.okeke44@gmail.com' from dataset/user_audit_log.csv audit_id=audit_119 event_time=2025-12-10T03:32:21Z (before)
+  - history email_hash='40883bc318a5d67ab39f9771426fa38872ac2f43523a8c8f282c6f380fe1a6ac' from dataset/user_audit_log.csv audit_id=audit_120 event_time=2025-12-10T03:32:21Z (before)
+  - history email_hash='677ae6b93c50a3c0cc4b6934ad2d4bb42fa1fb15455870cc9687ce028927ae53' from dataset/user_audit_log.csv audit_id=audit_120 event_time=2025-12-10T03:32:21Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_36 | evidence/records/customer_export_manifest_20260409.json | resource=audit_record_2536 | category=SECURITY_AUDIT_LOG | captured=2026-04-09T12:00:00Z (at) | observed=2026-04-09T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_388
+- Request: email=agyeman.adwoa@gmail.com; requested_at=2026-03-24T12:00:00Z; audit_at=2026-04-09T12:00:00Z.
+- Identity resolution: user_386; error: No explicit account presence/absence evidence for case_388.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8683.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Adwoa Agyeman' from dataset/user_identities.csv updated_at=2025-10-02T21:22:00Z (before)
+  - current email='agyeman.adwoa@gmail.com' from dataset/user_identities.csv updated_at=2025-10-02T21:22:00Z (before)
+  - current phone='+233 24 163 8526' from dataset/user_identities.csv updated_at=2025-10-02T21:22:00Z (before)
+  - current email_hash='3cbadc247383c208155a5ed83d1fe68b73725d0c28364a7ebede9b437e78e2a0' from dataset/user_identities.csv updated_at=2025-10-02T21:22:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_36 | evidence/records/customer_export_manifest_20260409.json | resource=audit_record_8683 | category=SECURITY_AUDIT_LOG | captured=2026-04-09T12:00:00Z (at) | observed=2026-04-09T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_389
+- Request: email=sibusiso-mthembu@gmail.com; requested_at=2026-03-23T12:00:00Z; audit_at=2026-04-09T12:00:00Z.
+- Identity resolution: user_387; error: No explicit account presence/absence evidence for case_389.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_9005.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Sibusiso Mthembu' from dataset/user_identities.csv updated_at=2025-08-15T14:09:00Z (before)
+  - current email='sibusiso-mthembu@gmail.com' from dataset/user_identities.csv updated_at=2025-08-15T14:09:00Z (before)
+  - current phone='+27 72 288 8138' from dataset/user_identities.csv updated_at=2025-08-15T14:09:00Z (before)
+  - current email_hash='2367f8e2f86f6bd1185c460928c26bd361667c1ef2ee3550cf00f6845d46eae0' from dataset/user_identities.csv updated_at=2025-08-15T14:09:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_36 | evidence/records/customer_export_manifest_20260409.json | resource=audit_record_9005 | category=SECURITY_AUDIT_LOG | captured=2026-04-09T12:00:00Z (at) | observed=2026-04-09T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_391
+- Request: email=yuna.y5220@outlook.com; requested_at=2026-03-21T12:00:00Z; audit_at=2026-04-09T12:00:00Z.
+- Identity resolution: user_389; error: No explicit account presence/absence evidence for case_391.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_5007.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Yu-na Yoon' from dataset/user_identities.csv updated_at=2025-05-12T00:43:00Z (before)
+  - current email='yuna.y5220@outlook.com' from dataset/user_identities.csv updated_at=2025-05-12T00:43:00Z (before)
+  - current phone='+82 10 2073 8575' from dataset/user_identities.csv updated_at=2025-05-12T00:43:00Z (before)
+  - current email_hash='99b9b109e7bd69ef138339e429516324ce89a5f76c517e40f9c044dc32a9801d' from dataset/user_identities.csv updated_at=2025-05-12T00:43:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_36 | evidence/records/customer_export_manifest_20260409.json | resource=audit_record_5007 | category=SECURITY_AUDIT_LOG | captured=2026-04-09T12:00:00Z (at) | observed=2026-04-09T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_392
+- Request: email=camila.almeida@outlook.com; requested_at=2026-03-20T12:00:00Z; audit_at=2026-04-09T12:00:00Z.
+- Identity resolution: user_390; error: No explicit account presence/absence evidence for case_392.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7510.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Camila Almeida' from dataset/user_identities.csv updated_at=2025-07-23T00:26:39Z (before)
+  - current email='camila.almeida@outlook.com' from dataset/user_identities.csv updated_at=2025-07-23T00:26:39Z (before)
+  - current phone='+55 61 97623-8256' from dataset/user_identities.csv updated_at=2025-07-23T00:26:39Z (before)
+  - current email_hash='40a1d754be6606d3167461cc7fb033909d2c151e5e454c8086542fd8e65b7b45' from dataset/user_identities.csv updated_at=2025-07-23T00:26:39Z (before)
+  - history phone='+55 41 95357-7193' from dataset/user_audit_log.csv audit_id=audit_39 event_time=2025-07-23T00:26:39Z (before)
+  - history phone='+55 61 97623-8256' from dataset/user_audit_log.csv audit_id=audit_39 event_time=2025-07-23T00:26:39Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_36 | evidence/records/customer_export_manifest_20260409.json | resource=audit_record_7510 | category=SECURITY_AUDIT_LOG | captured=2026-04-09T12:00:00Z (at) | observed=2026-04-09T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_393
+- Request: email=a.menon58@yahoo.com; requested_at=2026-03-14T11:00:00Z; audit_at=2026-04-04T11:00:00Z.
+- Identity resolution: user_391; error: No explicit account presence/absence evidence for case_393.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7330.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Aarav Menon' from dataset/user_identities.csv updated_at=2025-01-31T09:17:00Z (before)
+  - current email='a.menon58@yahoo.com' from dataset/user_identities.csv updated_at=2025-01-31T09:17:00Z (before)
+  - current phone='+91 98481 56511' from dataset/user_identities.csv updated_at=2025-01-31T09:17:00Z (before)
+  - current email_hash='d73a09f80161459a34f67b27cd89079c1af87c893eb237f7c051933fe3501992' from dataset/user_identities.csv updated_at=2025-01-31T09:17:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | resource=audit_record_7330 | category=SECURITY_AUDIT_LOG | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T09:31:53Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_395
+- Request: email=oliver-hughes@proton.me; requested_at=2026-03-12T11:00:00Z; audit_at=2026-04-04T11:00:00Z.
+- Identity resolution: user_393; error: No explicit account presence/absence evidence for case_395.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_2839.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Oliver Hughes' from dataset/user_identities.csv updated_at=2024-10-26T19:51:00Z (before)
+  - current email='oliver-hughes@proton.me' from dataset/user_identities.csv updated_at=2024-10-26T19:51:00Z (before)
+  - current phone='+1 (312) 555-0193' from dataset/user_identities.csv updated_at=2024-10-26T19:51:00Z (before)
+  - current email_hash='78b32e7c557c756b9ed471fa57aedfb34ea70fa7e016189762821e1362cd0a00' from dataset/user_identities.csv updated_at=2024-10-26T19:51:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | resource=audit_record_2839 | category=SECURITY_AUDIT_LOG | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T07:57:02Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_398
+- Request: email=nadia.popescu@gmail.com; requested_at=2026-03-09T11:00:00Z; audit_at=2026-04-04T11:00:00Z.
+- Identity resolution: user_396; error: No explicit account presence/absence evidence for case_398.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 3 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7361.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Nadia Popescu' from dataset/user_identities.csv updated_at=2024-06-04T22:12:00Z (before)
+  - current email='nadia.popescu@gmail.com' from dataset/user_identities.csv updated_at=2024-06-04T22:12:00Z (before)
+  - current phone='+48 822 014 905' from dataset/user_identities.csv updated_at=2024-06-04T22:12:00Z (before)
+  - current email_hash='5999ac6c8574153b0d6805e4ac9ac737f22fc4010a47496e67571a23bfed467b' from dataset/user_identities.csv updated_at=2024-06-04T22:12:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | resource=audit_record_7361 | category=SECURITY_AUDIT_LOG | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T08:39:47Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 3; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_403
+- Request: email=haruka.w248@outlook.com; requested_at=2026-03-19T10:00:00Z; audit_at=2026-03-30T10:00:00Z.
+- Identity resolution: user_401; error: No explicit account presence/absence evidence for case_403.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 2 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4733.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Haruka Watanabe' from dataset/user_identities.csv updated_at=2023-10-23T10:07:00Z (before)
+  - current email='haruka.w248@outlook.com' from dataset/user_identities.csv updated_at=2023-10-23T10:07:00Z (before)
+  - current phone='+81 90 7519 8309' from dataset/user_identities.csv updated_at=2023-10-23T10:07:00Z (before)
+  - current email_hash='2dd78336f3a4b6d968b748c52ea7288b977204d64cefa53f97421226f9016e22' from dataset/user_identities.csv updated_at=2023-10-23T10:07:00Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 3.
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_4733 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_4733 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_4733 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_408
+- Request: email=abennett9843@fastmail.com; requested_at=2026-03-14T10:00:00Z; audit_at=2026-03-30T10:00:00Z.
+- Identity resolution: user_406; error: No explicit account presence/absence evidence for case_408.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 2 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4216.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Amelia Bennett' from dataset/user_identities.csv updated_at=2025-08-13T23:02:00Z (before)
+  - current email='abennett9843@fastmail.com' from dataset/user_identities.csv updated_at=2025-08-13T23:02:00Z (before)
+  - current phone='+44 7700 900406' from dataset/user_identities.csv updated_at=2025-08-13T23:02:00Z (before)
+  - current email_hash='c42470c9a9017f19ddd82f6b3519d55da856b72312ffd8dbeb8ed5c4724f3559' from dataset/user_identities.csv updated_at=2025-08-13T23:02:00Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 3.
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_4216 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_4216 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_4216 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_409
+- Request: email=leonie.d7762@zoho.com; requested_at=2026-03-13T10:00:00Z; audit_at=2026-03-30T10:00:00Z.
+- Identity resolution: user_407; error: No explicit account presence/absence evidence for case_409.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 2 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_2559.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Léonie Dubois' from dataset/user_identities.csv updated_at=2025-06-26T16:49:00Z (before)
+  - current email='leonie.d7762@zoho.com' from dataset/user_identities.csv updated_at=2025-06-26T16:49:00Z (before)
+  - current phone='+33 6 76 77 59 85' from dataset/user_identities.csv updated_at=2025-06-26T16:49:00Z (before)
+  - current email_hash='4d0121f462a1e1f6e5fc299c5764e501d51865e1d125461acca46a4b625937cf' from dataset/user_identities.csv updated_at=2025-06-26T16:49:00Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 3.
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_2559 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_2559 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_2559 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_411
+- Request: email=e.petrescu00@gmail.com; requested_at=2026-03-11T10:00:00Z; audit_at=2026-03-30T10:00:00Z.
+- Identity resolution: user_409; error: No explicit account presence/absence evidence for case_411.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 2 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4330.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Elena Petrescu' from dataset/user_identities.csv updated_at=2025-03-23T02:23:00Z (before)
+  - current email='e.petrescu00@gmail.com' from dataset/user_identities.csv updated_at=2025-03-23T02:23:00Z (before)
+  - current phone='+48 641 631 758' from dataset/user_identities.csv updated_at=2025-03-23T02:23:00Z (before)
+  - current email_hash='08ea8bfcc938c25c67fb6e56fa3999f2ba9d29ac5508fc769ac9f080f9ecb4a0' from dataset/user_identities.csv updated_at=2025-03-23T02:23:00Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 3.
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_4330 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_4330 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_4330 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_412
+- Request: email=haddad.omar@gmail.com; requested_at=2026-03-10T10:00:00Z; audit_at=2026-03-30T10:00:00Z.
+- Identity resolution: user_410; error: No explicit account presence/absence evidence for case_412.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 2 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_5637.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Omar Haddad' from dataset/user_identities.csv updated_at=2025-08-01T17:46:59Z (before)
+  - current email='haddad.omar@gmail.com' from dataset/user_identities.csv updated_at=2025-08-01T17:46:59Z (before)
+  - current phone='+971 52 292 5759' from dataset/user_identities.csv updated_at=2025-08-01T17:46:59Z (before)
+  - current email_hash='8844090b9cc76032c3a674f5d7e732d4ba811e0fe5407a6921f0262bff09da78' from dataset/user_identities.csv updated_at=2025-08-01T17:46:59Z (before)
+  - history phone='+971 52 682 7269' from dataset/user_audit_log.csv audit_id=audit_41 event_time=2025-08-01T17:46:59Z (before)
+  - history phone='+971 52 292 5759' from dataset/user_audit_log.csv audit_id=audit_41 event_time=2025-08-01T17:46:59Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 3.
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_5637 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_5637 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+  - evidence_38 | evidence/databases/customer_data_regional_replicas_20260330.sql | resource=audit_record_5637 | category=SECURITY_AUDIT_LOG | captured=2026-03-30T10:00:00Z (at) | observed=2026-03-30T10:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_416
+- Request: email=KEIKO.SATO@OUTLOOK.COM; requested_at=2026-03-01T09:00:00Z; audit_at=2026-03-25T09:00:00Z.
+- Identity resolution: user_414; error: No time-valid evidence was linked to case_416.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: no subject-linked state record or resource ID found in cutoff-visible participant evidence; absence is not proven
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: none.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Keiko Sato' from dataset/user_identities.csv updated_at=2024-07-20T14:18:00Z (before)
+  - current email='keiko.sato@outlook.com' from dataset/user_identities.csv updated_at=2024-07-20T14:18:00Z (before)
+  - current phone='+81 90 0625 6656' from dataset/user_identities.csv updated_at=2024-07-20T14:18:00Z (before)
+  - current email_hash='e1fcfa1bf15abed4a41a997d0920fbdfe89438e1718c142cd6f369630730550e' from dataset/user_identities.csv updated_at=2024-07-20T14:18:00Z (before)
+- Directly matched evidence records across all capture times: 0; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_417
+- Request: email=s.kim14@yahoo.com; requested_at=2026-02-28T09:00:00Z; audit_at=2026-03-25T09:00:00Z.
+- Identity resolution: user_415; error: No time-valid evidence was linked to case_417.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: no subject-linked state record or resource ID found in cutoff-visible participant evidence; absence is not proven
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: none.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Soo-jin Kim' from dataset/user_identities.csv updated_at=2025-04-29T02:21:34Z (before)
+  - current email='s.kim14@yahoo.com' from dataset/user_identities.csv updated_at=2025-04-29T02:21:34Z (before)
+  - current phone='+82 10 0494 3957' from dataset/user_identities.csv updated_at=2025-04-29T02:21:34Z (before)
+  - current email_hash='62ed4c112200006390306974efe9c0c3b9b6d0b10d0622d99ae05b8cf8c9da7c' from dataset/user_identities.csv updated_at=2025-04-29T02:21:34Z (before)
+  - history phone='+82 10 3992 7203' from dataset/user_audit_log.csv audit_id=audit_19 event_time=2025-04-29T02:21:34Z (before)
+  - history phone='+82 10 0494 3957' from dataset/user_audit_log.csv audit_id=audit_19 event_time=2025-04-29T02:21:34Z (before)
+- Directly matched evidence records across all capture times: 0; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_423
+- Request: email=e.dahl28@gmail.com; requested_at=2026-03-09T08:00:00Z; audit_at=2026-03-20T08:00:00Z.
+- Identity resolution: user_421; error: No explicit account presence/absence evidence for case_423.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 2 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8082.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Erik Dahl' from dataset/user_identities.csv updated_at=2023-09-03T12:47:00Z (before)
+  - current email='e.dahl28@gmail.com' from dataset/user_identities.csv updated_at=2023-09-03T12:47:00Z (before)
+  - current phone='+46 70 528 08 47' from dataset/user_identities.csv updated_at=2023-09-03T12:47:00Z (before)
+  - current email_hash='6ae4c1195e3121432032bbdf67bda372d39240e454c2f5c90a778a61a28bf0fb' from dataset/user_identities.csv updated_at=2023-09-03T12:47:00Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_40 | evidence/records/customer_data_snapshot_bundle_20260322.json | resource=account_2420 | category=USER_PROFILE | captured=2026-03-22T08:00:00Z (after) | observed=2026-03-22T08:00:00Z (after) | cutoff_visible=False
+  - evidence_40 | evidence/records/customer_data_snapshot_bundle_20260322.json | resource=audit_record_8082 | category=SECURITY_AUDIT_LOG | captured=2026-03-22T08:00:00Z (after) | observed=2026-03-20T08:00:00Z (at) | cutoff_visible=False
+  - evidence_68 | evidence/records/service_resource_export_20260320_072349.json | resource=audit_record_8082 | category=SECURITY_AUDIT_LOG | captured=2026-03-20T07:23:49Z (before) | observed=2026-03-20T05:28:57Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_424
+- Request: email=varga.tomasz@gmail.com; requested_at=2026-03-08T08:00:00Z; audit_at=2026-03-20T08:00:00Z.
+- Identity resolution: user_422; error: No explicit account presence/absence evidence for case_424.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 2 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1474.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Tomasz Varga' from dataset/user_identities.csv updated_at=2026-01-03T05:34:00Z (before)
+  - current email='varga.tomasz@gmail.com' from dataset/user_identities.csv updated_at=2026-01-03T05:34:00Z (before)
+  - current phone='+48 799 125 827' from dataset/user_identities.csv updated_at=2026-01-03T05:34:00Z (before)
+  - current email_hash='02c16a5a9ffd3a401710816b51b2cee6796fdb0b37630df955fa2552f69d9e58' from dataset/user_identities.csv updated_at=2026-01-03T05:34:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_40 | evidence/records/customer_data_snapshot_bundle_20260322.json | resource=audit_record_1474 | category=SECURITY_AUDIT_LOG | captured=2026-03-22T08:00:00Z (after) | observed=2026-03-20T08:00:00Z (at) | cutoff_visible=False
+  - evidence_68 | evidence/records/service_resource_export_20260320_072349.json | resource=audit_record_1474 | category=SECURITY_AUDIT_LOG | captured=2026-03-20T07:23:49Z (before) | observed=2026-03-20T04:56:54Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_427
+- Request: email=ABENA.A30485@OUTLOOK.COM; requested_at=2026-03-05T08:00:00Z; audit_at=2026-03-20T08:00:00Z.
+- Identity resolution: user_425; error: No explicit account presence/absence evidence for case_427.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 2 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_999.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Abena Agyeman' from dataset/user_identities.csv updated_at=2025-11-20T04:12:01Z (before)
+  - current email='abena.a304@outlook.com' from dataset/user_identities.csv updated_at=2025-11-20T04:12:01Z (before)
+  - current phone='+233 24 080 5214' from dataset/user_identities.csv updated_at=2025-11-20T04:12:01Z (before)
+  - current email_hash='23e79abe55484b645a5affcda7546ce408cd08b94f46a65bf1a724c1f9f712c6' from dataset/user_identities.csv updated_at=2025-11-20T04:12:01Z (before)
+  - history email='abena.a30485@outlook.com' from dataset/user_audit_log.csv audit_id=audit_105 event_time=2025-11-20T04:12:01Z (before)
+  - history email='abena.a304@outlook.com' from dataset/user_audit_log.csv audit_id=audit_105 event_time=2025-11-20T04:12:01Z (before)
+  - history email_hash='c4f5c73a4f0ad55c477ec57c71fe9f4c326bb6ec7b314a58250ddd8f4b9c0a01' from dataset/user_audit_log.csv audit_id=audit_106 event_time=2025-11-20T04:12:01Z (before)
+  - history email_hash='23e79abe55484b645a5affcda7546ce408cd08b94f46a65bf1a724c1f9f712c6' from dataset/user_audit_log.csv audit_id=audit_106 event_time=2025-11-20T04:12:01Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_40 | evidence/records/customer_data_snapshot_bundle_20260322.json | resource=audit_record_999 | category=SECURITY_AUDIT_LOG | captured=2026-03-22T08:00:00Z (after) | observed=2026-03-20T08:00:00Z (at) | cutoff_visible=False
+  - evidence_68 | evidence/records/service_resource_export_20260320_072349.json | resource=audit_record_999 | category=SECURITY_AUDIT_LOG | captured=2026-03-20T07:23:49Z (before) | observed=2026-03-20T04:57:38Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_430
+- Request: email=yoon.jihoon@icloud.com; requested_at=2026-03-02T08:00:00Z; audit_at=2026-03-20T08:00:00Z.
+- Identity resolution: user_428; error: No explicit account presence/absence evidence for case_430.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 2 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_5292.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Ji-hoon Yoon' from dataset/user_identities.csv updated_at=2025-03-20T11:16:00Z (before)
+  - current email='yoon.jihoon@icloud.com' from dataset/user_identities.csv updated_at=2025-03-20T11:16:00Z (before)
+  - current phone='+82 10 2686 9320' from dataset/user_identities.csv updated_at=2025-03-20T11:16:00Z (before)
+  - current email_hash='db60e5653df2de8b84e177af1b3a110e46c61abe2d5d0f652463c65e88754532' from dataset/user_identities.csv updated_at=2025-03-20T11:16:00Z (before)
+- Directly matched evidence records across all capture times: 3; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_40 | evidence/records/customer_data_snapshot_bundle_20260322.json | resource=account_6006 | category=USER_PROFILE | captured=2026-03-22T08:00:00Z (after) | observed=2026-03-14T08:00:00Z (before) | cutoff_visible=False
+  - evidence_40 | evidence/records/customer_data_snapshot_bundle_20260322.json | resource=audit_record_5292 | category=SECURITY_AUDIT_LOG | captured=2026-03-22T08:00:00Z (after) | observed=2026-03-20T08:00:00Z (at) | cutoff_visible=False
+  - evidence_68 | evidence/records/service_resource_export_20260320_072349.json | resource=audit_record_5292 | category=SECURITY_AUDIT_LOG | captured=2026-03-20T07:23:49Z (before) | observed=2026-03-20T07:16:21Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_448
+- Request: email=fontaine.manon@gmail.com; requested_at=2026-02-22T06:00:00Z; audit_at=2026-03-10T06:00:00Z.
+- Identity resolution: user_446; error: No explicit account presence/absence evidence for case_448.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 2 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_753.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Manon Fontaine' from dataset/user_identities.csv updated_at=2025-05-06T03:22:00Z (before)
+  - current email='fontaine.manon@gmail.com' from dataset/user_identities.csv updated_at=2025-05-06T03:22:00Z (before)
+  - current phone='+33 6 08 73 37 79' from dataset/user_identities.csv updated_at=2025-05-06T03:22:00Z (before)
+  - current email_hash='aeb0c4ffb46a6aecfbdddf46725b037ed2d6508f00b02e900892028bbc7d1828' from dataset/user_identities.csv updated_at=2025-05-06T03:22:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | resource=audit_record_753 | category=SECURITY_AUDIT_LOG | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T03:09:28Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_452
+- Request: email=emeka.chukwu@outlook.com; requested_at=2026-02-18T06:00:00Z; audit_at=2026-03-10T06:00:00Z.
+- Identity resolution: user_450; error: No explicit account presence/absence evidence for case_452.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 2 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8608.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Emeka Chukwu' from dataset/user_identities.csv updated_at=2025-08-21T18:26:39Z (before)
+  - current email='emeka.chukwu@outlook.com' from dataset/user_identities.csv updated_at=2025-08-21T18:26:39Z (before)
+  - current phone='+234 803 078 3493' from dataset/user_identities.csv updated_at=2025-08-21T18:26:39Z (before)
+  - current email_hash='7d2c352b9a355ab092d2aa23112fc79dbcd5bc4781bc8b3269fbb1cdb3ff9faf' from dataset/user_identities.csv updated_at=2025-08-21T18:26:39Z (before)
+  - history phone='+234 803 652 0348' from dataset/user_audit_log.csv audit_id=audit_44 event_time=2025-08-21T18:26:39Z (before)
+  - history phone='+234 803 078 3493' from dataset/user_audit_log.csv audit_id=audit_44 event_time=2025-08-21T18:26:39Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | resource=audit_record_8608 | category=SECURITY_AUDIT_LOG | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:05:02Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 2; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_456
+- Request: email=hhan9955@fastmail.com; requested_at=2026-02-09T12:00:00Z; audit_at=2026-03-05T12:00:00Z.
+- Identity resolution: user_454; error: No explicit account presence/absence evidence for case_456.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8176.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Hyun-woo Han' from dataset/user_identities.csv updated_at=2024-04-12T01:38:00Z (before)
+  - current email='hhan9955@fastmail.com' from dataset/user_identities.csv updated_at=2024-04-12T01:38:00Z (before)
+  - current phone='+82 10 4489 2731' from dataset/user_identities.csv updated_at=2024-04-12T01:38:00Z (before)
+  - current email_hash='f76f9b7ab9e23fb9907426bbcb3b38e6b03efbc25e5551f870ba4a9233546d43' from dataset/user_identities.csv updated_at=2024-04-12T01:38:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_43 | evidence/databases/customer_data_reporting_replica_20260305.sql | resource=audit_record_8176 | category=SECURITY_AUDIT_LOG | captured=2026-03-05T12:00:00Z (at) | observed=2026-03-05T12:00:00Z (at) | cutoff_visible=True
+  - evidence_43 | evidence/databases/customer_data_reporting_replica_20260305.sql | resource=audit_record_8176 | category=SECURITY_AUDIT_LOG | captured=2026-03-05T12:00:00Z (at) | observed=2026-03-05T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_457
+- Request: email=rafael.c7874@zoho.com; requested_at=2026-02-08T12:00:00Z; audit_at=2026-03-05T12:00:00Z.
+- Identity resolution: user_455; error: No explicit account presence/absence evidence for case_457.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1171.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Rafael Carvalho' from dataset/user_identities.csv updated_at=2025-05-18T19:01:14Z (before)
+  - current email='rafael.c7874@zoho.com' from dataset/user_identities.csv updated_at=2025-05-18T19:01:14Z (before)
+  - current phone='+55 51 99700-6760' from dataset/user_identities.csv updated_at=2025-05-18T19:01:14Z (before)
+  - current email_hash='4d760d117165c84e8ce7435401b8b7350a8c104472dc84f8f876b4f8c1501655' from dataset/user_identities.csv updated_at=2025-05-18T19:01:14Z (before)
+  - history phone='+55 31 90435-2054' from dataset/user_audit_log.csv audit_id=audit_22 event_time=2025-05-18T19:01:14Z (before)
+  - history phone='+55 51 99700-6760' from dataset/user_audit_log.csv audit_id=audit_22 event_time=2025-05-18T19:01:14Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_43 | evidence/databases/customer_data_reporting_replica_20260305.sql | resource=audit_record_1171 | category=SECURITY_AUDIT_LOG | captured=2026-03-05T12:00:00Z (at) | observed=2026-03-05T12:00:00Z (at) | cutoff_visible=True
+  - evidence_43 | evidence/databases/customer_data_reporting_replica_20260305.sql | resource=audit_record_1171 | category=SECURITY_AUDIT_LOG | captured=2026-03-05T12:00:00Z (at) | observed=2026-03-05T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_458
+- Request: email=ishaan.kapoor@gmail.com; requested_at=2026-02-07T12:00:00Z; audit_at=2026-03-05T12:00:00Z.
+- Identity resolution: user_456; error: No explicit account presence/absence evidence for case_458.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_6750.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Ishaan Kapoor' from dataset/user_identities.csv updated_at=2024-01-07T11:12:00Z (before)
+  - current email='ishaan.kapoor@gmail.com' from dataset/user_identities.csv updated_at=2024-01-07T11:12:00Z (before)
+  - current phone='+91 95105 00050' from dataset/user_identities.csv updated_at=2024-01-07T11:12:00Z (before)
+  - current email_hash='10d6347a87fb527e8c5d01ba65686025f503bd90c51659610b8a1269d21bf7d2' from dataset/user_identities.csv updated_at=2024-01-07T11:12:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_43 | evidence/databases/customer_data_reporting_replica_20260305.sql | resource=audit_record_6750 | category=SECURITY_AUDIT_LOG | captured=2026-03-05T12:00:00Z (at) | observed=2026-03-05T12:00:00Z (at) | cutoff_visible=True
+  - evidence_43 | evidence/databases/customer_data_reporting_replica_20260305.sql | resource=audit_record_6750 | category=SECURITY_AUDIT_LOG | captured=2026-03-05T12:00:00Z (at) | observed=2026-03-05T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_459
+- Request: email=d.romero12@gmail.com; requested_at=2026-02-06T12:00:00Z; audit_at=2026-03-05T12:00:00Z.
+- Identity resolution: user_457; error: No explicit account presence/absence evidence for case_459.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_6171.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Diego Romero' from dataset/user_identities.csv updated_at=2023-11-20T04:59:00Z (before)
+  - current email='d.romero12@gmail.com' from dataset/user_identities.csv updated_at=2023-11-20T04:59:00Z (before)
+  - current phone='+34 704 603 971' from dataset/user_identities.csv updated_at=2023-11-20T04:59:00Z (before)
+  - current email_hash='4f8518decae8ebd159f8e3f17de156053d86d0cf3370423ffd1ace98006ffab7' from dataset/user_identities.csv updated_at=2023-11-20T04:59:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_43 | evidence/databases/customer_data_reporting_replica_20260305.sql | resource=audit_record_6171 | category=SECURITY_AUDIT_LOG | captured=2026-03-05T12:00:00Z (at) | observed=2026-03-05T12:00:00Z (at) | cutoff_visible=True
+  - evidence_43 | evidence/databases/customer_data_reporting_replica_20260305.sql | resource=audit_record_6171 | category=SECURITY_AUDIT_LOG | captured=2026-03-05T12:00:00Z (at) | observed=2026-03-05T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_462
+- Request: email=anielsen7469@gmail.com; requested_at=2026-02-23T12:00:00Z; audit_at=2026-03-05T12:00:00Z.
+- Identity resolution: user_460; error: No explicit account presence/absence evidence for case_462.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_641.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Astrid Nielsen' from dataset/user_identities.csv updated_at=2025-03-10T05:36:49Z (before)
+  - current email='anielsen7469@gmail.com' from dataset/user_identities.csv updated_at=2025-03-10T05:36:49Z (before)
+  - current phone='+46 70 124 53 62' from dataset/user_identities.csv updated_at=2025-03-10T05:36:49Z (before)
+  - current email_hash='a9dc3f09db48722cacd6c93392c2443ece8aba50768e8f699ec9d7822bac5866' from dataset/user_identities.csv updated_at=2025-03-10T05:36:49Z (before)
+  - history phone='+46 70 833 29 03' from dataset/user_audit_log.csv audit_id=audit_10 event_time=2025-03-10T05:36:49Z (before)
+  - history phone='+46 70 124 53 62' from dataset/user_audit_log.csv audit_id=audit_10 event_time=2025-03-10T05:36:49Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_43 | evidence/databases/customer_data_reporting_replica_20260305.sql | resource=audit_record_641 | category=SECURITY_AUDIT_LOG | captured=2026-03-05T12:00:00Z (at) | observed=2026-03-05T12:00:00Z (at) | cutoff_visible=True
+  - evidence_43 | evidence/databases/customer_data_reporting_replica_20260305.sql | resource=audit_record_641 | category=SECURITY_AUDIT_LOG | captured=2026-03-05T12:00:00Z (at) | observed=2026-03-05T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_463
+- Request: email=ana.n5388@outlook.com; requested_at=2026-02-17T11:00:00Z; audit_at=2026-02-28T11:00:00Z.
+- Identity resolution: user_461; error: No explicit account presence/absence evidence for case_463.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8444, backup_2005, data_flow_8024, support_2659.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Ana Nowak' from dataset/user_identities.csv updated_at=2025-11-11T23:07:00Z (before)
+  - current email='ana.n5388@outlook.com' from dataset/user_identities.csv updated_at=2025-11-11T23:07:00Z (before)
+  - current phone='+48 521 989 434' from dataset/user_identities.csv updated_at=2025-11-11T23:07:00Z (before)
+  - current email_hash='ffa186623bc1525a06027f966fcb3a9833e451d49f60f34377c6ca13180753da' from dataset/user_identities.csv updated_at=2025-11-11T23:07:00Z (before)
+- Directly matched evidence records across all capture times: 6; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_44 | evidence/logs/application_trace_eu_north_20260302.log | resource=data_flow_8024 | category=DATA_FLOW | captured=2026-03-02T10:59:23Z (after) | observed=2026-02-28T10:51:26Z (before) | cutoff_visible=False
+  - evidence_44 | evidence/logs/application_trace_eu_north_20260302.log | resource=support_2659 | category=SUPPORT_MESSAGE | captured=2026-03-02T10:59:23Z (after) | observed=2026-02-28T10:57:57Z (before) | cutoff_visible=False
+  - evidence_65 | evidence/records/service_resource_export_20260228_103637.json | resource=audit_record_8444 | category=SECURITY_AUDIT_LOG | captured=2026-02-28T10:36:37Z (before) | observed=2026-02-28T08:33:47Z (before) | cutoff_visible=True
+  - evidence_65 | evidence/records/service_resource_export_20260228_103637.json | resource=backup_2005 | category=BACKUP_ARCHIVE | captured=2026-02-28T10:36:37Z (before) | observed=2026-02-28T09:02:43Z (before) | cutoff_visible=True
+  - evidence_65 | evidence/records/service_resource_export_20260228_103637.json | resource=data_flow_8024 | category=DATA_FLOW | captured=2026-02-28T10:36:37Z (before) | observed=2026-02-28T08:15:45Z (before) | cutoff_visible=True
+  - evidence_65 | evidence/records/service_resource_export_20260228_103637.json | resource=support_2659 | category=SUPPORT_MESSAGE | captured=2026-02-28T10:36:37Z (before) | observed=2026-02-28T09:21:44Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_8444 | evidence_44 | evidence/logs/application_trace_eu_north_20260302.log | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-03-02T10:59:23Z | observed=2026-02-28T10:55:40Z | cutoff_visible=False
+  - resource=audit_record_8444 | evidence_65 | evidence/records/service_resource_export_20260228_103637.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-02-28T10:36:37Z | observed=2026-02-28T08:33:47Z | cutoff_visible=True
+  - resource=backup_2005 | evidence_44 | evidence/logs/application_trace_eu_north_20260302.log | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-03-02T10:59:23Z | observed=2026-02-28T10:59:08Z | cutoff_visible=False
+  - resource=backup_2005 | evidence_65 | evidence/records/service_resource_export_20260228_103637.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-02-28T10:36:37Z | observed=2026-02-28T09:02:43Z | cutoff_visible=True
+  - resource=data_flow_8024 | evidence_44 | evidence/logs/application_trace_eu_north_20260302.log | category=DATA_FLOW | state=unspecified | captured=2026-03-02T10:59:23Z | observed=2026-02-28T10:51:26Z | cutoff_visible=False
+  - resource=data_flow_8024 | evidence_65 | evidence/records/service_resource_export_20260228_103637.json | category=DATA_FLOW | state=unspecified | captured=2026-02-28T10:36:37Z | observed=2026-02-28T08:15:45Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_464
+- Request: email=salma.hamdan@outlook.com; requested_at=2026-02-16T11:00:00Z; audit_at=2026-02-28T11:00:00Z.
+- Identity resolution: user_462; error: No explicit account presence/absence evidence for case_464.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_5183, backup_7400, data_flow_1344, support_5586.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Salma Hamdan' from dataset/user_identities.csv updated_at=2025-09-24T16:54:00Z (before)
+  - current email='salma.hamdan@outlook.com' from dataset/user_identities.csv updated_at=2025-09-24T16:54:00Z (before)
+  - current phone='+971 50 411 8488' from dataset/user_identities.csv updated_at=2025-09-24T16:54:00Z (before)
+  - current email_hash='c3c0e0c24acb7f54998717f6092c896ee0fab943929de1b2f7e9418e02aacf70' from dataset/user_identities.csv updated_at=2025-09-24T16:54:00Z (before)
+- Directly matched evidence records across all capture times: 5; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_44 | evidence/logs/application_trace_eu_north_20260302.log | resource=support_5586 | category=SUPPORT_MESSAGE | captured=2026-03-02T10:59:23Z (after) | observed=2026-02-28T10:58:36Z (before) | cutoff_visible=False
+  - evidence_65 | evidence/records/service_resource_export_20260228_103637.json | resource=audit_record_5183 | category=SECURITY_AUDIT_LOG | captured=2026-02-28T10:36:37Z (before) | observed=2026-02-28T09:20:30Z (before) | cutoff_visible=True
+  - evidence_65 | evidence/records/service_resource_export_20260228_103637.json | resource=backup_7400 | category=BACKUP_ARCHIVE | captured=2026-02-28T10:36:37Z (before) | observed=2026-02-28T10:01:19Z (before) | cutoff_visible=True
+  - evidence_65 | evidence/records/service_resource_export_20260228_103637.json | resource=data_flow_1344 | category=DATA_FLOW | captured=2026-02-28T10:36:37Z (before) | observed=2026-02-28T09:29:33Z (before) | cutoff_visible=True
+  - evidence_65 | evidence/records/service_resource_export_20260228_103637.json | resource=support_5586 | category=SUPPORT_MESSAGE | captured=2026-02-28T10:36:37Z (before) | observed=2026-02-28T08:56:33Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_5183 | evidence_44 | evidence/logs/application_trace_eu_north_20260302.log | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-03-02T10:59:23Z | observed=2026-02-28T10:59:35Z | cutoff_visible=False
+  - resource=audit_record_5183 | evidence_65 | evidence/records/service_resource_export_20260228_103637.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-02-28T10:36:37Z | observed=2026-02-28T09:20:30Z | cutoff_visible=True
+  - resource=backup_7400 | evidence_44 | evidence/logs/application_trace_eu_north_20260302.log | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-03-02T10:59:23Z | observed=2026-02-28T10:51:46Z | cutoff_visible=False
+  - resource=backup_7400 | evidence_65 | evidence/records/service_resource_export_20260228_103637.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-02-28T10:36:37Z | observed=2026-02-28T10:01:19Z | cutoff_visible=True
+  - resource=data_flow_1344 | evidence_44 | evidence/logs/application_trace_eu_north_20260302.log | category=DATA_FLOW | state=unspecified | captured=2026-03-02T10:59:23Z | observed=2026-02-28T10:52:49Z | cutoff_visible=False
+  - resource=data_flow_1344 | evidence_65 | evidence/records/service_resource_export_20260228_103637.json | category=DATA_FLOW | state=unspecified | captured=2026-02-28T10:36:37Z | observed=2026-02-28T09:29:33Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_467
+- Request: email=kabelo-zulu81@proton.me; requested_at=2026-02-13T11:00:00Z; audit_at=2026-02-28T11:00:00Z.
+- Identity resolution: user_465; error: No explicit account presence/absence evidence for case_467.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_8992.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Kabelo Zulu' from dataset/user_identities.csv updated_at=2025-10-30T21:52:41Z (before)
+  - current email='kabelo-zulu@proton.me' from dataset/user_identities.csv updated_at=2025-10-30T21:52:41Z (before)
+  - current phone='+27 72 342 5752' from dataset/user_identities.csv updated_at=2025-10-30T21:52:41Z (before)
+  - current email_hash='bbb0c4d178705b1c9224807a5ca238d8168bcc65df71eafb89564b528d7dad2b' from dataset/user_identities.csv updated_at=2025-10-30T21:52:41Z (before)
+  - history email='kabelo-zulu81@proton.me' from dataset/user_audit_log.csv audit_id=audit_86 event_time=2025-10-30T21:52:41Z (before)
+  - history email='kabelo-zulu@proton.me' from dataset/user_audit_log.csv audit_id=audit_86 event_time=2025-10-30T21:52:41Z (before)
+  - history email_hash='3b6aa382aa04abef0238ff1add4a08597e67814eb2e8d20ffcc46ec06577acc5' from dataset/user_audit_log.csv audit_id=audit_87 event_time=2025-10-30T21:52:41Z (before)
+  - history email_hash='bbb0c4d178705b1c9224807a5ca238d8168bcc65df71eafb89564b528d7dad2b' from dataset/user_audit_log.csv audit_id=audit_87 event_time=2025-10-30T21:52:41Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_65 | evidence/records/service_resource_export_20260228_103637.json | resource=audit_record_8992 | category=SECURITY_AUDIT_LOG | captured=2026-02-28T10:36:37Z (before) | observed=2026-02-28T10:36:37Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_470
+- Request: email=isabela.rodrigues@gmail.com; requested_at=2026-02-10T11:00:00Z; audit_at=2026-02-28T11:00:00Z.
+- Identity resolution: user_468; error: No explicit account presence/absence evidence for case_470.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_2706.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Isabela Rodrigues' from dataset/user_identities.csv updated_at=2024-12-10T22:36:00Z (before)
+  - current email='isabela.rodrigues@gmail.com' from dataset/user_identities.csv updated_at=2024-12-10T22:36:00Z (before)
+  - current phone='+55 61 95544-5631' from dataset/user_identities.csv updated_at=2024-12-10T22:36:00Z (before)
+  - current email_hash='7376a9a7ffcbe0f6d93ead195a133058de96eaa4d25bab244ebf329f0465e58b' from dataset/user_identities.csv updated_at=2024-12-10T22:36:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_65 | evidence/records/service_resource_export_20260228_103637.json | resource=audit_record_2706 | category=SECURITY_AUDIT_LOG | captured=2026-02-28T10:36:37Z (before) | observed=2026-02-28T09:07:45Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_480
+- Request: email=znkosi0011@fastmail.com; requested_at=2026-01-26T10:00:00Z; audit_at=2026-02-23T10:00:00Z.
+- Identity resolution: user_478; error: No explicit account presence/absence evidence for case_480.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7742, backup_7706, data_flow_2893, support_5854.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Zanele Nkosi' from dataset/user_identities.csv updated_at=2023-08-13T23:26:00Z (before)
+  - current email='znkosi0011@fastmail.com' from dataset/user_identities.csv updated_at=2023-08-13T23:26:00Z (before)
+  - current phone='+27 72 572 8569' from dataset/user_identities.csv updated_at=2023-08-13T23:26:00Z (before)
+  - current email_hash='1ff5f64252c16b552e488f56d26faf7f470a170f72d7cae1ab03efdd38dab6af' from dataset/user_identities.csv updated_at=2023-08-13T23:26:00Z (before)
+- Directly matched evidence records across all capture times: 4; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_45 | evidence/records/customer_data_snapshot_bundle_20260223.json | resource=audit_record_7742 | category=SECURITY_AUDIT_LOG | captured=2026-02-23T10:00:00Z (at) | observed=2026-02-23T10:00:00Z (at) | cutoff_visible=True
+  - evidence_45 | evidence/records/customer_data_snapshot_bundle_20260223.json | resource=backup_7706 | category=BACKUP_ARCHIVE | captured=2026-02-23T10:00:00Z (at) | observed=2026-02-23T10:00:00Z (at) | cutoff_visible=True
+  - evidence_45 | evidence/records/customer_data_snapshot_bundle_20260223.json | resource=data_flow_2893 | category=DATA_FLOW | captured=2026-02-23T10:00:00Z (at) | observed=2026-02-23T10:00:00Z (at) | cutoff_visible=True
+  - evidence_45 | evidence/records/customer_data_snapshot_bundle_20260223.json | resource=support_5854 | category=SUPPORT_MESSAGE | captured=2026-02-23T10:00:00Z (at) | observed=2026-02-23T10:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_7742 | evidence_45 | evidence/records/customer_data_snapshot_bundle_20260223.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-02-23T10:00:00Z | observed=2026-02-23T10:00:00Z | cutoff_visible=True
+  - resource=backup_7706 | evidence_45 | evidence/records/customer_data_snapshot_bundle_20260223.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-02-23T10:00:00Z | observed=2026-02-23T10:00:00Z | cutoff_visible=True
+  - resource=data_flow_2893 | evidence_45 | evidence/records/customer_data_snapshot_bundle_20260223.json | category=DATA_FLOW | state=unspecified | captured=2026-02-23T10:00:00Z | observed=2026-02-23T10:00:00Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_493
+- Request: email=mandla.m2958@zoho.com; requested_at=2026-01-23T08:00:00Z; audit_at=2026-02-13T08:00:00Z.
+- Identity resolution: user_491; error: No explicit account presence/absence evidence for case_493.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_730.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Mandla Mahlangu' from dataset/user_identities.csv updated_at=2024-05-26T02:37:00Z (before)
+  - current email='mandla.m2958@zoho.com' from dataset/user_identities.csv updated_at=2024-05-26T02:37:00Z (before)
+  - current phone='+27 72 050 2043' from dataset/user_identities.csv updated_at=2024-05-26T02:37:00Z (before)
+  - current email_hash='b9c437aff62ef13aadcc5798668905399f94e10b7c52765db0778fd8bff28151' from dataset/user_identities.csv updated_at=2024-05-26T02:37:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | resource=audit_record_730 | category=SECURITY_AUDIT_LOG | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T06:20:59Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_494
+- Request: email=kenta.kato@gmail.com; requested_at=2026-01-22T08:00:00Z; audit_at=2026-02-13T08:00:00Z.
+- Identity resolution: user_492; error: No explicit account presence/absence evidence for case_494.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1112.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Kenta Kato' from dataset/user_identities.csv updated_at=2024-04-07T19:24:00Z (before)
+  - current email='kenta.kato@gmail.com' from dataset/user_identities.csv updated_at=2024-04-07T19:24:00Z (before)
+  - current phone='+81 90 7572 7690' from dataset/user_identities.csv updated_at=2024-04-07T19:24:00Z (before)
+  - current email_hash='0861b9bb4be41c3f57331ba13a7ae31756443f8865ef62940ab7eeb0bfc8ad78' from dataset/user_identities.csv updated_at=2024-04-07T19:24:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | resource=audit_record_1112 | category=SECURITY_AUDIT_LOG | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T06:33:08Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_497
+- Request: email=priya-mehta@gmail.com; requested_at=2026-01-19T08:00:00Z; audit_at=2026-02-13T08:00:00Z.
+- Identity resolution: user_495; error: No explicit account presence/absence evidence for case_497.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_9796.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Priya Mehta' from dataset/user_identities.csv updated_at=2025-06-07T20:41:54Z (before)
+  - current email='priya-mehta@gmail.com' from dataset/user_identities.csv updated_at=2025-06-07T20:41:54Z (before)
+  - current phone='+91 91528 80291' from dataset/user_identities.csv updated_at=2025-06-07T20:41:54Z (before)
+  - current email_hash='83f69dba071e0d7167cc7d1935adc33a6643037ba95d20eda25da2a19c4abbd7' from dataset/user_identities.csv updated_at=2025-06-07T20:41:54Z (before)
+  - history phone='+91 93766 74109' from dataset/user_audit_log.csv audit_id=audit_27 event_time=2025-06-07T20:41:54Z (before)
+  - history phone='+91 91528 80291' from dataset/user_audit_log.csv audit_id=audit_27 event_time=2025-06-07T20:41:54Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | resource=audit_record_9796 | category=SECURITY_AUDIT_LOG | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T05:07:15Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_502
+- Request: email=horvat.pavel@icloud.com; requested_at=2026-02-03T08:00:00Z; audit_at=2026-02-13T08:00:00Z.
+- Identity resolution: user_500; error: No explicit account presence/absence evidence for case_502.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 1 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_5238.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Pavel Horvat' from dataset/user_identities.csv updated_at=2025-03-29T15:16:29Z (before)
+  - current email='horvat.pavel@icloud.com' from dataset/user_identities.csv updated_at=2025-03-29T15:16:29Z (before)
+  - current phone='+48 603 525 512' from dataset/user_identities.csv updated_at=2025-03-29T15:16:29Z (before)
+  - current email_hash='7d9dc5a03dd0bc1ced805ac25a2454afd79f9e5e39447b56455be158b4f9d93d' from dataset/user_identities.csv updated_at=2025-03-29T15:16:29Z (before)
+  - history phone='+48 774 988 021' from dataset/user_audit_log.csv audit_id=audit_12 event_time=2025-03-29T15:16:29Z (before)
+  - history phone='+48 603 525 512' from dataset/user_audit_log.csv audit_id=audit_12 event_time=2025-03-29T15:16:29Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | resource=audit_record_5238 | category=SECURITY_AUDIT_LOG | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T06:41:16Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 1; linked account resource ID available for absence lookup: False.
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_506
+- Request: email=ayanda.molefe@gmail.com; requested_at=2026-01-25T07:00:00Z; audit_at=2026-02-08T07:00:00Z.
+- Identity resolution: user_504; error: No explicit account presence/absence evidence for case_506.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: missing cutoff-visible profile snapshot scope: no eligible account-state source is available
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible account-profile snapshot scope and a linked account resource/state row.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1361.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Ayanda Molefe' from dataset/user_identities.csv updated_at=2025-03-13T06:48:00Z (before)
+  - current email='ayanda.molefe@gmail.com' from dataset/user_identities.csv updated_at=2025-03-13T06:48:00Z (before)
+  - current phone='+27 72 904 9490' from dataset/user_identities.csv updated_at=2025-03-13T06:48:00Z (before)
+  - current email_hash='ac6efb491c472a3cb019074b840467fd9c8c032031a33ddfe60ef914b4d8c32a' from dataset/user_identities.csv updated_at=2025-03-13T06:48:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_47 | evidence/databases/customer_data_reporting_replica_20260208.sql | resource=audit_record_1361 | category=SECURITY_AUDIT_LOG | captured=2026-02-08T07:00:00Z (at) | observed=2026-02-08T07:00:00Z (at) | cutoff_visible=True
+  - evidence_47 | evidence/databases/customer_data_reporting_replica_20260208.sql | resource=audit_record_1361 | category=SECURITY_AUDIT_LOG | captured=2026-02-08T07:00:00Z (at) | observed=2026-02-08T07:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 0; linked account resource ID available for absence lookup: False.
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_507
+- Request: email=r.ito24@gmail.com; requested_at=2026-01-24T07:00:00Z; audit_at=2026-02-08T07:00:00Z.
+- Identity resolution: user_505; error: No explicit account presence/absence evidence for case_507.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: missing cutoff-visible profile snapshot scope: no eligible account-state source is available
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible account-profile snapshot scope and a linked account resource/state row.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7627.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Rina Ito' from dataset/user_identities.csv updated_at=2024-12-25T00:51:04Z (before)
+  - current email='r.ito24@gmail.com' from dataset/user_identities.csv updated_at=2024-12-25T00:51:04Z (before)
+  - current phone='+81 90 7870 0272' from dataset/user_identities.csv updated_at=2024-12-25T00:51:04Z (before)
+  - current email_hash='7dbdf7ba1042e12fecf3e27d9c82cd0c95ccbdcfbfcfc79740c078962aef681d' from dataset/user_identities.csv updated_at=2024-12-25T00:51:04Z (before)
+  - history phone='+81 90 6278 6936' from dataset/user_audit_log.csv audit_id=audit_02 event_time=2024-12-25T00:51:04Z (before)
+  - history phone='+81 90 7870 0272' from dataset/user_audit_log.csv audit_id=audit_02 event_time=2024-12-25T00:51:04Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_47 | evidence/databases/customer_data_reporting_replica_20260208.sql | resource=audit_record_7627 | category=SECURITY_AUDIT_LOG | captured=2026-02-08T07:00:00Z (at) | observed=2026-02-08T07:00:00Z (at) | cutoff_visible=True
+  - evidence_47 | evidence/databases/customer_data_reporting_replica_20260208.sql | resource=audit_record_7627 | category=SECURITY_AUDIT_LOG | captured=2026-02-08T07:00:00Z (at) | observed=2026-02-08T07:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 0; linked account resource ID available for absence lookup: False.
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_512
+- Request: email=hannah.carter@outlook.com; requested_at=2026-01-19T07:00:00Z; audit_at=2026-02-08T07:00:00Z.
+- Identity resolution: user_510; error: No explicit account presence/absence evidence for case_512.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: missing cutoff-visible profile snapshot scope: no eligible account-state source is available
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible account-profile snapshot scope and a linked account resource/state row.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4219.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Hannah Carter' from dataset/user_identities.csv updated_at=2025-09-20T19:26:39Z (before)
+  - current email='hannah.carter@outlook.com' from dataset/user_identities.csv updated_at=2025-09-20T19:26:39Z (before)
+  - current phone='+44 7700 900510' from dataset/user_identities.csv updated_at=2025-09-20T19:26:39Z (before)
+  - current email_hash='3ca70012aa39ed994e17a7c88b9f696e5c46acc1a89fa8db5682a622b55e2d3d' from dataset/user_identities.csv updated_at=2025-09-20T19:26:39Z (before)
+  - history phone='+44 7700 900010' from dataset/user_audit_log.csv audit_id=audit_55 event_time=2025-09-20T19:26:39Z (before)
+  - history phone='+44 7700 900510' from dataset/user_audit_log.csv audit_id=audit_55 event_time=2025-09-20T19:26:39Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 2.
+  - evidence_47 | evidence/databases/customer_data_reporting_replica_20260208.sql | resource=audit_record_4219 | category=SECURITY_AUDIT_LOG | captured=2026-02-08T07:00:00Z (at) | observed=2026-02-08T07:00:00Z (at) | cutoff_visible=True
+  - evidence_47 | evidence/databases/customer_data_reporting_replica_20260208.sql | resource=audit_record_4219 | category=SECURITY_AUDIT_LOG | captured=2026-02-08T07:00:00Z (at) | observed=2026-02-08T07:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 0; linked account resource ID available for absence lookup: False.
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_517
+- Request: email=yetunde.a3014@zoho.com; requested_at=2026-01-09T06:00:00Z; audit_at=2026-02-03T06:00:00Z.
+- Identity resolution: user_515; error: No time-valid evidence was linked to case_517.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: no subject-linked state record or resource ID found in cutoff-visible participant evidence; absence is not proven
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: none.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Yetunde Adeyemi' from dataset/user_identities.csv updated_at=2025-06-17T13:01:14Z (before)
+  - current email='yetunde.a3014@zoho.com' from dataset/user_identities.csv updated_at=2025-06-17T13:01:14Z (before)
+  - current phone='+234 803 064 1391' from dataset/user_identities.csv updated_at=2025-06-17T13:01:14Z (before)
+  - current email_hash='c78e47d86ed60f98d82d48c6c2092a139fdfc338afe1a39455adfc352ee3e871' from dataset/user_identities.csv updated_at=2025-06-17T13:01:14Z (before)
+  - history phone='+234 803 473 9625' from dataset/user_audit_log.csv audit_id=audit_31 event_time=2025-06-17T13:01:14Z (before)
+  - history phone='+234 803 064 1391' from dataset/user_audit_log.csv audit_id=audit_31 event_time=2025-06-17T13:01:14Z (before)
+- Directly matched evidence records across all capture times: 0; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 0; linked account resource ID available for absence lookup: False.
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_519
+- Request: email=s.dlamini52@gmail.com; requested_at=2026-01-07T06:00:00Z; audit_at=2026-02-03T06:00:00Z.
+- Identity resolution: user_517; error: No time-valid evidence was linked to case_519.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: no subject-linked state record or resource ID found in cutoff-visible participant evidence; absence is not proven
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: none.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Sibusiso Dlamini' from dataset/user_identities.csv updated_at=2023-06-22T10:59:00Z (before)
+  - current email='s.dlamini52@gmail.com' from dataset/user_identities.csv updated_at=2023-06-22T10:59:00Z (before)
+  - current phone='+27 72 714 5630' from dataset/user_identities.csv updated_at=2023-06-22T10:59:00Z (before)
+  - current email_hash='4d32484f68adbb3443f8c2569ad25b2e15df6587c11cb4f5edffb1ca427d2b6b' from dataset/user_identities.csv updated_at=2023-06-22T10:59:00Z (before)
+- Directly matched evidence records across all capture times: 0; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 0; linked account resource ID available for absence lookup: False.
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_521
+- Request: email=yuna-lee@gmail.com; requested_at=2026-01-05T06:00:00Z; audit_at=2026-02-03T06:00:00Z.
+- Identity resolution: user_519; error: No time-valid evidence was linked to case_521.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: no subject-linked state record or resource ID found in cutoff-visible participant evidence; absence is not proven
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: none.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Yu-na Lee' from dataset/user_identities.csv updated_at=2025-09-03T20:33:00Z (before)
+  - current email='yuna-lee@gmail.com' from dataset/user_identities.csv updated_at=2025-09-03T20:33:00Z (before)
+  - current phone='+82 10 8733 2776' from dataset/user_identities.csv updated_at=2025-09-03T20:33:00Z (before)
+  - current email_hash='2d41d39395e47d36e28151ecc055965ded8cb92465feaf2d0a00ec1cec6a6ec7' from dataset/user_identities.csv updated_at=2025-09-03T20:33:00Z (before)
+- Directly matched evidence records across all capture times: 0; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 0; linked account resource ID available for absence lookup: False.
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_524
+- Request: email=mateo.castillo@outlook.com; requested_at=2026-01-17T12:00:00Z; audit_at=2026-01-29T12:00:00Z.
+- Identity resolution: user_522; error: No explicit account presence/absence evidence for case_524.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: missing cutoff-visible profile snapshot scope: no eligible account-state source is available
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible account-profile snapshot scope and a linked account resource/state row.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_5429.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Mateo Castillo' from dataset/user_identities.csv updated_at=2025-04-28T05:54:00Z (before)
+  - current email='mateo.castillo@outlook.com' from dataset/user_identities.csv updated_at=2025-04-28T05:54:00Z (before)
+  - current phone='+34 629 765 457' from dataset/user_identities.csv updated_at=2025-04-28T05:54:00Z (before)
+  - current email_hash='6ba69020119b7f5cd1a261eb4536de9bb1fa65a9150037ef9cfa7d36a6e64111' from dataset/user_identities.csv updated_at=2025-04-28T05:54:00Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_49 | evidence/records/customer_data_snapshot_bundle_20260131.json | resource=audit_record_5429 | category=SECURITY_AUDIT_LOG | captured=2026-01-31T15:00:00Z (after) | observed=2026-01-29T12:00:00Z (at) | cutoff_visible=False
+  - evidence_62 | evidence/records/service_resource_export_20260129_114459.json | resource=audit_record_5429 | category=SECURITY_AUDIT_LOG | captured=2026-01-29T11:44:59Z (before) | observed=2026-01-29T08:49:08Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 0; linked account resource ID available for absence lookup: False.
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_530
+- Request: email=chidi.oladipo78@gmail.com; requested_at=2026-01-11T12:00:00Z; audit_at=2026-01-29T12:00:00Z.
+- Identity resolution: user_528; error: No explicit account presence/absence evidence for case_530.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: missing cutoff-visible profile snapshot scope: no eligible account-state source is available
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible account-profile snapshot scope and a linked account resource/state row.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_2152.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Chidi Oladipo' from dataset/user_identities.csv updated_at=2025-10-01T07:25:02Z (before)
+  - current email='chidi.oladipo@gmail.com' from dataset/user_identities.csv updated_at=2025-10-01T07:25:02Z (before)
+  - current phone='+234 803 403 1181' from dataset/user_identities.csv updated_at=2025-10-01T07:25:02Z (before)
+  - current email_hash='5f9f060583b4bbbe078360a21cde74c79ba10716292e3934caebd76fea367b6d' from dataset/user_identities.csv updated_at=2025-10-01T07:25:02Z (before)
+  - history email='chidi.oladipo78@gmail.com' from dataset/user_audit_log.csv audit_id=audit_61 event_time=2025-10-01T07:25:02Z (before)
+  - history email='chidi.oladipo@gmail.com' from dataset/user_audit_log.csv audit_id=audit_61 event_time=2025-10-01T07:25:02Z (before)
+  - history email_hash='09c82ded4f6fcf77f2ed073e9fa39781581276168970b1a38321dfe80b8b9d84' from dataset/user_audit_log.csv audit_id=audit_62 event_time=2025-10-01T07:25:02Z (before)
+  - history email_hash='5f9f060583b4bbbe078360a21cde74c79ba10716292e3934caebd76fea367b6d' from dataset/user_audit_log.csv audit_id=audit_62 event_time=2025-10-01T07:25:02Z (before)
+- Directly matched evidence records across all capture times: 2; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 1.
+  - evidence_49 | evidence/records/customer_data_snapshot_bundle_20260131.json | resource=audit_record_2152 | category=SECURITY_AUDIT_LOG | captured=2026-01-31T15:00:00Z (after) | observed=2026-01-29T12:00:00Z (at) | cutoff_visible=False
+  - evidence_62 | evidence/records/service_resource_export_20260129_114459.json | resource=audit_record_2152 | category=SECURITY_AUDIT_LOG | captured=2026-01-29T11:44:59Z (before) | observed=2026-01-29T11:09:44Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 0; linked account resource ID available for absence lookup: False.
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_532
+- Request: email=mahlangu.thabo80@gmail.com; requested_at=2026-01-09T12:00:00Z; audit_at=2026-01-29T12:00:00Z.
+- Identity resolution: user_530; error: No explicit account presence/absence evidence for case_532.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: missing cutoff-visible profile snapshot scope: no eligible account-state source is available
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible account-profile snapshot scope and a linked account resource/state row.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_4828, backup_6344, data_flow_6987, support_7724.
+- Candidate identity values from request/current/history (8 source facts):
+  - current name='Thabo Mahlangu' from dataset/user_identities.csv updated_at=2025-10-01T08:27:16Z (before)
+  - current email='mahlangu.thabo@gmail.com' from dataset/user_identities.csv updated_at=2025-10-01T08:27:16Z (before)
+  - current phone='+27 72 131 3163' from dataset/user_identities.csv updated_at=2025-10-01T08:27:16Z (before)
+  - current email_hash='bf42d0d0c6d6439dab66db91cfef4a5649ec7a346a24834cf58b0bcb68ec50be' from dataset/user_identities.csv updated_at=2025-10-01T08:27:16Z (before)
+  - history email='mahlangu.thabo80@gmail.com' from dataset/user_audit_log.csv audit_id=audit_63 event_time=2025-10-01T08:27:16Z (before)
+  - history email='mahlangu.thabo@gmail.com' from dataset/user_audit_log.csv audit_id=audit_63 event_time=2025-10-01T08:27:16Z (before)
+  - history email_hash='8f5d643f8d3904081c4e8021486289ec442c18e7135fa13853f7ee0a705f8e00' from dataset/user_audit_log.csv audit_id=audit_64 event_time=2025-10-01T08:27:16Z (before)
+  - history email_hash='bf42d0d0c6d6439dab66db91cfef4a5649ec7a346a24834cf58b0bcb68ec50be' from dataset/user_audit_log.csv audit_id=audit_64 event_time=2025-10-01T08:27:16Z (before)
+- Directly matched evidence records across all capture times: 8; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_49 | evidence/records/customer_data_snapshot_bundle_20260131.json | resource=audit_record_4828 | category=SECURITY_AUDIT_LOG | captured=2026-01-31T15:00:00Z (after) | observed=2026-01-29T12:00:00Z (at) | cutoff_visible=False
+  - evidence_49 | evidence/records/customer_data_snapshot_bundle_20260131.json | resource=backup_6344 | category=BACKUP_ARCHIVE | captured=2026-01-31T15:00:00Z (after) | observed=2026-01-29T12:00:00Z (at) | cutoff_visible=False
+  - evidence_49 | evidence/records/customer_data_snapshot_bundle_20260131.json | resource=data_flow_6987 | category=DATA_FLOW | captured=2026-01-31T15:00:00Z (after) | observed=2026-01-29T12:00:00Z (at) | cutoff_visible=False
+  - evidence_49 | evidence/records/customer_data_snapshot_bundle_20260131.json | resource=support_7724 | category=SUPPORT_MESSAGE | captured=2026-01-31T15:00:00Z (after) | observed=2026-01-29T12:00:00Z (at) | cutoff_visible=False
+  - evidence_62 | evidence/records/service_resource_export_20260129_114459.json | resource=audit_record_4828 | category=SECURITY_AUDIT_LOG | captured=2026-01-29T11:44:59Z (before) | observed=2026-01-29T10:21:46Z (before) | cutoff_visible=True
+  - evidence_62 | evidence/records/service_resource_export_20260129_114459.json | resource=backup_6344 | category=BACKUP_ARCHIVE | captured=2026-01-29T11:44:59Z (before) | observed=2026-01-29T11:44:59Z (before) | cutoff_visible=True
+  - evidence_62 | evidence/records/service_resource_export_20260129_114459.json | resource=data_flow_6987 | category=DATA_FLOW | captured=2026-01-29T11:44:59Z (before) | observed=2026-01-29T11:28:13Z (before) | cutoff_visible=True
+  - evidence_62 | evidence/records/service_resource_export_20260129_114459.json | resource=support_7724 | category=SUPPORT_MESSAGE | captured=2026-01-29T11:44:59Z (before) | observed=2026-01-29T10:42:12Z (before) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 0; linked account resource ID available for absence lookup: False.
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_4828 | evidence_49 | evidence/records/customer_data_snapshot_bundle_20260131.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-01-31T15:00:00Z | observed=2026-01-29T12:00:00Z | cutoff_visible=False
+  - resource=audit_record_4828 | evidence_62 | evidence/records/service_resource_export_20260129_114459.json | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-01-29T11:44:59Z | observed=2026-01-29T10:21:46Z | cutoff_visible=True
+  - resource=backup_6344 | evidence_49 | evidence/records/customer_data_snapshot_bundle_20260131.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-01-31T15:00:00Z | observed=2026-01-29T12:00:00Z | cutoff_visible=False
+  - resource=backup_6344 | evidence_62 | evidence/records/service_resource_export_20260129_114459.json | category=BACKUP_ARCHIVE | state=unspecified | captured=2026-01-29T11:44:59Z | observed=2026-01-29T11:44:59Z | cutoff_visible=True
+  - resource=data_flow_6987 | evidence_49 | evidence/records/customer_data_snapshot_bundle_20260131.json | category=DATA_FLOW | state=unspecified | captured=2026-01-31T15:00:00Z | observed=2026-01-29T12:00:00Z | cutoff_visible=False
+  - resource=data_flow_6987 | evidence_62 | evidence/records/service_resource_export_20260129_114459.json | category=DATA_FLOW | state=unspecified | captured=2026-01-29T11:44:59Z | observed=2026-01-29T11:28:13Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_534
+- Request: email=mlim7637@gmail.com; requested_at=2026-09-08T12:00:00Z; audit_at=2026-09-30T12:00:00Z.
+- Identity resolution: user_532; error: No time-valid evidence was linked to case_534.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: evidence for a related record exists only after audit_at; pre-cutoff activity (if any) is identity-link metadata, not a state snapshot
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: none.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Min-jun Lim' from dataset/user_identities.csv updated_at=2024-09-04T07:44:00Z (before)
+  - current email='mlim7637@gmail.com' from dataset/user_identities.csv updated_at=2024-09-04T07:44:00Z (before)
+  - current phone='+82 10 7909 3874' from dataset/user_identities.csv updated_at=2024-09-04T07:44:00Z (before)
+  - current email_hash='5b2e4080237b1e85a953f04b8648b9e0fdea7f9b502ce8af02e0f301dec2dd14' from dataset/user_identities.csv updated_at=2024-09-04T07:44:00Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+  - evidence_50 | evidence/records/security_audit_ledger_20261001.json | resource=audit_record_9239 | category=SECURITY_AUDIT_LOG | captured=2026-10-01T12:00:00Z (after) | observed=2026-10-01T12:00:00Z (after) | cutoff_visible=False
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_537
+- Request: email=l.alvarez94@yahoo.com; requested_at=2026-09-02T12:00:00Z; audit_at=2026-09-27T12:00:00Z.
+- Identity resolution: user_535; error: No time-valid evidence was linked to case_537.
+- Failure category: linked-state failure: no cutoff-visible subject-linked evidence.
+- Detailed diagnosis class: evidence for a related record exists only after audit_at; pre-cutoff activity (if any) is identity-link metadata, not a state snapshot
+- Exact failed lookup: `AuditEngine.audit_one()` record guard at code/audit.py:337 — failed lookup: `records` is empty after cutoff filtering and complete-snapshot absence expansion.
+- Precise missing evidence: Required missing evidence: at least one participant-visible, identity-linked state-bearing evidence record captured and observed no later than audit_at.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: none.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Lucía Alvarez' from dataset/user_identities.csv updated_at=2026-03-01T05:21:34Z (before)
+  - current email='l.alvarez94@yahoo.com' from dataset/user_identities.csv updated_at=2026-03-01T05:21:34Z (before)
+  - current phone='+34 778 833 175' from dataset/user_identities.csv updated_at=2026-03-01T05:21:34Z (before)
+  - current email_hash='8a28de8e72f61c736f21e4557cf52c2a94000c0dabfe51fc750a34573bbe0e40' from dataset/user_identities.csv updated_at=2026-03-01T05:21:34Z (before)
+  - history phone='+34 665 047 466' from dataset/user_audit_log.csv audit_id=audit_200 event_time=2026-03-01T05:21:34Z (before)
+  - history phone='+34 778 833 175' from dataset/user_audit_log.csv audit_id=audit_200 event_time=2026-03-01T05:21:34Z (before)
+- Directly matched evidence records across all capture times: 1; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 0.
+  - evidence_50 | evidence/records/security_audit_ledger_20261001.json | resource=audit_record_5109 | category=SECURITY_AUDIT_LOG | captured=2026-10-01T12:00:00Z (after) | observed=2026-10-01T12:00:00Z (after) | cutoff_visible=False
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - none found for the cutoff-linked resource IDs.
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_543
+- Request: email=thandiwe-molefe@gmail.com; requested_at=2026-09-07T12:00:00Z; audit_at=2026-09-20T12:00:00Z.
+- Identity resolution: user_543; error: No explicit account presence/absence evidence for case_543.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 13 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_6244, tombstone_205.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Thandiwe Molefe' from dataset/user_identities.csv updated_at=2025-09-21T02:21:00Z (before)
+  - current email='thandiwe-molefe@gmail.com' from dataset/user_identities.csv updated_at=2025-09-21T02:21:00Z (before)
+  - current phone='+27 72 508 1740' from dataset/user_identities.csv updated_at=2025-09-21T02:21:00Z (before)
+  - current email_hash='b8e7c4d26790075403789731bdca425630809e6407d8dbca3ccb23c50208b8c1' from dataset/user_identities.csv updated_at=2025-09-21T02:21:00Z (before)
+- Directly matched evidence records across all capture times: 4; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=audit_record_6244 | category=SECURITY_AUDIT_LOG | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=audit_record_6244 | category=SECURITY_AUDIT_LOG | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=tombstone_205 | category=ACCOUNT_TOMBSTONE | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=tombstone_205 | category=ACCOUNT_TOMBSTONE | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_6244 | evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-20T12:00:00Z | observed=2026-09-20T12:00:00Z | cutoff_visible=True
+  - resource=audit_record_6244 | evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-20T12:00:00Z | observed=2026-09-20T12:00:00Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_545
+- Request: email=soojin.k584@outlook.com; requested_at=2026-09-05T12:00:00Z; audit_at=2026-09-20T12:00:00Z.
+- Identity resolution: user_545; error: No explicit account presence/absence evidence for case_545.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 13 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_5041, tombstone_946.
+- Candidate identity values from request/current/history (6 source facts):
+  - current name='Soo-jin Kang' from dataset/user_identities.csv updated_at=2025-09-14T19:31:44Z (before)
+  - current email='soojin.k584@outlook.com' from dataset/user_identities.csv updated_at=2025-09-14T19:31:44Z (before)
+  - current phone='+82 10 4314 8697' from dataset/user_identities.csv updated_at=2025-09-14T19:31:44Z (before)
+  - current email_hash='e671db6bd2e6cb2cf53ad53e10c90666d7fc72652a36c469f287625ea28c479c' from dataset/user_identities.csv updated_at=2025-09-14T19:31:44Z (before)
+  - history phone='+82 10 3702 5161' from dataset/user_audit_log.csv audit_id=audit_53 event_time=2025-09-14T19:31:44Z (before)
+  - history phone='+82 10 4314 8697' from dataset/user_audit_log.csv audit_id=audit_53 event_time=2025-09-14T19:31:44Z (before)
+- Directly matched evidence records across all capture times: 4; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=audit_record_5041 | category=SECURITY_AUDIT_LOG | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=audit_record_5041 | category=SECURITY_AUDIT_LOG | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=tombstone_946 | category=ACCOUNT_TOMBSTONE | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=tombstone_946 | category=ACCOUNT_TOMBSTONE | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_5041 | evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-20T12:00:00Z | observed=2026-09-20T12:00:00Z | cutoff_visible=True
+  - resource=audit_record_5041 | evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-20T12:00:00Z | observed=2026-09-20T12:00:00Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_547
+- Request: email=a.patel22@yahoo.com; requested_at=2026-09-03T12:00:00Z; audit_at=2026-09-20T12:00:00Z.
+- Identity resolution: user_547; error: No explicit account presence/absence evidence for case_547.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 13 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_7352, tombstone_8774.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Ananya Patel' from dataset/user_identities.csv updated_at=2025-03-12T22:29:00Z (before)
+  - current email='a.patel22@yahoo.com' from dataset/user_identities.csv updated_at=2025-03-12T22:29:00Z (before)
+  - current phone='+91 90004 47450' from dataset/user_identities.csv updated_at=2025-03-12T22:29:00Z (before)
+  - current email_hash='0a2dc8163cec749b62977904aca1d8e380cafa3ce71631625d135108de661263' from dataset/user_identities.csv updated_at=2025-03-12T22:29:00Z (before)
+- Directly matched evidence records across all capture times: 4; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=audit_record_7352 | category=SECURITY_AUDIT_LOG | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=audit_record_7352 | category=SECURITY_AUDIT_LOG | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=tombstone_8774 | category=ACCOUNT_TOMBSTONE | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=tombstone_8774 | category=ACCOUNT_TOMBSTONE | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_7352 | evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-20T12:00:00Z | observed=2026-09-20T12:00:00Z | cutoff_visible=True
+  - resource=audit_record_7352 | evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-20T12:00:00Z | observed=2026-09-20T12:00:00Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
+### case_549
+- Request: email=noah-carter@proton.me; requested_at=2026-09-01T12:00:00Z; audit_at=2026-09-20T12:00:00Z.
+- Identity resolution: user_549; error: No explicit account presence/absence evidence for case_549.
+- Failure category: account-state failure: no cutoff-visible linked USER_PROFILE state.
+- Detailed diagnosis class: identifier exists but is not linked to an account resource: cutoff profile scopes exist, but this subject has no evidence-linked account ID
+- Exact failed lookup: `AuditEngine.audit_one()` account-state guard at code/audit.py:433 — failed lookup: no group classified USER_PROFILE with state PRESENT/ABSENT/ACTIVE for a linked account resource; `has_account_state` remains false.
+- Precise missing evidence: Required missing evidence: a cutoff-visible identity-to-account resource link plus that resource’s account-state row; 13 complete profile scopes are visible, but no account resource ID is linked.
+- Coverage consequence: `validate_predictions()` compares actual prediction IDs with sorted request IDs and reports the omitted case; it is not an independent evidence validator failure.
+- Linked resource IDs before cutoff: audit_record_1491, tombstone_3963.
+- Candidate identity values from request/current/history (4 source facts):
+  - current name='Noah Carter' from dataset/user_identities.csv updated_at=2024-12-07T08:03:00Z (before)
+  - current email='noah-carter@proton.me' from dataset/user_identities.csv updated_at=2024-12-07T08:03:00Z (before)
+  - current phone='+1 (202) 555-0149' from dataset/user_identities.csv updated_at=2024-12-07T08:03:00Z (before)
+  - current email_hash='a1056a9f9a1b524bbdbfff550a4815659da1a0171ada38434d5d93d03e29d9e5' from dataset/user_identities.csv updated_at=2024-12-07T08:03:00Z (before)
+- Directly matched evidence records across all capture times: 4; cutoff-visible matched USER_PROFILE records: 0; cutoff-valid linked state records: 4.
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=audit_record_1491 | category=SECURITY_AUDIT_LOG | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=audit_record_1491 | category=SECURITY_AUDIT_LOG | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=tombstone_3963 | category=ACCOUNT_TOMBSTONE | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+  - evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | resource=tombstone_3963 | category=ACCOUNT_TOMBSTONE | captured=2026-09-20T12:00:00Z (at) | observed=2026-09-20T12:00:00Z (at) | cutoff_visible=True
+- Subject-matched activity rows: 0.
+- Complete cutoff-visible USER_PROFILE snapshot scopes: 13; linked account resource ID available for absence lookup: False.
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_failover_replica | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_54 | evidence/databases/customer_accounts_failover_replica_20260902.sql | table=customer_profiles_primary | captured=2026-09-02T23:00:00Z (before) | observed=2026-09-02T23:00:00Z (before)
+  - evidence_63 | evidence/databases/customer_data_inventory_20260213.sql | table=customer_profiles | captured=2026-02-13T07:43:27Z (before) | observed=2026-02-13T07:43:27Z (before)
+  - evidence_66 | evidence/databases/customer_data_inventory_20260310.sql | table=customer_profiles | captured=2026-03-10T05:38:48Z (before) | observed=2026-03-10T05:38:48Z (before)
+  - evidence_69 | evidence/databases/customer_data_inventory_20260404.sql | table=customer_profiles | captured=2026-04-04T10:04:19Z (before) | observed=2026-04-04T10:04:19Z (before)
+  - evidence_72 | evidence/databases/customer_data_inventory_20260504.sql | table=customer_profiles | captured=2026-05-04T09:41:47Z (before) | observed=2026-05-04T09:41:47Z (before)
+  - evidence_75 | evidence/databases/customer_data_inventory_20260524.sql | table=customer_profiles | captured=2026-05-24T06:39:55Z (before) | observed=2026-05-24T06:39:55Z (before)
+  - evidence_78 | evidence/databases/customer_data_inventory_20260618.sql | table=customer_profiles | captured=2026-06-18T11:44:03Z (before) | observed=2026-06-18T11:44:03Z (before)
+  - evidence_81 | evidence/databases/customer_data_inventory_20260703.sql | table=customer_profiles | captured=2026-07-03T07:43:56Z (before) | observed=2026-07-03T07:43:56Z (before)
+  - evidence_84 | evidence/databases/customer_data_inventory_20260723.sql | table=customer_profiles | captured=2026-07-23T11:43:30Z (before) | observed=2026-07-23T11:43:30Z (before)
+  - evidence_87 | evidence/databases/customer_data_inventory_20260817.sql | table=customer_profiles | captured=2026-08-17T09:42:50Z (before) | observed=2026-08-17T09:42:50Z (before)
+  - evidence_90 | evidence/databases/customer_data_inventory_20260905.sql | table=customer_profiles | captured=2026-09-05T07:18:01Z (before) | observed=2026-09-05T07:18:01Z (before)
+  - evidence_93 | evidence/databases/customer_data_inventory_20260916.sql | table=customer_profiles | captured=2026-09-16T08:37:39Z (before) | observed=2026-09-16T08:37:39Z (before)
+- Linked-resource record candidates (all non-image parsers; image/OCR direct matches are listed above):
+  - resource=audit_record_1491 | evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-20T12:00:00Z | observed=2026-09-20T12:00:00Z | cutoff_visible=True
+  - resource=audit_record_1491 | evidence_52 | evidence/databases/customer_data_failover_replica_20260920.sql | category=SECURITY_AUDIT_LOG | state=unspecified | captured=2026-09-20T12:00:00Z | observed=2026-09-20T12:00:00Z | cutoff_visible=True
+- Resolution: none supported from current cutoff-valid evidence; no synthetic status/step proposed.
+
